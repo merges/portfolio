@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Khula');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Khula', sans-serif;
+}
+
+.home {
+
+}
+
+.home-logo {
+  animation: home-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+
+
+
+
+.home-header {
+  padding: 50px;
+
+}
+.column1 {
+  display: inline-block;
+  width: 80%;
+  vertical-align: top;
+}
+.column1 > h1 {
+  font-size: 50px;
+  line-height: 86%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Julius Sans One', sans-serif;
+}
+.column2 {
+  display: inline-block;
+  width: 20%;
+  font-size: 10px;
+  font-family: 'Khula', sans-serif;
+  font-weight: 800;
+  vertical-align: top;
+
+}
+.contact-item > div {
+  display: inline-block;
+}
+
+
+.contact-item > div:nth-of-type(1) {
+  width: 50px;
+  color: grey;
+}
+
+
+
+
+
+
+
+.home-intro {
+  font-size: large;
+}
+
+@keyframes home-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
