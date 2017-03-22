@@ -6,6 +6,21 @@ body {
   font-family: 'Khula', sans-serif;
 }
 
+/*RESET BASIC STYLES*/
+
+body p,
+body h1,
+body h2,
+body h3 {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-size: 1em;
+}
+
+/*HOME PAGE STYLES*/
+
+
 .home {
 
 }
@@ -14,10 +29,6 @@ body {
   animation: home-logo-spin infinite 20s linear;
   height: 80px;
 }
-
-
-
-
 
 .home-header {
   padding: 50px;
@@ -29,7 +40,7 @@ body {
   vertical-align: top;
 }
 .column1 > h1 {
-  font-size: 50px;
+  font-size: 45px;
   line-height: 86%;
   margin: 0;
   padding: 0;
@@ -55,13 +66,64 @@ body {
 }
 
 
+.introsection {
+  padding: 110px 20% 100px 20%;
+}
 
+
+.hello {
+  /*display: inline-block;*/
+  /*width: 20%;*/
+  /*border: 1px solid red;*/
+  font-size: 25px;
+  font-family: 'Khula', sans-serif;
+  font-weight: 800; 
+}
+
+.intro {
+  font-family: 'Khula', sans-serif;
+ padding-top: 15px;
+  line-height: 1;
+}
 
 
 
 
 .home-intro {
-  font-size: large;
+  font-family: 'Khula', sans-serif;
+  line-height: 20px;
+
+}
+
+.project {
+
+
+}
+
+/*PRESENTATION (WORK)*/
+.presentation {
+}
+
+.asset {
+  padding: 30px 10%;
+}
+.asset img {
+  max-width: 100%;
+}
+
+.asset video {
+  max-width: 100%;
+}
+
+
+/*NAV STYLE*/
+.nav {
+  position: fixed;
+  bottom:0;
+  width: 100%;
+  padding: 20px 20% 15px 20%;
+  color: white;
+  background: black;
 }
 
 @keyframes home-logo-spin {
