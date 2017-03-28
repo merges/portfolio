@@ -8,14 +8,18 @@ body {
 
 /*RESET BASIC STYLES*/
 
-body p,
-body h1,
-body h2,
-body h3 {
+p,
+h1,
+h2,
+h3 {
   margin: 0;
   padding: 0;
   line-height: 1;
   font-size: 1em;
+}
+
+h3 {
+  margin: 20px 0px;
 }
 
 /*HOME PAGE STYLES*/
@@ -82,8 +86,13 @@ body h3 {
 
 .intro {
   font-family: 'Khula', sans-serif;
- padding-top: 15px;
+  padding-top: 15px;
   line-height: 1;
+}
+
+.recent {
+  font-family: 'Khula', sans-serif;
+  padding-top: 15px;
 }
 
 
@@ -95,13 +104,13 @@ body h3 {
 
 }
 
-.project {
+.clientpage {
 
 
 }
 
 /*PRESENTATION (WORK)*/
-.presentation {
+.displayzone {
 }
 
 .asset {

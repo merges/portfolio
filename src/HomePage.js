@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 
-
-
 class HomePage extends Component {
+  // This home page component knows about this.props.clients
+  //
+  // Tip from Adam:
+  // Arrays (i.e. assets = ['item', 'item', 'item'] can be mapped over like we do for assets on the DisplayZone)
+  // Objects (i.e. clients = {skully: {}, adobe: {}, microsoft: {}} cannot be)
+  // so look on Google for questions like "how do I map over an object in JavaScript"
   render () {
     return (
       <div className='home'>
@@ -43,8 +47,46 @@ class HomePage extends Component {
             quis mi ut pretium. Aliquam erat volutpat. Open and make changes 
             to <code>src/Home.js</code> and save to reload.
           </p>
+
+          <h3 className='recent'>Recent Work</h3>
+          <div>
+          {
+            Object.keys(this.props.clients).map((clientName, i) => {
+              const currentClient = this.props.clients[clientName]
+              // console.log('current client is:')
+              // console.log(currentClient)
+
+              if (currentClient.recent === true) {
+                return (
+
+                  <a href={'/client/' + clientName}>{currentClient.name}</a>
+                )
+              }
+            })
+          }
+          </div>
+          
+          <h3 className='past'>Past Work</h3>
+          <div>
+          {
+            Object.keys(this.props.clients).map((clientName, i) => {
+              const currentClient = this.props.clients[clientName]
+              // console.log('current client is:')
+              // console.log(currentClient)
+
+              if (currentClient.recent === false) {
+                return (
+                  <a href={'/client/' + clientName}>{currentClient.name}</a>
+                )
+              }
+            })
+          }
+          </div>
+
         </section>
- 
+
+
+
       </div>
     )
   }
