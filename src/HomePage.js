@@ -58,7 +58,6 @@ class HomePage extends Component {
 
               if (currentClient.recent === true) {
                 return (
-
                   <a href={'/client/' + clientName}>{currentClient.name}</a>
                 )
               }

@@ -8,17 +8,17 @@ class DisplayZone extends Component {
   	// kind of asset
 
   	// this.props.assets: [
-  		// 'skully.casestudy.mp4',
-  		// 'skully.site.mp4',
-  		// 'skully.app.jpg',
-  		// 'skully.display.jpg',
-  		// 'skully.onesheet.jpg',
-  		// 'skull.editorial.jpg',
-  		// 'skully.poster.jpg',
-  		// 'skully.instagram.mp4',
-  		// 'skully.icons.jpg',
-  		// 'skully.ridermark.jpg',
-  		// 'skully.onesheetsi.jpg',
+  		// 'casestudy.mp4',
+  		// 'site.mp4',
+  		// 'app.jpg',
+  		// 'display.jpg',
+  		// 'onesheet.jpg',
+  		// 'ditorial.jpg',
+  		// 'poster.jpg',
+  		// 'instagram.mp4',
+  		// 'icons.jpg',
+  		// 'ridermark.jpg',
+  		// 'onesheetsi.jpg',
   		// 'https://player.vimeo.com/432894872309432?blablabla',
   		// 'https://player.vimeo.com/543534?blablabla',
   		// 'https://player.vimeo.com/8905823905823905890234?blablabla'
