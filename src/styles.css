@@ -140,3 +140,30 @@ h3 {
   to { transform: rotate(360deg); }
 }
 
+/*Grid logo styling*/
+
+.gridcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+}
+.gridlogo {
+  width: 25%;
+  height: 140px;
+}
+.gridlogo > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.gridlogo > div > img {
+  min-width: 30px;
+  max-width: 70px;
+  width: 50%;
+}
+
+/*flex stuff*/
+

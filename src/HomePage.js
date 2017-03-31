@@ -1,6 +1,27 @@
 import React, { Component } from 'react'
 
 class HomePage extends Component {
+  constructor () {
+    super ()
+
+    this.state = {
+      pastWorkVisible: false
+    }
+  }
+
+  showPastWork () {
+    //showPastWork changes pastWorkVisible to be true.
+    this.setState({
+      pastWorkVisible: true
+    })
+  }
+
+  hidePastWork () {
+    //homepageBackButton brings you back to the homepage.
+    this.setState({
+      pastWorkVisible: false
+    })
+  }
   // This home page component knows about this.props.clients
   //
   // Tip from Adam:
@@ -33,57 +54,82 @@ class HomePage extends Component {
           </div>
         </section>
 
-        <section className='introsection'>
-          <h2 className='hello'> Hello</h2>
-          <h3 className='intro'>intro</h3>
+        {
+          this.state.pastWorkVisible === false &&
+            <section className='introsection'>
+              <h2 className='hello'> Hello</h2>
+              <h3 className='intro'>intro</h3>
 
 
-          <p className='home-intro'>
-            Future portfolio. Pellentesque eleifend congue nibh at gravida. 
-            Sed sit amet bibendum purus. Praesent dignissim felis sed 
-            imperdiet semper. Mauris quis dui varius, congue metus id, 
-            lobortis arcu. Mauris auctor mi justo. Nullam eros ante, 
-            mollis non rutrum eget, fermentum nec tellus. Aenean porttitor 
-            quis mi ut pretium. Aliquam erat volutpat. Open and make changes 
-            to <code>src/Home.js</code> and save to reload.
-          </p>
+              <p className='home-intro'>
+                Future portfolio. Pellentesque eleifend congue nibh at gravida. 
+                Sed sit amet bibendum purus. Praesent dignissim felis sed 
+                imperdiet semper. Mauris quis dui varius, congue metus id, 
+                lobortis arcu. Mauris auctor mi justo. Nullam eros ante, 
+                mollis non rutrum eget, fermentum nec tellus. Aenean porttitor 
+                quis mi ut pretium. Aliquam erat volutpat. Open and make changes 
+                to <code>src/Home.js</code> and save to reload.
+              </p>
 
-          <h3 className='recent'>Recent Work</h3>
-          <div>
-          {
-            Object.keys(this.props.clients).map((clientName, i) => {
-              const currentClient = this.props.clients[clientName]
-              // console.log('current client is:')
-              // console.log(currentClient)
+              <h3 className='recent'>Recent Work</h3>
+              <div>
+              {
+                Object.keys(this.props.clients).map((clientName, i) => {
+                  const currentClient = this.props.clients[clientName]
+                  // console.log('current client is:')
+                  // console.log(currentClient)
 
-              if (currentClient.recent === true) {
-                return (
-                  <a href={'/client/' + clientName}>{currentClient.name}</a>
-                )
+                  if (currentClient.recent === true) {
+                    return (
+                      <a key={i} href={'/client/' + clientName}>{currentClient.name}</a>
+                    )
+                  }
+                })
               }
-            })
-          }
-          </div>
-          
-          <h3 className='past'>Past Work</h3>
-          <div>
-          {
-            Object.keys(this.props.clients).map((clientName, i) => {
-              const currentClient = this.props.clients[clientName]
-              // console.log('current client is:')
-              // console.log(currentClient)
+              </div>
+              
+              <h3 className='past'>
+                <a href='#' onClick={() => this.showPastWork()}>Past work</a>
+              </h3>
+             
+            </section>
+        }
 
-              if (currentClient.recent === false) {
-                return (
-                  <a href={'/client/' + clientName}>{currentClient.name}</a>
-                )
-              }
-            })
-          }
-          </div>
+        {
+          this.state.pastWorkVisible === true &&
+            <section className='pastworkgrid'>
+              <h2>Past work grid goes here</h2>
+               <div className='gridcontainer'>
+                {
+                  Object.keys(this.props.clients).map((clientName, i) => {
+                    const currentClient = this.props.clients[clientName]
+                    // console.log('current client is:')
+                    // console.log(currentClient)
 
-        </section>
+                    // currentClient = {
+                    //   name: 'Google Maps',
+                    //   description: 'Google Maps client description',
+                    //   recent: false,
+                    //   logo: 'wta.logo.svg',
+                    //   assets: [],
+                    // },
 
+                    if (currentClient.recent === false) {
+                      return (
+                        <a className='gridlogo' key={i} href={'/client/' + clientName}>
+                          <div>
+                            <img src={'../assets/' + currentClient.logo} role='presentation' />
+                          </div>
+                        </a>
+                      )
+                    }
+                  })
+                }
+              </div>
+              <a href='#' onClick={() => this.hidePastWork()}>back</a>
+
+            </section>
+        }
 
 
       </div>
