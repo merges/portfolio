@@ -6,6 +6,11 @@ import Nav from './Nav'
 
 class ClientPage extends Component {
 	render () {
+		// console.log('this.props is:')
+		// console.log(this.props)
+		// console.log(this.props.clients)
+		// console.log(this.props.clients.skully.assets)
+
     const clientNameInUrl = this.props.match.params.name
     // the user loaded up http://jeffmunar.com/client/skully
     // ReactRouter defines the last bit of the URL as this.props.match.params.name, so...
@@ -42,8 +47,13 @@ class ClientPage extends Component {
 	      <Nav
 	      	description={selectedClientData.description}
 	      	name={selectedClientData.name}
+	      	currentlyAt={clientNameInUrl}
+	      	clients={this.props.clients}
+
 	      />
 	    </div>
+
+
     )
   }
 }

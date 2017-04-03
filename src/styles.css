@@ -165,5 +165,27 @@ h3 {
   width: 50%;
 }
 
+/* <a class='gridlogo nba'... */
+
+.gridlogo.nba > div > img {
+  max-height: 70px;
+}
+
+.gridlogo.microsoft > div > img {
+  max-height: 65px;
+}
+
+.gridlogo.paypal > div > img {
+  min-width: 110px;
+}
+
+.gridlogo.googlemaps > div > img {
+  min-width: 110px;
+}
+
+.gridlogo.ubisoft > div > img {
+  min-width: 130px;
+}
+
 /*flex stuff*/
 

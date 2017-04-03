@@ -114,9 +114,11 @@ class HomePage extends Component {
                     //   assets: [],
                     // },
 
+                    // read about variables, loops, maps in javascript
+
                     if (currentClient.recent === false) {
                       return (
-                        <a className='gridlogo' key={i} href={'/client/' + clientName}>
+                        <a className={'gridlogo ' + clientName} key={i} href={'/client/' + clientName}>
                           <div>
                             <img src={'../assets/' + currentClient.logo} role='presentation' />
                           </div>
