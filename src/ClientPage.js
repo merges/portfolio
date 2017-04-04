@@ -4,8 +4,23 @@ import React, { Component } from 'react'
 import DisplayZone from './DisplayZone'
 import Nav from './Nav'
 
+// // When we set this up:
+// <MyComponent
+// 	className='anything'
+// 	name='Jeff'
+// 	width={400}
+// 	data={myObject}
+// />
+// // ... then WITHIN MyComponent:
+// this.props.className === 'anything'
+// this.props.name === 'Jeff'
+// this.props.width === 400
+// ...
+
+
 class ClientPage extends Component {
 	render () {
+		// console.log(this.props.orderedClientList)
 		// console.log('this.props is:')
 		// console.log(this.props)
 		// console.log(this.props.clients)
@@ -41,7 +56,7 @@ class ClientPage extends Component {
 
     return (
       <div className='clientpage'>
-      	<DisplayZone
+ 				<DisplayZone
       		assets={selectedClientData.assets}
       	/>
 	      <Nav
@@ -49,11 +64,9 @@ class ClientPage extends Component {
 	      	name={selectedClientData.name}
 	      	currentlyAt={clientNameInUrl}
 	      	clients={this.props.clients}
-
+	      	orderedClientList={this.props.orderedClientList}
 	      />
 	    </div>
-
-
     )
   }
 }

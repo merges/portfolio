@@ -84,6 +84,10 @@ class HomePage extends Component {
                       <a key={i} href={'/client/' + clientName}>{currentClient.name}</a>
                     )
                   }
+                  // If it’s not recent, we still need to return something (.map requires that)
+                  // so we return <noscript /> which is a special way of saying,
+                  // return NOTHING
+                  return <noscript />
                 })
               }
               </div>
@@ -125,6 +129,10 @@ class HomePage extends Component {
                         </a>
                       )
                     }
+                    // If it’s not recent, we still need to return something (.map requires that)
+                    // so we return <noscript /> which is a special way of saying,
+                    // return NOTHING
+                    return <noscript />
                   })
                 }
               </div>

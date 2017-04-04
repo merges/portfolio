@@ -27,9 +27,11 @@ import ClientPage from './ClientPage'
 const orderedClientList = [
 	'adobe', 
 	'microsoft', 
-	'wta', 
+	'nba', 
 	'skully',
+	'nicecollective',
 ]
+
 const clients = {
 	skully: {
 		name: 'Skully',
@@ -153,13 +155,6 @@ const clients = {
 		logo: 'cbank.logo.svg',
 		assets: [],
 	},
-	microsoft: {
-		name: 'Ubisoft',
-		description: 'Ubisoft client description',
-		recent: false,
-		logo: 'msft.logo.svg',
-		assets: [],
-	},
 	hewlettpackard: {
 		name: 'Hewlett Packard',
 		description: 'Hewlett Packard client description',
@@ -184,8 +179,8 @@ const clients = {
 
 }
 
-// Explanation of why we need these to come later...
-const HomePageWithClients = (props) => {
+// Render our custom home page component
+const renderHomePage = (props) => {
 	return (
 		<HomePage
 			clients={clients}
@@ -194,23 +189,27 @@ const HomePageWithClients = (props) => {
 	)
 }
 
-const ClientPageWithClients = (props) => {
+// Render our custom client page component
+const renderClientPage = (props) => {
 	return (
 		<ClientPage
 			clients={clients}
+			orderedClientList={orderedClientList}
 			{...props}
 		/>
 	)
 }
 
-const Routes = (props) => (
-  <Router {...props}>
-  	<div>
-  		<Route exact path='/' render={HomePageWithClients} />
-	    <Route path='/client/:name' render={ClientPageWithClients} />
-	    {/*<Route path='*' component={NotFound} />*/}
-	  </div>
-  </Router>
-)
+const Routes = (props) => {
+	return (
+	  <Router {...props}>
+	  	<div>
+	  		<Route exact path='/' render={renderHomePage} />
+		    <Route path='/client/:name' render={renderClientPage} />
+		    {/*<Route path='*' component={NotFound} />*/}
+		  </div>
+	  </Router>
+	)
+}
 
 export default Routes
