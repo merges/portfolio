@@ -24,6 +24,17 @@ import ClientPage from './ClientPage'
 // 	]
 // }
 
+
+const triggerAssets = [
+	'trig.1.crisis3.jpg',
+	'trig.1.wta2.jpg',
+	'trig.1.wta3.jpg',
+	'trig.1.wta4.jpg',
+	'trig.1.bp1.jpg',
+	'trig.1.bp2.jpg',
+	'trig.1.billjr.jpg',
+]
+
 const orderedClientList = [
 	'adobe', 
 	'microsoft', 
@@ -66,7 +77,7 @@ const clients = {
 		name: 'Microsoft',
 		description: 'Microsoft client description',
 		recent: false,
-		logo: 'wta.logo.svg',
+		logo: 'msft.logo.svg',
 		assets: [],
 	},
 	nicecollective: {
@@ -184,12 +195,16 @@ const renderHomePage = (props) => {
 	return (
 		<HomePage
 			clients={clients}
+			triggerAssets={triggerAssets}
 			{...props}
 		/>
 	)
 }
 
+
+
 // Render our custom client page component
+
 const renderClientPage = (props) => {
 	return (
 		<ClientPage
