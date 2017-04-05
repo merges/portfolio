@@ -7,7 +7,7 @@ class HomePage extends Component {
     console.log('constructor')
 
     this.state = {
-      pastWorkVisible: true,
+      pastWorkVisible: false,
       triggerIndex: 0,
       width: null,
       height: null,
@@ -238,19 +238,21 @@ class HomePage extends Component {
           </div>
           
           <div className='column2'>
-            <div className='contact-item'>
-              <div>email:</div>
-              <div>mr.munar@jeffmunar.com</div>
-            </div>
-          
-            <div className='contact-item'>
-              <div>mobile:</div>
-              <div>909.569.3401</div>
-            </div>
-           
-            <div className='contact-item'>
-              <div>linkedin:</div>
-              <div>linkedin.com/jeffmunar</div>
+            <div className='contact-items'>
+              <div className='contact-item'>
+                <div>email:</div>
+                <div>mr.munar@jeffmunar.com</div>
+              </div>
+            
+              <div className='contact-item'>
+                <div>mobile:</div>
+                <div>909.569.3401</div>
+              </div>
+             
+              <div className='contact-item'>
+                <div>linkedin:</div>
+                <div>linkedin.com/jeffmunar</div>
+              </div>
             </div>
           </div>
         </section>
@@ -259,7 +261,7 @@ class HomePage extends Component {
           this.state.pastWorkVisible === false &&
             <section className='introsection'>
               <h2 className='hello'> Hello</h2>
-              <h3 className='intro'>intro</h3>
+              <h3 className='intro'>Intro</h3>
 
 
               <p className='home-intro'>
@@ -272,30 +274,32 @@ class HomePage extends Component {
                 to <code>src/Home.js</code> and save to reload.
               </p>
 
-              <h3 className='recent'>Recent Work</h3>
-              <div>
-              {
-                Object.keys(this.props.clients).map((clientName, i) => {
-                  const currentClient = this.props.clients[clientName]
-                  // console.log('current client is:')
-                  // console.log(currentClient)
+              <div className='recent'>
+                <h3>Recent Work</h3>
+                {
+                  Object.keys(this.props.clients).map((clientName, i) => {
+                    const currentClient = this.props.clients[clientName]
+                    // console.log('current client is:')
+                    // console.log(currentClient)
 
-                  if (currentClient.recent === true) {
-                    return (
-                      <a key={i} href={'/client/' + clientName}>{currentClient.name}</a>
-                    )
-                  }
-                  // If it’s not recent, we still need to return something (.map requires that)
-                  // so we return <noscript /> which is a special way of saying,
-                  // return NOTHING
-                  return <noscript key={i} />
-                })
-              }
+                    if (currentClient.recent === true) {
+                      return (
+                        <a key={i} href={'/client/' + clientName}>{currentClient.name}</a>
+                      )
+                    }
+                    // If it’s not recent, we still need to return something (.map requires that)
+                    // so we return <noscript /> which is a special way of saying,
+                    // return NOTHING
+                    return <noscript key={i} />
+                  })
+                }
               </div>
               
-              <h3 className='past'>
-                <a href='#' onClick={() => this.showPastWork()}>Past work</a>
-              </h3>
+              <div className='past'>
+                <h3 onClick={() => this.showPastWork()}>
+                  Past Clients
+                </h3>
+              </div>
              
             </section>
         }
@@ -303,6 +307,7 @@ class HomePage extends Component {
         {
           this.state.pastWorkVisible === true &&
             <section className='pastworkgrid'>
+              {this.state.readyToRenderTrigger && this.renderTrigger()}
               <div className='gridcontainer'>
                 {
                   Object.keys(this.props.clients).map((clientName, i) => {
@@ -336,7 +341,7 @@ class HomePage extends Component {
                   })
                 }
               </div>
-              {this.state.readyToRenderTrigger && this.renderTrigger()}
+              
               <a href='#' onClick={() => this.hidePastWork()}>back</a>
             </section>
         }

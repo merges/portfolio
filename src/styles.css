@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Khula');
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Khula|Palanquin|Space+Mono');
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Khula', sans-serif;
+  font-family: 'Palanquin', sans-serif;
 }
 
 /*RESET BASIC STYLES*/
@@ -35,16 +35,18 @@ h3 {
 }
 
 .home-header {
+  white-space: nowrap;
   padding: 50px;
-
+  border: 1px solid grey;
 }
 .column1 {
   display: inline-block;
-  width: 80%;
+  width: 50%;
   vertical-align: top;
+  background: yellow;
 }
 .column1 > h1 {
-  font-size: 45px;
+  font-size: 50px;
   line-height: 86%;
   margin: 0;
   padding: 0;
@@ -52,55 +54,93 @@ h3 {
 }
 .column2 {
   display: inline-block;
-  width: 20%;
+  width: 50%;
+  min-width: 200px;
   font-size: 10px;
-  font-family: 'Khula', sans-serif;
-  font-weight: 800;
+  font-family: 'Palanquin', sans-serif;
+  font-weight: small;
   vertical-align: top;
-
+  background: chartreuse;
+  text-align: center;
+}
+.contact-items {
+  display: inline-block;
+  text-align: left;
 }
 .contact-item > div {
   display: inline-block;
 }
-
-
 .contact-item > div:nth-of-type(1) {
-  width: 50px;
+  width: 45px;
+  color: grey;
+}
+.introsection {
+  padding: 110px 10% 100px 25%;
+  max-width: 600px;
+}
+
+.recent {
+  padding-top: 15px; 
+}
+.recent > h3 {
+  font-family: 'Palanquin';
+  color: #BCBCBC;
+  font-size: 12px;
+}
+.recent > a {
+  font-size: 20px;
+  display: inline-block;
+  margin-right: 40px;
   color: grey;
 }
 
-
-.introsection {
-  padding: 110px 20% 100px 20%;
+.past {
+  padding-top: 15px;
 }
+.past > h3 {
+  font-family: 'Palanquin';
+  font-weight: bold;
+  color: #BCBCBC;
+  cursor: pointer;
+  font-size: 12px;
+}
+.past > h3:hover {
+  color:red;
+}
+
+
 
 
 .hello {
   /*display: inline-block;*/
   /*width: 20%;*/
   /*border: 1px solid red;*/
-  font-size: 25px;
-  font-family: 'Khula', sans-serif;
-  font-weight: 800; 
+  font-size: 42px;
+  font-family: 'Palanquin',;
+  font-weight: thin; 
 }
 
 .intro {
-  font-family: 'Khula', sans-serif;
+  font-size: 12px;
+  font-family: 'Palanquin';
+  font-weight: thin;
   padding-top: 15px;
   line-height: 1;
+  color: #BCBCBC;
+
 }
 
-.recent {
-  font-family: 'Khula', sans-serif;
-  padding-top: 15px;
-}
+  
+
 
 
 
 
 .home-intro {
-  font-family: 'Khula', sans-serif;
-  line-height: 20px;
+  font-family: 'Palanquin', sans-serif;
+  line-height: 24px;
+  font-size: 15px;
+  color: #BCBCBC;
 
 }
 
@@ -132,8 +172,20 @@ h3 {
   right: 0;
   left: 0;
   padding: 20px 3% 15px 3%;
-  color: white;
   background: black;
+}
+.nav > h3 {
+  font-family: 'Palanquin';
+  font-weight: bold;
+  color: grey;
+  margin: 10px 0px;
+  font-size: 16px;
+}
+.nav > p {
+  font-family: 'Palanquin';
+  color: grey;
+  font-weight: small;
+  font-size: 15px;
 }
 
 .navPanel {
@@ -148,11 +200,21 @@ h3 {
   align-items: center;
 }
 .navPanel > a {
-  border: 1px solid red;
+  color: red;
+  text-decoration: none;
+  padding: 0px 12px;
 }
-.navPanel > .homebutton {
-  background-color: lightblue;
+.homebutton {
+  font-size: 18px;
 }
+.previousbutton,
+.nextbutton {
+  font-family: 'Palanquin';
+  font-size: 30px;
+  font-weight: light;
+  margin-top: -7px;
+  display: flex;
+} 
 
 @keyframes home-logo-spin {
   from { transform: rotate(0deg); }
@@ -218,7 +280,8 @@ h3 {
   right: 0;
   left: 0;
   bottom: 0;
-  opacity:.5;
+  opacity: .5;
+  z-index: -1;
 }
 
 .backgroundPosition > img {

@@ -52,21 +52,15 @@ class Nav extends Component {
 
     return (
       <section className='nav'>
-      	{this.props.name}<br />
-      	{this.props.description}
+      <h3>{this.props.name}</h3>
+      <p>{this.props.description}</p>
       	
       	
-				<div className='navPanel'> 
-	      	<a className='previousArrow' href={'/client/' + list[previousIndex]}>
-	      		&lt;
-	      	</a>
-
-					<a className='homebutton' href={'/'}>home</a> 
-
-					<a className='nextArrow' href={'/client/' + list[nextIndex]}>
-				  &gt;
-					</a>
-      	</div>
+			<div className='navPanel'> 
+      	<a className='previousbutton' href={'/client/' + list[previousIndex]}>&lt;</a> 
+      	<a className='homebutton' href={'/'}>HOME</a> 
+				<a className='nextbutton' href={'/client/' + list[nextIndex]}>&gt;</a>
+      </div>
 
       </section>
     )
