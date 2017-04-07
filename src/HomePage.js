@@ -179,7 +179,18 @@ class HomePage extends Component {
 
     this.setState({
       assetDimensions: assetDimensions,
-      readyToRenderTrigger: true,
+    })
+  }
+
+  activateTrigger () {
+    this.setState({
+     readyToRenderTrigger: true
+    })
+  }
+
+  deactivateTrigger () {
+    this.setState({
+      readyToRenderTrigger: false
     })
   }
 
@@ -234,7 +245,7 @@ class HomePage extends Component {
       <div className='home'>
         <section className='home-header'> 
           <div className='column1'>
-            <h1>J</h1>
+            <h1 onClick={() => this.hidePastWork()}>J</h1>
           </div>
           
           <div className='column2'>
@@ -304,10 +315,14 @@ class HomePage extends Component {
             </section>
         }
 
+
+
         {
           this.state.pastWorkVisible === true &&
             <section className='pastworkgrid'>
-              {this.state.readyToRenderTrigger && this.renderTrigger()}
+              {this.state.readyToRenderTrigger === true &&
+                this.renderTrigger()
+              }
               <div className='gridcontainer'>
                 {
                   Object.keys(this.props.clients).map((clientName, i) => {
@@ -329,7 +344,7 @@ class HomePage extends Component {
                       return (
                         <a className={'gridlogo ' + clientName} key={i} href={'/client/' + clientName}>
                           <div>
-                            <img src={'../assets/' + currentClient.logo} role='presentation' />
+                            <img onMouseEnter={() => this.activateTrigger()} onMouseLeave={() => this.deactivateTrigger()} src={'../assets/' + currentClient.logo} role='presentation' />
                           </div>
                         </a>
                       )

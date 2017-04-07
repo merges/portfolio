@@ -37,13 +37,13 @@ h3 {
 .home-header {
   white-space: nowrap;
   padding: 50px;
-  border: 1px solid grey;
+
 }
 .column1 {
   display: inline-block;
-  width: 50%;
+  width: 70%;
   vertical-align: top;
-  background: yellow;
+  /*background: yellow;*/
 }
 .column1 > h1 {
   font-size: 50px;
@@ -54,13 +54,13 @@ h3 {
 }
 .column2 {
   display: inline-block;
-  width: 50%;
+  width: 30%;
   min-width: 200px;
   font-size: 10px;
   font-family: 'Palanquin', sans-serif;
   font-weight: small;
   vertical-align: top;
-  background: chartreuse;
+  /*background: chartreuse;*/
   text-align: center;
 }
 .contact-items {
@@ -75,7 +75,7 @@ h3 {
   color: grey;
 }
 .introsection {
-  padding: 110px 10% 100px 25%;
+  padding: 80px 15% 100px 27%;
   max-width: 600px;
 }
 
@@ -117,7 +117,8 @@ h3 {
   /*border: 1px solid red;*/
   font-size: 42px;
   font-family: 'Palanquin',;
-  font-weight: thin; 
+  font-weight: thin;
+
 }
 
 .intro {
@@ -161,6 +162,7 @@ h3 {
 }
 
 .asset video {
+  width: 100%;
   max-width: 100%;
 }
 
@@ -171,21 +173,37 @@ h3 {
   bottom: 0;
   right: 0;
   left: 0;
-  padding: 20px 3% 15px 3%;
+  padding: 15px 3% 15px 3%;
   background: black;
+  font-family: 'Palanquin';
+  max-height: 80px;
+  transition: max-height .3s;
+}
+/* <... className='nav open' ...> */
+/* "dot notation" is different on stylesheets than in javascript,
+here it means "select the element that has BOTH these class names" */
+.nav.open {
+  max-height: 500px;
 }
 .nav > h3 {
-  font-family: 'Palanquin';
-  font-weight: bold;
+  font-family:'Palanquin';
+  font-style: normal;
+  font-weight: 700;
   color: grey;
-  margin: 10px 0px;
+  margin: -5px 0px -8px 0px;
   font-size: 16px;
+  /*border: 1px solid white;*/
 }
 .nav > p {
   font-family: 'Palanquin';
+  font-weight: 100; 
+  font-style: normal;
   color: grey;
-  font-weight: small;
-  font-size: 15px;
+  max-width: 60%;
+  font-size: 12px;
+  line-height: 14px;
+  margin: 12px 0px 0px 0px;
+  
 }
 
 .navPanel {
@@ -193,24 +211,24 @@ h3 {
   right: 0;
   top: 0;
   bottom: 0;
-  border: 1px solid yellow;
+  /*border: 1px solid yellow;*/
   width: 160px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .navPanel > a {
-  color: red;
+  color: white;
   text-decoration: none;
   padding: 0px 12px;
 }
 .homebutton {
-  font-size: 18px;
+  font-size: 15px;
 }
 .previousbutton,
 .nextbutton {
   font-family: 'Palanquin';
-  font-size: 30px;
+  font-size: 28px;
   font-weight: light;
   margin-top: -7px;
   display: flex;

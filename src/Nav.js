@@ -1,7 +1,29 @@
 import React, { Component } from 'react'
 
 class Nav extends Component {
+  constructor () {
+    super ()
+
+    this.state = {
+      expanded: false
+    }
+  }
+
+  collapseNav () {
+    this.setState({
+      expanded: false
+    })
+  }
+
+  expandNav () {
+    this.setState({
+      expanded: true
+    })
+  }
+
   render () {
+    console.log('this.state.expanded:', this.state.expanded)
+
   	const currentlyAt = this.props.currentlyAt // e.g. 'skully'
   	const list = this.props.orderedClientList // e.g ['skully', 'microsoft', 'nba']
   	const currentIndex = list.indexOf(currentlyAt)
@@ -50,17 +72,23 @@ class Nav extends Component {
   	// the /client/name url that correspond to
   	// the previous or the next client
 
+    var navClassName = 'nav'
+    if (this.state.expanded === true) {
+      navClassName = 'nav open'
+    }
+
     return (
-      <section className='nav'>
-      <h3>{this.props.name}</h3>
-      <p>{this.props.description}</p>
-      	
-      	
-			<div className='navPanel'> 
-      	<a className='previousbutton' href={'/client/' + list[previousIndex]}>&lt;</a> 
-      	<a className='homebutton' href={'/'}>HOME</a> 
-				<a className='nextbutton' href={'/client/' + list[nextIndex]}>&gt;</a>
-      </div>
+      <section className={navClassName} onMouseEnter={() => this.expandNav()} onMouseLeave={() => this.collapseNav()}>
+        <h3>{this.props.name}</h3>
+        {this.state.expanded === true &&
+          <p>{this.props.description}</p>
+        }
+        	
+  			<div className='navPanel'> 
+        	<a className='previousbutton' href={'/client/' + list[previousIndex]}>&lt;</a> 
+        	<a className='homebutton' href={'/'}>HOME</a> 
+  				<a className='nextbutton' href={'/client/' + list[nextIndex]}>&gt;</a>
+        </div>
 
       </section>
     )

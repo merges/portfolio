@@ -46,7 +46,7 @@ const orderedClientList = [
 const clients = {
 	skully: {
 		name: 'Skully',
-		description: 'A description of the Skully client',
+		description: 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.  Aliquam at libero vitae lorem ultrices lobortis id a nisl.  Pellentesque odio eros, hendrerit non ornare quis, egestas  et massa.',
 		recent: true,
 		logo: 'wta.logo.svg',
 		assets: [
@@ -78,7 +78,12 @@ const clients = {
 		description: 'Microsoft client description',
 		recent: false,
 		logo: 'msft.logo.svg',
-		assets: [],
+		assets: [
+						'https://player.vimeo.com/video/93536698',
+						'https://player.vimeo.com/video/93536697',
+						'https://player.vimeo.com/video/93536696',
+						'https://player.vimeo.com/video/93536695',
+	],
 	},
 	nicecollective: {
 		name: 'Nice Collective',
@@ -86,7 +91,7 @@ const clients = {
 		recent: true,
 		logo: 'wta.logo.svg',
 		assets: [
-			'https://player.vimeo.com/video/174686815?color=4f4d38&title=0&byline=0&portrait=0'
+			'nicecollective.brand.mp4'
 		],
 	},
 	womenstennisassociation: {
@@ -94,7 +99,13 @@ const clients = {
 		description: 'WTA client description',
 		recent: false,
 		logo: 'wta.logo.svg',
-		assets: [],
+		assets: [
+		'wta1.jpg',
+		'wta2.jpg',
+		'wta3.jpg',
+		'wta4.jpg',
+		'wta5.jpg',
+		],
 	},
 	starbucks: {
 		name: 'starbucks',
@@ -108,14 +119,22 @@ const clients = {
 		description: 'American Giant client description',
 		recent: false,
 		logo: 'ag.logo.svg',
-		assets: [],
-	},
+		assets: [
+						'https://player.vimeo.com/video/64771645',]
+					},
 	nba: {
 		name: 'NBA',
 		description: 'NBA client description',
 		recent: false,
 		logo: 'nba.logo.svg',
-		assets: [],
+		assets: ['nba.print.evo.jpg',
+					'nba.print.finals2010.jpg',
+					'https://player.vimeo.com/video/31774693',
+					'nba.print.2010a.jpg',
+					'nba.print.2010.b.jpg',
+					'nba.print.2010.c.jpg',
+					'nba.print.2011.d.jpg',
+		],
 	},
 	googlemaps: {
 		name: 'Google Maps',
@@ -129,14 +148,22 @@ const clients = {
 		description: 'Chanel client description',
 		recent: false,
 		logo: 'chanel.logo.svg',
-		assets: [],
+		assets: ['chanel1.jpg',
+						'chanel2.jpg',
+						'chanel3.jpg',
+						'chanel4.jpg',
+						'chanel5.jpg',
+						'chanel6.jpg',
+
+		],
 	},
 	comcastxfinity: {
 		name: 'xfinity',
 		description: 'xfinity client description',
 		recent: false,
 		logo: 'xfinity.logo.svg',
-		assets: [],
+		assets: ['https://player.vimeo.com/video/31774592',
+		],
 	},
 	chevrolet: {
 		name: 'Chevrolet',
