@@ -1,5 +1,33 @@
 import React, { Component } from 'react'
 
+function AccurateInterval (duration, callback) {
+  this.baseline = undefined
+  
+  this.run = () => {
+    if (this.baseline === undefined) {
+      this.baseline = new Date().getTime()
+    }
+    callback()
+
+    var end = new Date().getTime()
+    this.baseline += duration
+ 
+    var nextTick = duration - (end - this.baseline)
+    if (nextTick < 0) {
+      nextTick = 0
+    }
+    ((i) => {
+        i.timer = setTimeout(() => {
+        i.run(end)
+      }, nextTick)
+    })(this)
+  }
+
+  this.stop = () => {
+    clearTimeout(this.timer)
+  }
+}
+
 class HomePage extends Component {
   constructor (props) {
     super (props)
@@ -8,8 +36,9 @@ class HomePage extends Component {
       allTriggerAssets: this.getTriggerAssets(props.clients),
       pastWorkVisible: false,
       triggerIndex: 0,
-      startTriggerOn: null,
+      startTriggerOn: 'adobe',
       timerRunning: false,
+      readyToRenderTrigger: false,
       width: null,
       height: null,
     }
@@ -25,6 +54,7 @@ class HomePage extends Component {
     window.addEventListener('resize', this.getWindowSize.bind(this))
   }
 
+
   restartTimer () {
     // Start a timer that we'll eventually tap into to render the trigger images
     // If there is no timer running yet, set a variable to indicate that it is NOW running
@@ -34,21 +64,42 @@ class HomePage extends Component {
     // % means "modulo" (look it up)
     // (this.state.triggerIndex + 1) % allTriggerAssets.length
     // means that we always get a triggerIndex that we can use to find an image
-
-    const timerSpeed = 500 // in milliseconds
     
-    clearInterval(this.timer)
+    const timerSpeed = 220
+
+    // Restart timer
+    // New style timer
+    if (this.timer) {
+      this.timer.stop()
+    }
+
+    // Old style timer
+    // clearInterval(this.timer)
+
+    
+    // Hook up & run timer
+    // New style timer
     var index = 0
+    const that = this
+    this.timer = new AccurateInterval(timerSpeed, () => {
+      index++
+      that.setState({
+        triggerIndex: index % that.state.allTriggerAssets.length
+      })
+    })
+    this.timer.run()
+
     this.setState({
       triggerIndex: 0,
     })
-
-    this.timer = setInterval(() => {
-      index++
-      this.setState({
-        triggerIndex: index % this.state.allTriggerAssets.length
-      })
-    }, timerSpeed)
+    
+    // // Old style timer
+    // this.timer = setInterval(() => {
+    //   index++
+    //   this.setState({
+    //     triggerIndex: index % this.state.allTriggerAssets.length
+    //   })
+    // }, timerSpeed)
   }
 
   componentWillUnmount() {
@@ -71,7 +122,7 @@ class HomePage extends Component {
 
   activateTrigger (clientName) {
     this.setState({
-      readyToRenderTrigger: true,
+      triggerVisible: true,
       startTriggerOn: clientName,
     })
     this.restartTimer()
@@ -79,8 +130,8 @@ class HomePage extends Component {
 
   deactivateTrigger () {
     this.setState({
-      readyToRenderTrigger: false,
-      startTriggerOn: null,
+      triggerVisible: false,
+      startTriggerOn: 'adobe',
       triggerIndex: 0,
     })
   }
@@ -90,48 +141,75 @@ class HomePage extends Component {
     this.setState({
       width: window.innerWidth,
       height: window.innerHeight,
-    })
+    }, this.getTriggerAssetDimensions())
   }
 
+  // The purpose of this function is to decide
+  // whether to make an image stretch to the full height of the window
+  // or the full width of the window, depending on the situation
+
+  // WE NEED
+  // A. Window width
+  // B. Window height
+  // C. Image width
+  // D. Image height
+
+  // TO DO
+  // 1. Calculate aspect ratio of window
+  // 2. Calculate aspect ratio of image
+
+  // If the aspect ratio of the image is greater than
+  // the aspect ratio of the window, it would normally be letterboxed
+  // (e.g. 16:9 image on regular computer screen)
+  // in that case, we want to set the height of the image
+  // to be the height of the window—that way the sides get cropped off
+
+  // In the other case, where the aspect ratio of the image
+  // is less than the aspect ratio of the window, it would normally
+  // have bars on the left and right
+  // (e.g. portrait image on widescreen computer screen)
+  // in that case, we want to set the width of the image
+  // to be the width of the window—that way the top and bottom
+  // get cropped off
+  
+  
+  // When this function is called, it gets 2 arguments:
+  // imageWidth, imageHeight
+  // These come from the actual dimensions of the image
+  // and are required for us to run this function
+  // e.g. setImageSize(1600, 850)
+  // so...
+  //      imageWidth === 1600
+  //      imageHeight === 850
+
+  // This function now needs to return the correct style
+  // for the image (e.g. width, height) based on the calculations
+  //
+  // In React, we can spit out a mini-CSS style that looks like this:
+  // {
+  //   width: 1600
+  // }
+  //
+  // or
+  //
+  // {
+  //   height: 850
+  // }
+  //
+  // This is what the image "asks for" when it calls this function
+  // for its "style" prop
+  // e.g. <img style={this.setImageSize(1600, 850)}
+  //
+  // In other words, the image is asking for a style object from this
+  // function, based on its size.
+  //
+  // When the image asks, this function returns the actual style
+  // so...
+  // <img style={this.setImageSize(1600, 850)}
+  //   is replaced by
+  // <img style={{width: 2500}} (or whatever the correct style is)
+
   setImageSize (imageWidth, imageHeight) {
-    // The purpose of this function is to decide
-    // whether to make an image stretch to the full height of the window
-    // or the full width of the window, depending on the situation
-
-    // WE NEED
-    // A. Window width
-    // B. Window height
-    // C. Image width
-    // D. Image height
-
-    // TO DO
-    // 1. Calculate aspect ratio of window
-    // 2. Calculate aspect ratio of image
-
-    // If the aspect ratio of the image is greater than
-    // the aspect ratio of the window, it would normally be letterboxed
-    // (e.g. 16:9 image on regular computer screen)
-    // in that case, we want to set the height of the image
-    // to be the height of the window—that way the sides get cropped off
-
-    // In the other case, where the aspect ratio of the image
-    // is less than the aspect ratio of the window, it would normally
-    // have bars on the left and right
-    // (e.g. portrait image on widescreen computer screen)
-    // in that case, we want to set the width of the image
-    // to be the width of the window—that way the top and bottom
-    // get cropped off
-    
-    
-    // When this function is called, it gets 2 arguments:
-    // imageWidth, imageHeight
-    // These come from the actual dimensions of the image
-    // and are required for us to run this function
-    // e.g. setImageSize(1600, 850)
-    // so...
-    //      imageWidth === 1600
-    //      imageHeight === 850
-    
     const windowWidth = this.state.width 
     const windowHeight = this.state.height
 
@@ -142,33 +220,6 @@ class HomePage extends Component {
     // console.log('window', windowWidth, windowHeight, windowRatio)
     // console.log('image', imageWidth, imageHeight, imageRatio)
     // console.log('-------------------------')
-
-    // This function now needs to return the correct style
-    // for the image (e.g. width, height) based on the calculations
-    //
-    // In React, we can spit out a mini-CSS style that looks like this:
-    // {
-    //   width: 1600
-    // }
-    //
-    // or
-    //
-    // {
-    //   height: 850
-    // }
-    //
-    // This is what the image "asks for" when it calls this function
-    // for its "style" prop
-    // e.g. <img style={this.setImageSize(1600, 850)}
-    //
-    // In other words, the image is asking for a style object from this
-    // function, based on its size.
-    //
-    // When the image asks, this function returns the actual style
-    // so...
-    // <img style={this.setImageSize(1600, 850)}
-    //   is replaced by
-    // <img style={{width: 2500}} (or whatever the correct style is)
 
     if (imageRatio >= windowRatio) {
       // console.log('expand height to browser')
@@ -230,19 +281,26 @@ class HomePage extends Component {
     const assetDimensions = {}
     this.state.allTriggerAssets.forEach(assetName => {
       assetDimensions[assetName] = {}
-      
-      let asset = new Image()
+      var asset
+      if (assetName.includes('png') || assetName.includes('gif') || assetName.includes('jpg')) {
+        asset = new Image()
+      }
+      if (assetName.includes('mp4') || assetName.includes('mov')) {
+        asset = document.createElement('video')
+      }
       asset.src = '../assets/' + assetName
       asset.onload = () => {
+        const size = this.setImageSize(asset.naturalWidth, asset.naturalHeight)
         assetDimensions[assetName] = {
-          width: asset.naturalWidth,
-          height: asset.naturalHeight,
+          width: size.width,
+          height: size.height,
         }
       }
     })
 
     this.setState({
       assetDimensions: assetDimensions,
+      readyToRenderTrigger: true
     })
   }
 
@@ -271,7 +329,7 @@ class HomePage extends Component {
     const allTriggerAssets = []
 
     // Get the starting client's trigger assets
-    const startingClientName = this.state.startTriggerOn
+    const startingClientName = this.state.startTriggerOn || this.props.clients[0][Object.keys(this.props.clients)[0]]
     const startingClientTriggerAssets = this.props.clients[startingClientName].trigger
 
     // Go through the starting client's trigger assets,
@@ -293,8 +351,8 @@ class HomePage extends Component {
         // Go through the current client's trigger assets,
         // and add them into the allTriggerAssets list
         const currentClientTriggerAssets = this.props.clients[clientName].trigger
-        currentClientTriggerAssets.forEach(asset => {
-          allTriggerAssets.push(asset)
+        currentClientTriggerAssets.forEach(assetName => {
+          allTriggerAssets.push(assetName)
         })
       }
     })
@@ -317,23 +375,62 @@ class HomePage extends Component {
     //   ...
     // }
 
-    // this.state.assetDimensions['nb']
-    const width = this.state.assetDimensions[allTriggerAssets[this.state.triggerIndex]].width
-    const height = this.state.assetDimensions[allTriggerAssets[this.state.triggerIndex]].height
-    const assetStyle = this.setImageSize(width, height)
-    
-    // And name
-    const name = allTriggerAssets[this.state.triggerIndex]
-
-
     // Render out the image at triggerAssets[index]
+    
+
+    let triggerStyle = {
+      visibility: 'hidden',
+    }
+    if (this.state.triggerVisible == true) {
+      triggerStyle = {
+        visibility: 'visible',
+      }
+    }
+
     return (
-      <div className='backgroundPosition'>
-        <img
-          src={'../assets/' + name}
-          style={assetStyle}
-          role='presentation'
-        />
+      <div key={name} style={triggerStyle} className='trigger-background'>
+        {allTriggerAssets.map((assetName, i) => {
+          const width = this.state.assetDimensions[assetName].width
+          const height = this.state.assetDimensions[assetName].height
+          
+          // Normally, we style the asset as hidden
+          let assetStyle = {
+            visibility: 'hidden',
+          }
+          // If it's the "current" one in the triggerIndex, it’s briefly made visible
+          if (this.state.triggerVisible && i === this.state.triggerIndex) {
+            assetStyle = {
+              visibility: 'visible',
+            }
+          }
+
+          if (assetName.includes('png') || assetName.includes('gif') || assetName.includes('jpg')) {
+            return (
+              <img
+                key={i}
+                style={assetStyle}
+                src={'../assets/' + assetName}
+                width={width}
+                height={height}
+                role='presentation'
+              />
+            )
+          }
+          if (assetName.includes('mp4') || assetName.includes('mov')) {
+            return (
+              <div
+                key={i}
+                style={assetStyle}>
+                <video autoPlay muted loop preload='auto' width={width} height={height}>
+                  <source src={'../../assets/' + assetName} />
+                </video>
+              </div>
+            )
+          }
+          else {
+            return null
+          }
+        })}
       </div>
     )
   }
@@ -346,12 +443,22 @@ class HomePage extends Component {
   // so look on Google for questions like "how do I map over an object in JavaScript"
   render () {
     // console.log('render', this.state)
+    
+    var homeClassName = 'home'
+    var gridClassName = 'grid'
+    var gridLogoClassName = 'gridlogo'
+    
+    if (this.state.triggerVisible === true) {
+      homeClassName = 'home trigger-visible'
+      gridClassName = 'grid trigger-visible'
+      gridLogoClassName = 'gridlogo trigger-visible'
+    }
 
     return (
-      <div className='home'>
+      <div className={homeClassName}>
         <section className='home-header'> 
-          <div className='column1'>
-            <h1 onClick={() => this.hidePastWork()}>J</h1>
+          <div onClick={() => this.hidePastWork()} className='column1'>
+            <h1>J</h1>
           </div>
           
           <div className='column2'>
@@ -361,10 +468,7 @@ class HomePage extends Component {
                 <div>mr.munar@jeffmunar.com</div>
               </div>
             
-              <div className='contact-item'>
-                <div>mobile:</div>
-                <div>909.569.3401</div>
-              </div>
+          
              
               <div className='contact-item'>
                 <div>linkedin:</div>
@@ -382,13 +486,10 @@ class HomePage extends Component {
 
 
               <p className='home-intro'>
-                Future portfolio. Pellentesque eleifend congue nibh at gravida. 
-                Sed sit amet bibendum purus. Praesent dignissim felis sed 
-                imperdiet semper. Mauris quis dui varius, congue metus id, 
-                lobortis arcu. Mauris auctor mi justo. Nullam eros ante, 
-                mollis non rutrum eget, fermentum nec tellus. Aenean porttitor 
-                quis mi ut pretium. Aliquam erat volutpat. Open and make changes 
-                to <code>src/Home.js</code> and save to reload.
+                Welcome to my portfolio site. I’m an independent creative 
+                specializing in branding, art direction and design.
+                I'm currently based in San francisco making sense of pixels, 
+                pod systems and the pursuit of digital dandyism.
               </p>
 
               <div className='recent'>
@@ -421,14 +522,9 @@ class HomePage extends Component {
             </section>
         }
 
-
-
         {
           this.state.pastWorkVisible === true &&
             <section className='pastworkgrid'>
-              {this.state.readyToRenderTrigger === true &&
-                this.renderTrigger()
-              }
               <div className='gridcontainer'>
                 {
                   Object.keys(this.props.clients).map((clientName, i) => {
@@ -448,7 +544,7 @@ class HomePage extends Component {
 
                     if (currentClient.recent === false) {
                       return (
-                        <a className={'gridlogo ' + clientName} key={i} href={'/client/' + clientName}>
+                        <a className={gridLogoClassName + ' ' + clientName} key={i} href={'/client/' + clientName}>
                           <div>
                             <img onMouseEnter={() => this.activateTrigger(clientName)} onMouseLeave={() => this.deactivateTrigger()} src={'../assets/' + currentClient.logo} role='presentation' />
                           </div>
@@ -463,9 +559,11 @@ class HomePage extends Component {
                 }
               </div>
               
-              <a href='#' onClick={() => this.hidePastWork()}>back</a>
+    
             </section>
-        }
+          }
+
+          {this.state.readyToRenderTrigger && this.renderTrigger()}
 
 
       </div>

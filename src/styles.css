@@ -24,11 +24,6 @@ h3 {
 
 /*HOME PAGE STYLES*/
 
-
-.home {
-
-}
-
 .home-logo {
   animation: home-logo-spin infinite 20s linear;
   height: 80px;
@@ -43,6 +38,8 @@ h3 {
   display: inline-block;
   width: 70%;
   vertical-align: top;
+  cursor: pointer; 
+  cursor: hand;
   /*background: yellow;*/
 }
 .column1 > h1 {
@@ -132,8 +129,26 @@ h3 {
 }
 
   
+.home.trigger-visible h1 {
+  color: white;
+}
+.home.trigger-visible .column2 {
+  color: white;
+}
+.gridlogo.trigger-visible img {
+  filter: invert(100%);
+}
 
-
+.home.trigger-visible {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0, 0.4);
+  transition: all .5s linear;
+}
 
 
 
@@ -162,7 +177,7 @@ h3 {
 }
 
 .asset video {
-  width: 100%;
+  widgridlogoth: 100%;
   max-width: 100%;
 }
 
@@ -289,7 +304,7 @@ here it means "select the element that has BOTH these class names" */
 /*flex stuff*/
 
 /*trigger background assets*/
-.backgroundPosition {
+.trigger-background {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -298,11 +313,19 @@ here it means "select the element that has BOTH these class names" */
   right: 0;
   left: 0;
   bottom: 0;
-  opacity: .5;
+  /*opacity: .5;*/
   z-index: -1;
 }
-
-.backgroundPosition > img {
+.trigger-background > img {
+  position: absolute;
   display: block;
+}
+.trigger-background > div {
+  position: absolute;
+  display: block;
+  height: 100%;
+}
+.trigger-background video {
+  min-height: 100%;
 }
 

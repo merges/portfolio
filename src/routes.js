@@ -50,7 +50,7 @@ const clients = {
 		recent: true,
 		logo: 'wta.logo.svg',
 		trigger: [ 
-			'skully.instagram.mp4',
+			// 'skully.instagram.mp4',
 			'skully.icons.jpg',
 		],
 		assets: [
@@ -76,8 +76,8 @@ const clients = {
 		recent: false,
 		logo: 'adobe.icon.svg',
 		trigger: [ 
-			'trigger.cashme1.jpg',
-			'skully.instagram.mp4',
+			'trig.rakuten.jpg',
+			'skully.casestudy.mp4',
 		],
 		assets: [],
 	},
@@ -87,8 +87,10 @@ const clients = {
 		recent: false,
 		logo: 'msft.logo.svg',
 		trigger: [ 
-			'trigger.cashme1.jpg',
-			'skully.instagram.mp4',
+			'trig.msft.insights.mp4',
+			'trig.msft.platform.mp4',
+			'trig.msft.productivity.mp4',
+			'trig.msftsocial.mp4',
 		],
 		assets: [
 			'https://player.vimeo.com/video/93536698',
@@ -116,8 +118,9 @@ const clients = {
 		recent: false,
 		logo: 'wta.logo.svg',
 		trigger: [ 
-			'wta3.jpg',
+			'wta2.jpg',
 			'wta1.jpg',
+			'wta4.jpg',
 		],
 		assets: [
 			'wta1.jpg',
@@ -133,8 +136,7 @@ const clients = {
 		recent: false,
 		logo: 'starbucks.logo.svg',
 		trigger: [ 
-			'trigger.cashme1.jpg',
-			'skully.instagram.mp4',
+			'trig.sbux.site1.mp4',
 		],
 		assets: [],
 	},
@@ -144,8 +146,7 @@ const clients = {
 		recent: false,
 		logo: 'ag.logo.svg',
 		trigger: [ 
-			'trigger.cashme1.jpg',
-			'skully.instagram.mp4',
+			'trig.ag.shrts.mp4',
 		],
 		assets: [
 			'https://player.vimeo.com/video/64771645',
@@ -177,6 +178,7 @@ const clients = {
 		logo: 'google.logo.svg',
 		trigger: [
 			'trig.1.googleguy.jpg',
+			'trig.1.googlemaps.jpg',
 		],
 		assets:[],
 	},
@@ -187,6 +189,7 @@ const clients = {
 		logo: 'chanel.logo.svg',
 		trigger: [
 			'trig.1.chanel.1.jpg',
+			'trig.chanel.2.jpg',
 		],
 		assets: [
 			'chanel1.jpg',
@@ -216,7 +219,9 @@ const clients = {
 		recent: false,
 		logo: 'chevrolet.logo.svg',
 		trigger: [
-			'trigger.cashme1.jpg',
+			'trig.chevy.1.jpg',
+			'trig.chevy.2.jpg',
+			'trig.chevy.3.jpg',
 		],
 		assets: [],
 	},
@@ -226,7 +231,7 @@ const clients = {
 		recent: false,
 		logo: 'paypal.logo.svg',
 		trigger: [ 
-			'trigger.cashme1.jpg',
+			'trig.paypal.logo.png',
 		],
 		assets: [],
 	},
@@ -236,7 +241,8 @@ const clients = {
 		recent: false,
 		logo: 'ea.logo.svg',
 		trigger: [ 
-			'trigger.cashme1.jpg',
+			'trig.1.crisis3.jpg',
+			'trig.crysis.banners.jpg',
 		],
 		assets: [],
 	},
@@ -247,6 +253,7 @@ const clients = {
 		logo: 'cbank.logo.svg',
 		trigger: [ 
 			'trig.1.cba.jpg',
+			' trig.cba.print1.jpg',
 		],
 		assets: [],
 	},
@@ -256,7 +263,7 @@ const clients = {
 		recent: false,
 		logo: 'hp.logo.svg',
 		trigger: [ 
-			'trigger.cashme1.jpg',
+			'trig.hp.1.jpg',
 		],
 		assets: [],
 	},
@@ -266,7 +273,7 @@ const clients = {
 		recent: false,
 		logo: 'sf.logo.png',
 		trigger: [
-			'trigger.cashme1.jpg'
+			'trig.sfgov.print.jpg'
 		],
 		assets: [],
 	},
