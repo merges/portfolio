@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Khula|Palanquin|Space+Mono');
 
+
+
 body {
   margin: 0;
   padding: 0;
@@ -54,8 +56,6 @@ h3 {
   width: 30%;
   min-width: 200px;
   font-size: 10px;
-  font-family: 'Palanquin', sans-serif;
-  font-weight: small;
   vertical-align: top;
   /*background: chartreuse;*/
   text-align: center;
@@ -71,16 +71,33 @@ h3 {
   width: 45px;
   color: grey;
 }
+
+/* HOME PAGE BIO */
 .introsection {
   padding: 80px 15% 100px 27%;
   max-width: 600px;
 }
+.hello {
+  /*display: inline-block;*/
+  /*width: 20%;*/
+  /*border: 1px solid red;*/
+  font-size: 42px;
+  font-weight: thin;
+}
+.intro {
+  font-size: 12px;
+  font-weight: thin;
+  padding-top: 15px;
+  line-height: 1;
+  color: #BCBCBC;
+}
+
+/* RECENT & PAST WORK MENUS / SECTIONS */
 
 .recent {
   padding-top: 15px; 
 }
 .recent > h3 {
-  font-family: 'Palanquin';
   color: #BCBCBC;
   font-size: 12px;
 }
@@ -95,7 +112,6 @@ h3 {
   padding-top: 15px;
 }
 .past > h3 {
-  font-family: 'Palanquin';
   font-weight: bold;
   color: #BCBCBC;
   cursor: pointer;
@@ -103,29 +119,6 @@ h3 {
 }
 .past > h3:hover {
   color:red;
-}
-
-
-
-
-.hello {
-  /*display: inline-block;*/
-  /*width: 20%;*/
-  /*border: 1px solid red;*/
-  font-size: 42px;
-  font-family: 'Palanquin',;
-  font-weight: thin;
-
-}
-
-.intro {
-  font-size: 12px;
-  font-family: 'Palanquin';
-  font-weight: thin;
-  padding-top: 15px;
-  line-height: 1;
-  color: #BCBCBC;
-
 }
 
   
@@ -197,12 +190,13 @@ h3 {
 /* <... className='nav open' ...> */
 /* "dot notation" is different on stylesheets than in javascript,
 here it means "select the element that has BOTH these class names" */
+
+/*Nav Section*/
+
 .nav.open {
   max-height: 500px;
 }
 .nav > h3 {
-  font-family:'Palanquin';
-  font-style: normal;
   font-weight: 700;
   color: grey;
   margin: -5px 0px -8px 0px;
@@ -210,9 +204,7 @@ here it means "select the element that has BOTH these class names" */
   /*border: 1px solid white;*/
 }
 .nav > p {
-  font-family: 'Palanquin';
   font-weight: 100; 
-  font-style: normal;
   color: grey;
   max-width: 60%;
   font-size: 12px;
@@ -240,9 +232,8 @@ here it means "select the element that has BOTH these class names" */
 .homebutton {
   font-size: 15px;
 }
-.previousbutton,
+
 .nextbutton {
-  font-family: 'Palanquin';
   font-size: 28px;
   font-weight: light;
   margin-top: -7px;
@@ -329,3 +320,18 @@ here it means "select the element that has BOTH these class names" */
   min-height: 100%;
 }
 
+/*MEDIA QUERIES*/
+
+/*tablets*/
+@media screen and (max-width: 700px) {
+  .gridlogo {
+    width: 33.33%;
+  }
+
+  
+}
+
+
+
+
+/*mobile*/

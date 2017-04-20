@@ -208,6 +208,7 @@ const clients = {
 		trigger: [ 
 			'trig.1.xfinity.tiredw.jpg',
 			'trig.1.billjr.jpg',
+			'trig.slowskys.mp4',
 		],
 		assets: [
 			'https://player.vimeo.com/video/31774592',
