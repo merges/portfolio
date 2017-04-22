@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Khula|Palanquin|Space+Mono');
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Khula|Palanquin|Overpass+Mono:300,400,600,700');
 
 
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Palanquin', sans-serif;
+  font-family: 'Overpass Mono', monospace;
 }
 
 /*RESET BASIC STYLES*/
@@ -54,8 +54,8 @@ h3 {
 .column2 {
   display: inline-block;
   width: 30%;
-  min-width: 200px;
-  font-size: 10px;
+  min-width: 2px;
+  font-size: 11px;
   vertical-align: top;
   /*background: chartreuse;*/
   text-align: center;
@@ -68,28 +68,43 @@ h3 {
   display: inline-block;
 }
 .contact-item > div:nth-of-type(1) {
-  width: 45px;
+  width: 80px;
   color: grey;
 }
 
 /* HOME PAGE BIO */
 .introsection {
-  padding: 80px 15% 100px 27%;
-  max-width: 600px;
+  padding: 80px 20% 100px 20%;
 }
 .hello {
   /*display: inline-block;*/
   /*width: 20%;*/
   /*border: 1px solid red;*/
-  font-size: 42px;
-  font-weight: thin;
+  font-size: 20px;
+  font-family:''Overpass Mono', monospace;', sans-serif;
+  letter-spacing: -.08em
 }
 .intro {
+  font-weight: 300;
   font-size: 12px;
   font-weight: thin;
   padding-top: 15px;
   line-height: 1;
   color: #BCBCBC;
+  text-transform: uppercase;
+  letter-spacing: .09em
+}
+
+.home-intro {
+  font-family: 'Overpass Mono';
+  letter-spacing: -.06em;
+  font-weight: 200;
+  line-height: 24px;
+  font-size: 16px;
+  color: #BCBCBC;
+  /*background-color: blue; */
+  max-width: 900px;
+
 }
 
 /* RECENT & PAST WORK MENUS / SECTIONS */
@@ -98,24 +113,33 @@ h3 {
   padding-top: 15px; 
 }
 .recent > h3 {
+  font-weight: 300;
   color: #BCBCBC;
   font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .09em;
 }
 .recent > a {
-  font-size: 20px;
+  font-size: 18px;
   display: inline-block;
   margin-right: 40px;
-  color: grey;
+  color: black;
+  font-weight: 800;
+  /*text-transform: uppercase;*/
+  font-family:'Overpass Mono', monospace;
+  letter-spacing: -.03em
 }
 
 .past {
   padding-top: 15px;
 }
 .past > h3 {
-  font-weight: bold;
+  font-weight: 300;
   color: #BCBCBC;
   cursor: pointer;
   font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .09em
 }
 .past > h3:hover {
   color:red;
@@ -144,14 +168,6 @@ h3 {
 }
 
 
-
-.home-intro {
-  font-family: 'Palanquin', sans-serif;
-  line-height: 24px;
-  font-size: 15px;
-  color: #BCBCBC;
-
-}
 
 .clientpage {
 
@@ -272,23 +288,23 @@ here it means "select the element that has BOTH these class names" */
 
 /* <a class='gridlogo nba'... */
 
-.gridlogo.nba > div > img {
+.gridlogo.nba img {
   max-height: 70px;
 }
 
-.gridlogo.microsoft > div > img {
+.gridlogo.microsoft img {
   max-height: 65px;
 }
 
-.gridlogo.paypal > div > img {
+.gridlogo.paypal img {
   min-width: 110px;
 }
 
-.gridlogo.googlemaps > div > img {
+.gridlogo.googlemaps img {
   min-width: 110px;
 }
 
-.gridlogo.ubisoft > div > img {
+.gridlogo.ubisoft img {
   min-width: 130px;
 }
 
@@ -323,13 +339,106 @@ here it means "select the element that has BOTH these class names" */
 /*MEDIA QUERIES*/
 
 /*tablets*/
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 880px) {
   .gridlogo {
     width: 33.33%;
   }
 
-  
+  .column1,
+  .column2 {
+    width: 50%;
+
+  }
+
+  .introsection {
+  /*background-color: red;*/
+  padding: 80px 10% 0px 5%;
+  max-width: 750px;
+  }
+
+
+
+  .recent > h3 {
+  color: #BCBCBC;
+  font-size: px;
+  }
+
+  .recent > a {
+  font-size: 23px;
+  display: inline-block;
+  margin-right: 40px;
+  color: grey;
+  }
+
+  .gridlogo img {
+    max-width: 45px;
+  }
+
+  .gridlogo.adobe img {
+    width: 57px;
+  }
+
+  .gridlogo.womenstennisassociation img {
+    width: 66px;
+  }
+
+  .gridlogo.nba img {
+    width: 60px;
+  }
+
+  .gridlogo.microsoft img {
+    width: 48px;
+  }
+
+  .gridlogo.googlemaps img {
+    min-width: 85px !important;
+  }
+
+  .gridlogo.chanel img {
+    width: 55px;
+  }
+
+  .gridlogo.comcastxfinity img {
+    width: 83px;
+  }
+
+  .gridlogo.ea img {
+    width: 52px;
+  }
+
+  .gridlogo.ubisoft img {
+    min-width: 100px;
+  }
+
 }
+
+@media screen and (max-width: 420px) {
+  
+  .introsection {
+    padding: 80px 5% 0px 5%;
+
+  }
+
+  .gridlogo {
+    width: 33.33%;
+  }
+
+  .column1{
+    width:30%;
+  }
+
+  .column2{
+    width:10%;
+  }
+
+
+
+  
+
+}
+
+
+
 
 
 

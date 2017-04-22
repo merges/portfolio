@@ -488,7 +488,7 @@ class HomePage extends Component {
               <p className='home-intro'>
                 Welcome to my portfolio site. I’m an independent creative 
                 specializing in branding, art direction and design.
-                I'm currently based in San francisco making sense of pixels, 
+                I'm currently based in San Francisco making sense of pixels, 
                 pod systems and the pursuit of digital dandyism.
               </p>
 
