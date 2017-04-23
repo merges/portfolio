@@ -128,6 +128,15 @@ class HomePage extends Component {
     this.restartTimer()
   }
 
+  showLogInPrompt(clientName) {
+    this.setState({
+      logInPrompt: true,
+      accessPastClientPage: clientName,
+    })
+  }
+
+
+
   deactivateTrigger () {
     this.setState({
       triggerVisible: false,
@@ -410,7 +419,7 @@ class HomePage extends Component {
                 key={i}
                 style={assetStyle}
                 src={'../assets/' + assetName}
-                width={width}
+background                width={width}
                 height={height}
                 role='presentation'
               />
@@ -442,7 +451,7 @@ class HomePage extends Component {
   // Objects (i.e. clients = {skully: {}, adobe: {}, microsoft: {}} cannot be)
   // so look on Google for questions like "how do I map over an object in JavaScript"
   render () {
-    // console.log('render', this.state)
+    console.log('state of home page', this.state)
     
     var homeClassName = 'home'
     var gridClassName = 'grid'
@@ -523,6 +532,13 @@ class HomePage extends Component {
         }
 
         {
+          this.state.logInPrompt === true &&
+            <div className='nav open login'>
+              To see client ___ put in PW
+            </div>
+        }
+
+        {
           this.state.pastWorkVisible === true &&
             <section className='pastworkgrid'>
               <div className='gridcontainer'>
@@ -544,7 +560,7 @@ class HomePage extends Component {
 
                     if (currentClient.recent === false) {
                       return (
-                        <a className={gridLogoClassName + ' ' + clientName} key={i} href={'/client/' + clientName}>
+                        <a className={gridLogoClassName + ' ' + clientName} key={i} onClick={() => this.showLogInPrompt(clientName)}> 
                           <div>
                             <img onMouseEnter={() => this.activateTrigger(clientName)} onMouseLeave={() => this.deactivateTrigger()} src={'../assets/' + currentClient.logo} role='presentation' />
                           </div>

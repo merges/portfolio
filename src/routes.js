@@ -41,12 +41,13 @@ const orderedClientList = [
 	'nba', 
 	'skully',
 	'nicecollective',
+	'starbucks',
 ]
 		
 const clients = {
 	skully: {
 		name: 'Skully',
-		description: 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.  Aliquam at libero vitae lorem ultrices lobortis id a nisl.  Pellentesque odio eros, hendrerit non ornare quis, egestas  et massa.',
+		description: 'The Skully AR-1 is the world\'s first Augmented Reality motorcycle helmet on the road with a built-in 180° Blindspot Camera and infinite Focus Heads-Up Display. Heralded as the future of motorcycling, this wearables group garnered a strong fanbase but struggled to enter the market within the expected timeline.', 
 		recent: true,
 		logo: 'wta.logo.svg',
 		trigger: [ 
@@ -64,7 +65,7 @@ const clients = {
 			'skully.instagram.mp4',
 			'skully.icons.jpg',
 			'skully.ridermark.jpg',
-			'skully.onesheetsi.jpg',
+			'skully.whitesheet.s.jpg',
 			'https://player.video.com/432894872309432?blablabla',
 			'https://player.video.com/543534?blablabla',
 			'https://player.video.com/8905823905823905890234?blablabla'
@@ -83,7 +84,7 @@ const clients = {
 	},
 	microsoft: {
 		name: 'Microsoft',
-		description: 'Microsoft client description',
+		description: 'Each and every business is unique. From healthcare to retail, manufacturing or finance — no two businesses operate the same way. That’s why the Microsoft Cloud can be tailored to meet the needs of any enterprise.',
 		recent: false,
 		logo: 'msft.logo.svg',
 		trigger: [ 
@@ -101,7 +102,7 @@ const clients = {
 	},
 	nicecollective: {
 		name: 'Nice Collective',
-		desription: 'Nice Collective description',
+		description: 'N.I.C.E. (Navigators, Informers, Creators, Explorers) N.I.C.E. Collective experiments with utilitarian and conceptual elements within the context of clothing and accessories.', 
 		recent: true,
 		logo: 'wta.logo.svg',
 		trigger: [ 
@@ -154,7 +155,7 @@ const clients = {
 	},
 	nba: {
 		name: 'NBA',
-		description: 'NBA client description',
+		description: 'This was a campaign promoting the playoffs which was used across print, outdoor, in-store, interactive, broadcast and even down to the coasters at the Finals. I\'m an Angeleno at heart; I couldn\'t let the Lakers down.',
 		recent: false,
 		logo: 'nba.logo.svg',
 		trigger: [ 
@@ -173,7 +174,7 @@ const clients = {
 	},
 	googlemaps: {
 		name: 'Google Maps',
-		description: 'Google Maps client description',
+		description: 'Google Maps is the world’s most trusted map. We inspire confidence in over 1 billion people worldwide to explore the world around them. People count on us and we don’t take this responsibility lightly. Our brand is a commitment and promise to our users.',
 		recent: false,
 		logo: 'google.logo.svg',
 		trigger: [
@@ -184,7 +185,7 @@ const clients = {
 	},
 	chanel: {
 		name: 'Chanel',
-		description: 'Chanel client description',
+		description: 'iPad/desktop design iterations for the Chanel Heritage site. The goal was to educate the Chinese and Russian markets about the French fashion designer, Gabrielle Bonheur "Coco" Chanel and her brand.',
 		recent: false,
 		logo: 'chanel.logo.svg',
 		trigger: [
@@ -202,7 +203,7 @@ const clients = {
 	},
 	comcastxfinity: {
 		name: 'xfinity',
-		description: 'xfinity client description',
+		description: 'Comcast/Xfinity rolled out with a digital campaign of the Famed Slowskys as they prepared to announce breaking news to the world.',
 		recent: false,
 		logo: 'xfinity.logo.svg',
 		trigger: [ 
@@ -216,7 +217,7 @@ const clients = {
 	},
 	chevrolet: {
 		name: 'Chevrolet',
-		description: 'Chevrolet client description',
+		description: 'Print and Digital campaigns to promote an armada of vehicles.',
 		recent: false,
 		logo: 'chevrolet.logo.svg',
 		trigger: [
@@ -238,7 +239,7 @@ const clients = {
 	},
 	ea: {
 		name: 'Electronic Arts',
-		description: 'EA client description',
+		description: 'Digital promotions for Ubisoft',
 		recent: false,
 		logo: 'ea.logo.svg',
 		trigger: [ 
@@ -249,7 +250,7 @@ const clients = {
 	},
 	commonwealthbank: {
 		name: 'Common wealth bank of Australia',
-		description: 'CBA client description',
+		description: 'Print, Digital, OOH',
 		recent: false,
 		logo: 'cbank.logo.svg',
 		trigger: [ 
@@ -260,7 +261,7 @@ const clients = {
 	},
 	hewlettpackard: {
 		name: 'Hewlett Packard',
-		description: 'Hewlett Packard client description',
+		description: 'Print, Digital, OOH and Branding',
 		recent: false,
 		logo: 'hp.logo.svg',
 		trigger: [ 
@@ -270,17 +271,18 @@ const clients = {
 	},
 	sfgov: {
 		name: 'SFGov DCYF',
-		description: 'SFGov DCYF client description',
+		description: 'Print brochures for SFGov DCYF',
 		recent: false,
 		logo: 'sf.logo.png',
 		trigger: [
-			'trig.sfgov.print.jpg'
+			'trig.sfgov.print.jpg',
+			'trig.sfgovdcyf.jpg',
 		],
 		assets: [],
 	},
 	ubisoft: {
 		name: 'Ubisoft',
-		description: 'Ubisoft client description',
+		description: 'Digital promotions for Ubisoft',
 		recent: false,
 		logo: 'ubisoft.logo.svg',
 		trigger: [
