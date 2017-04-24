@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import LogInBox from './LogInBox'
+
 function AccurateInterval (duration, callback) {
   this.baseline = undefined
   
@@ -43,6 +45,16 @@ class HomePage extends Component {
       height: null,
     }
     console.log('initial state:', this.state)
+
+    this.restartTimer = this.restartTimer.bind(this)
+    this.showPastWork = this.showPastWork.bind(this)
+    this.hidePastWork = this.hidePastWork.bind(this)
+    this.activateTrigger = this.activateTrigger.bind(this)
+    this.deactivateTrigger = this.deactivateTrigger.bind(this)
+    this.getWindowSize = this.getWindowSize.bind(this)
+    this.getTriggerAssets = this.getTriggerAssets.bind(this)
+    this.getTriggerAssetDimensions = this.getTriggerAssetDimensions.bind(this)
+    this.renderTrigger = this.renderTrigger.bind(this)
   }
 
   componentDidMount () {
@@ -116,7 +128,8 @@ class HomePage extends Component {
   hidePastWork () {
     //homepageBackButton brings you back to the homepage.
     this.setState({
-      pastWorkVisible: false
+      pastWorkVisible: false,
+      logInPrompt: false,
     })
   }
 
@@ -128,20 +141,18 @@ class HomePage extends Component {
     this.restartTimer()
   }
 
-  showLogInPrompt(clientName) {
-    this.setState({
-      logInPrompt: true,
-      accessPastClientPage: clientName,
-    })
-  }
-
-
-
   deactivateTrigger () {
     this.setState({
       triggerVisible: false,
       startTriggerOn: 'adobe',
       triggerIndex: 0,
+    })
+  }
+
+  showLogInPrompt(clientName) {
+    this.setState({
+      logInPrompt: true,
+      accessPastClientPage: clientName,
     })
   }
 
@@ -419,7 +430,7 @@ class HomePage extends Component {
                 key={i}
                 style={assetStyle}
                 src={'../assets/' + assetName}
-background                width={width}
+                width={width}
                 height={height}
                 role='presentation'
               />
@@ -451,8 +462,6 @@ background                width={width}
   // Objects (i.e. clients = {skully: {}, adobe: {}, microsoft: {}} cannot be)
   // so look on Google for questions like "how do I map over an object in JavaScript"
   render () {
-    console.log('state of home page', this.state)
-    
     var homeClassName = 'home'
     var gridClassName = 'grid'
     var gridLogoClassName = 'gridlogo'
@@ -469,6 +478,7 @@ background                width={width}
           <div onClick={() => this.hidePastWork()} className='column1'>
             <h1>J</h1>
           </div>
+
           
           <div className='column2'>
             <div className='contact-items'>
@@ -498,7 +508,7 @@ background                width={width}
                 Welcome to my portfolio site. I’m an independent creative 
                 specializing in branding, art direction and design.
                 I'm currently based in San Francisco making sense of pixels, 
-                pod systems and the pursuit of digital dandyism.
+                pod systems and the pursuit of digital dandyism. 
               </p>
 
               <div className='recent'>
@@ -527,16 +537,10 @@ background                width={width}
                   Past Clients
                 </h3>
               </div>
-             
             </section>
         }
 
-        {
-          this.state.logInPrompt === true &&
-            <div className='nav open login'>
-              To see client ___ put in PW
-            </div>
-        }
+        {this.state.logInPrompt === true && <LogInBox onHidePastWork={this.hidePastWork} />}
 
         {
           this.state.pastWorkVisible === true &&

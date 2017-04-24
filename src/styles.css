@@ -212,6 +212,47 @@ here it means "select the element that has BOTH these class names" */
 .nav.open {
   max-height: 500px;
 }
+
+.loginBox { 
+  font-family:'Overpass Mono', monospace;
+  background: transparent;
+  border: none;
+  color: white;
+  border-bottom: 1px solid #444;
+  transition: .1s border ease;
+  margin-right: 50px;
+}
+.loginBox:focus {
+  outline: none;
+  border-bottom-color: white;
+}
+
+.loginButton {
+   border: 1px solid white;
+   background: none;
+   padding: 5px 12px;
+   border-radius: 7px;
+   color: #ffffff;
+   font-size: 11px;
+   font-family:'Overpass Mono', monospace;
+   vertical-align: middle;
+   }
+
+.loginButton:hover {
+  background: #F8F8FF;
+  color: black;
+}
+.loginButton:focus {
+  outline: none;
+}
+
+.loginClose {
+  position: absolute;
+  top: 30%;
+  right: 20px;
+  cursor: pointer;
+}
+
 .nav > h3 {
   font-weight: 700;
   color: grey;
@@ -247,27 +288,30 @@ here it means "select the element that has BOTH these class names" */
   color: white;
   text-decoration: none;
   padding: 0px 12px;
+
 }
 .homebutton {
   padding-right: 1px !important;
-  margin-top: -8px;
-  font-size: 15px;
+  margin-top: -2px;
+  font-size: 12px;
   font-family:'Overpass Mono', monospace;
   font-weight: 200;
-  letter-spacing: .3em;
+  letter-spacing: .2em;
 }
 
 .nextbutton {
+  font-family:'julius Sans One';
   font-size: 28px;
   font-weight: light;
-  margin-top: -7px;
+  margin-top: -2px;
   display: flex;
 } 
 
 .previousbutton{
+  font-family:'julius Sans One';
   font-size: 28px;
-  font-weight: light;
-  margin-top: -7px;
+  font-weight: 200;
+  margin-top: -2px;
   display: flex;
 }
 

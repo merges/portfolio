@@ -86,7 +86,7 @@ class Nav extends Component {
         	
   			<div className='navPanel'> 
         	<a className='previousbutton' href={'/client/' + list[previousIndex]}>&lt;</a> 
-        	<a className='homebutton' href={'/'}>HOME</a> 
+        	<a className='homebutton' href={'/'}>home</a> 
   				<a className='nextbutton' href={'/client/' + list[nextIndex]}>&gt;</a>
         </div>
 

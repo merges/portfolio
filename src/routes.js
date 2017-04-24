@@ -47,7 +47,7 @@ const orderedClientList = [
 const clients = {
 	skully: {
 		name: 'Skully',
-		description: 'The Skully AR-1 is the world\'s first Augmented Reality motorcycle helmet on the road with a built-in 180° Blindspot Camera and infinite Focus Heads-Up Display. Heralded as the future of motorcycling, this wearables group garnered a strong fanbase but struggled to enter the market within the expected timeline.', 
+		description: 'The Skully AR-1 is the world\'s first Augmented Reality motorcycle helmet on the road with a built-in 180° Blindspot Camera and infinite Focus Heads-Up Display.', 
 		recent: true,
 		logo: 'wta.logo.svg',
 		trigger: [ 
@@ -102,7 +102,7 @@ const clients = {
 	},
 	nicecollective: {
 		name: 'Nice Collective',
-		description: 'N.I.C.E. (Navigators, Informers, Creators, Explorers) N.I.C.E. Collective experiments with utilitarian and conceptual elements within the context of clothing and accessories.', 
+		description: 'N.I.C.E. (Navigators, Informers, Creators, Explorers) The Collective experiments with utilitarian and conceptual elements within the context of clothing and accessories.', 
 		recent: true,
 		logo: 'wta.logo.svg',
 		trigger: [ 
