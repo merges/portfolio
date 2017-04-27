@@ -35,13 +35,9 @@ const triggerAssets = [
 	'trig.1.billjr.jpg',
 ]
 
-const orderedClientList = [
-	'adobe', 
-	'microsoft', 
-	'nba', 
+const orderedClientList = [ 
 	'skully',
 	'nicecollective',
-	'starbucks',
 ]
 		
 const clients = {
@@ -76,9 +72,9 @@ const clients = {
 		description: 'Adobe client description',
 		recent: false,
 		logo: 'adobe.icon.svg',
-		trigger: [ 
+		trigger: [
+			'trig.rainbow.mp4',
 			'trig.rakuten.jpg',
-			'skully.casestudy.mp4',
 		],
 		assets: [],
 	},
@@ -303,10 +299,7 @@ const renderHomePage = (props) => {
 	)
 }
 
-
-
 // Render our custom client page component
-
 const renderClientPage = (props) => {
 	return (
 		<ClientPage

@@ -5,7 +5,8 @@ class LogInBox extends Component {
     super(props)
     
     this.state = {
-    	password: ''
+    	password: '',
+    	closeButtonShouldBeX: false,
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -27,8 +28,21 @@ class LogInBox extends Component {
   hidePastWork () {
   	this.props.onHidePastWork()
   }
+  
+  componentDidMount () {
+  	setTimeout(() => {
+  		this.setState({
+	  		closeButtonShouldBeX: true
+	  	})
+  	}, 200)
+  }
 
   render () {
+  	var closeButtonClassName = 'loginClose'
+  	if (this.state.closeButtonShouldBeX === true) {
+  		closeButtonClassName = 'loginClose active'
+  	}
+
 		return (
     	<div className='nav open'>
 	      <form onSubmit={this.handleSubmit}>
@@ -37,10 +51,14 @@ class LogInBox extends Component {
 	        </label>
 	        <input className='loginButton' type='submit' value='See past work' />
 	      </form>
-	      <div className='loginClose' onClick={() => this.hidePastWork()}>X</div>
+	      <div className={closeButtonClassName} onClick={() => this.hidePastWork()}>
+	      	<div className='patty'></div>
+	      	<div className='patty'></div>
+	      </div>
 	    </div>
     )
   }
 }
+
 
 export default LogInBox

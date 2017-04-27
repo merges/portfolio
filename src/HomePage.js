@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Typist from 'react-typist'
 
 import LogInBox from './LogInBox'
 
@@ -451,6 +452,7 @@ class HomePage extends Component {
             return null
           }
         })}
+        <div className='trigger-overlay'></div>
       </div>
     )
   }
@@ -465,6 +467,11 @@ class HomePage extends Component {
     var homeClassName = 'home'
     var gridClassName = 'grid'
     var gridLogoClassName = 'gridlogo'
+    // var welcomeGreeting = 'Hello!'
+
+    var welcomeGreeting = () => {
+      return 'Hello!'
+    }
     
     if (this.state.triggerVisible === true) {
       homeClassName = 'home trigger-visible'
@@ -500,19 +507,30 @@ class HomePage extends Component {
         {
           this.state.pastWorkVisible === false &&
             <section className='introsection'>
-              <h2 className='hello'> Hello</h2>
-              <h3 className='intro'>Intro</h3>
+              
+              <Typist 
+                stdTypingDelay={0}
+                cursor={{
+                  show: true,
+                  blink: true,
+                  element: '_',
+                  startDelay: 100,
+                }}>
+                {welcomeGreeting()}
+              </Typist>
+              
+              <h3 className='intro animated fadeInDown'>Intro</h3>
 
 
               <p className='home-intro'>
                 Welcome to my portfolio site. I’m an independent creative 
-                specializing in branding, art direction and design.
+                specializing in brand identity, art direction and design.
                 I'm currently based in San Francisco making sense of pixels, 
                 pod systems and the pursuit of digital dandyism. 
               </p>
 
               <div className='recent'>
-                <h3>Recent Work</h3>
+                <h3 className='animated fadeInDown' >Recent Work</h3>
                 {
                   Object.keys(this.props.clients).map((clientName, i) => {
                     const currentClient = this.props.clients[clientName]
@@ -532,7 +550,7 @@ class HomePage extends Component {
                 }
               </div>
               
-              <div className='past'>
+              <div className='past animated fadeInDown'>
                 <h3 onClick={() => this.showPastWork()}>
                   Past Clients
                 </h3>
@@ -584,8 +602,6 @@ class HomePage extends Component {
           }
 
           {this.state.readyToRenderTrigger && this.renderTrigger()}
-
-
       </div>
     )
   }
