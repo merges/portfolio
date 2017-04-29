@@ -523,10 +523,11 @@ class HomePage extends Component {
 
 
               <p className='home-intro'>
-                Welcome to my portfolio site. I’m an independent creative 
-                specializing in brand identity, art direction and design.
-                I'm currently based in San Francisco making sense of pixels, 
-                pod systems and the pursuit of digital dandyism. 
+              I’m Jeff Munar, an independent creative specializing in brand
+              identity, art direction and design. I reside in 
+              San Francisco where I'm currently making sense of pixels, pod
+              systems, and the pursuit of digital
+              dandyism. 
               </p>
 
               <div className='recent'>
