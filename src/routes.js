@@ -27,6 +27,7 @@ import ClientPage from './ClientPage'
 
 const triggerAssets = [
 	'trig.1.crisis3.jpg',
+	'trig.ralph.jpg',
 	'trig.1.wta2.jpg',
 	'trig.1.wta3.jpg',
 	'trig.1.wta4.jpg',
@@ -75,6 +76,7 @@ const clients = {
 		trigger: [
 			'trig.rainbow.mp4',
 			'trig.rakuten.jpg',
+
 		],
 		assets: [],
 	},
@@ -230,6 +232,7 @@ const clients = {
 		logo: 'paypal.logo.svg',
 		trigger: [ 
 			'trig.paypal.logo.png',
+			'trig.ralph.jpg',
 		],
 		assets: [],
 	},
