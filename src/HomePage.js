@@ -491,7 +491,7 @@ class HomePage extends Component {
             <div className='contact-items'>
               <div className='contact-item'>
                 <div>email:</div>
-                <div>mr.munar@jeffmunar.com</div>
+                <div>jeff@thevisual.work</div>
               </div>
             
           
