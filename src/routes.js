@@ -69,7 +69,7 @@ const clients = {
 			'https://player.video.com/8905823905823905890234?blablabla'
 		],
 	},
-	pastclientadobe: {
+	adobe: {
 		name: 'Adobe',
 		description: 'Adobe client description',
 		recent: false,
@@ -81,7 +81,7 @@ const clients = {
 		],
 		assets: [],
 	},
-	pastclientmicrosoft: {
+	microsoft: {
 		name: 'Microsoft',
 		description: 'Each and every business is unique. From healthcare to retail, manufacturing or finance — no two businesses operate the same way. That’s why the Microsoft Cloud can be tailored to meet the needs of any enterprise.',
 		recent: false,
@@ -112,7 +112,7 @@ const clients = {
 			'nicecollective.brand.mp4'
 		],
 	},
-	pastclientwomenstennisassociation: {
+	womenstennisassociation: {
 		name: 'WTA',
 		description: 'WTA client description',
 		recent: false,
@@ -130,7 +130,7 @@ const clients = {
 			'wta5.jpg',
 		],
 	},
-	pastclientstarbucks: {
+	starbucks: {
 		name: 'starbucks',
 		description: 'starbucks client description',
 		recent: false,
@@ -140,7 +140,7 @@ const clients = {
 		],
 		assets: [],
 	},
-	pastclientamericangiant: {
+	americangiant: {
 		name: 'American Giant',
 		description: 'American Giant client description',
 		recent: false,
@@ -152,7 +152,7 @@ const clients = {
 			'https://player.vimeo.com/video/64771645',
 		]
 	},
-	pastclientnba: {
+	nba: {
 		name: 'NBA',
 		description: 'This was a campaign promoting the playoffs which was used across print, outdoor, in-store, interactive, broadcast and even down to the coasters at the Finals. I\'m an Angeleno at heart; I couldn\'t let the Lakers down.',
 		recent: false,
@@ -171,7 +171,7 @@ const clients = {
 			'nba.print.2011.d.jpg',
 		],
 	},
-	pastclientgooglemaps: {
+	googlemaps: {
 		name: 'Google Maps',
 		description: 'Google Maps is the world’s most trusted map. We inspire confidence in over 1 billion people worldwide to explore the world around them. People count on us and we don’t take this responsibility lightly. Our brand is a commitment and promise to our users.',
 		recent: false,
@@ -182,7 +182,7 @@ const clients = {
 		],
 		assets:[],
 	},
-	pastclientchanel: {
+	chanel: {
 		name: 'Chanel',
 		description: 'iPad/desktop design iterations for the Chanel Heritage site. The goal was to educate the Chinese and Russian markets about the French fashion designer, Gabrielle Bonheur "Coco" Chanel and her brand.',
 		recent: false,
@@ -200,7 +200,7 @@ const clients = {
 			'chanel6.jpg',
 		],
 	},
-	pastclientcomcastxfinity: {
+	comcastxfinity: {
 		name: 'xfinity',
 		description: 'Comcast/Xfinity rolled out with a digital campaign of the Famed Slowskys as they prepared to announce breaking news to the world.',
 		recent: false,
@@ -214,7 +214,7 @@ const clients = {
 			'https://player.vimeo.com/video/31774592',
 		],
 	},
-	pastclientchevrolet: {
+	chevrolet: {
 		name: 'Chevrolet',
 		description: 'Print and Digital campaigns to promote an armada of vehicles.',
 		recent: false,
@@ -226,7 +226,7 @@ const clients = {
 		],
 		assets: [],
 	},
-	pastclientpaypal: {
+	paypal: {
 		name: 'PayPal',
 		description: 'PayPal client description',
 		recent: false,
@@ -237,7 +237,7 @@ const clients = {
 		],
 		assets: [],
 	},
-	pastclientea: {
+	ea: {
 		name: 'Electronic Arts',
 		description: 'Digital promotions for Ubisoft',
 		recent: false,
@@ -248,7 +248,7 @@ const clients = {
 		],
 		assets: [],
 	},
-	pastclientcommonwealthbank: {
+	commonwealthbank: {
 		name: 'Common wealth bank of Australia',
 		description: 'Print, Digital, OOH',
 		recent: false,
@@ -259,7 +259,7 @@ const clients = {
 		],
 		assets: [],
 	},
-	pastclienthewlettpackard: {
+	hewlettpackard: {
 		name: 'Hewlett Packard',
 		description: 'Print, Digital, OOH and Branding',
 		recent: false,
@@ -269,7 +269,7 @@ const clients = {
 		],
 		assets: [],
 	},
-	pastclientsfgov: {
+	sfgov: {
 		name: 'SFGov DCYF',
 		description: 'Print brochures for SFGov DCYF',
 		recent: false,
@@ -280,7 +280,7 @@ const clients = {
 		],
 		assets: [],
 	},
-	pastclientubisoft: {
+	ubisoft: {
 		name: 'Ubisoft',
 		description: 'Digital promotions for Ubisoft',
 		recent: false,
