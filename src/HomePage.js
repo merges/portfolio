@@ -466,7 +466,6 @@ class HomePage extends Component {
     var homeClassName = 'home'
     var gridClassName = 'pastworkgrid'
     var gridLogoClassName = 'gridlogo'
-    var currentGreeting = 0;
     // var welcomeGreeting = 'Hello!'
     
     if (this.state.triggerVisible === true) {
