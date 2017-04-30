@@ -151,6 +151,20 @@ h3 {
 
 }
 
+.clientLink {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  color: black;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  transition: 0.5s all;
+}
+
+.clientLink:hover {
+  border-bottom: 1px solid black;
+}
+
 /* RECENT & PAST WORK MENUS / SECTIONS */
 
 .recent {
@@ -181,16 +195,10 @@ h3 {
 .past > h3 {
   font-weight: 300;
   color: #BCBCBC;
-  cursor: pointer;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: .09em;
   transform: translate(px, 0px)
-}
-
-
-.past > h3:hover {
-  color:red;
 }
 
   

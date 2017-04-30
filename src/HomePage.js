@@ -529,7 +529,7 @@ class HomePage extends Component {
 
                     if (currentClient.recent === true) {
                       return (
-                        <a key={i} href={'/client/' + clientName}>{currentClient.name}</a>
+                        <a key={i} href={'/client/' + clientName} className='currentClientLink clientLink'>{currentClient.name}</a>
                       )
                     }
                     // If it’s not recent, we still need to return something (.map requires that)
@@ -544,7 +544,7 @@ class HomePage extends Component {
                 <h3>
                   Past Clients
                 </h3>
-                <a href="/pastclients">See Past Client Work</a>
+                <a href="/pastclients" className='clientLink'>View Client List</a>
               </div>
             </section>
         }
