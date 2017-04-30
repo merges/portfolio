@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Typist from 'react-typist'
-import TypistLoop from 'react-typist-loop'
 
 import LogInBox from './LogInBox'
 
@@ -466,7 +465,12 @@ class HomePage extends Component {
     var homeClassName = 'home'
     var gridClassName = 'pastworkgrid'
     var gridLogoClassName = 'gridlogo'
-    // var welcomeGreeting = 'Hello!'
+
+    var welcomeGreeting = () => {
+      var greetingsList = [ 'Welcome.', 'Ahoy!', 'What up?', 'How goes it?', 'Salut.' ]
+      var greetingChoice = Math.floor(Math.random()*5)
+      return greetingsList[greetingChoice]
+    }
     
     if (this.state.triggerVisible === true) {
       homeClassName = 'home trigger-visible'
@@ -503,9 +507,16 @@ class HomePage extends Component {
           this.state.pastWorkVisible === false &&
             <section className='introsection'>
               
-      <TypistLoop interval={3000}>
-          {[ 'Welcome.', 'Ahoy!', 'What up?', 'How goes it?', 'Salut.', 'Howzit? 🤙🏽'].map(text => <Typist key={text} startDelay={1000}>{text}</Typist>)}
-        </TypistLoop>
+              <Typist 
+                stdTypingDelay={0}
+                cursor={{
+                  show: true,
+                  blink: true,
+                  element: '_',
+                  startDelay: 100,
+                }}>
+                {welcomeGreeting()}
+              </Typist>
               
               
               <h3 className='intro animated fadeInDown'>Intro</h3>
@@ -591,7 +602,6 @@ class HomePage extends Component {
             </section>
           }
 
-          {this.state.readyToRenderTrigger && this.renderTrigger()}
       </div>
     )
   }
