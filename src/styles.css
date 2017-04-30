@@ -405,6 +405,7 @@ here it means "select the element that has BOTH these class names" */
   min-width: 30px;
   max-width: 70px;
   width: 50%;
+  height: 50%;
 }
 
 /* <a class='gridlogo nba'... */
