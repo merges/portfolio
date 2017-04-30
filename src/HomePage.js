@@ -400,11 +400,11 @@ class HomePage extends Component {
     
 
     let triggerStyle = {
-      visibility: 'hidden',
+      display: 'none',
     }
     if (this.state.triggerVisible === true) {
       triggerStyle = {
-        visibility: 'visible',
+        display: 'block',
       }
     }
 
@@ -430,7 +430,7 @@ class HomePage extends Component {
               <img
                 key={i}
                 style={assetStyle}
-                src={'../assets/' + assetName}
+                data-src={'../assets/' + assetName}
                 width={width}
                 height={height}
                 role='presentation'
@@ -443,7 +443,7 @@ class HomePage extends Component {
                 key={i}
                 style={assetStyle}>
                 <video autoPlay muted loop preload='auto' width={width} height={height}>
-                  <source src={'../../assets/' + assetName} />
+                  <source data-src={'../../assets/' + assetName} />
                 </video>
               </div>
             )
@@ -523,10 +523,10 @@ class HomePage extends Component {
 
 
               <p className='home-intro'>
-                Welcome to my portfolio site. I’m an independent creative 
-                specializing in brand identity, art direction and design.
-                I’m currently based in San Francisco making sense of pixels, 
-                pod systems and the pursuit of digital dandyism. 
+                I’m Jeff Munar, an independent creative specializing in brand
+                identity, art direction and design. I reside in San Francisco
+                where I’m currently making sense of pixels, pod systems, and
+                the pursuit of digital dandyism. 
               </p>
 
               <div className='recent'>

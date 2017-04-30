@@ -14,9 +14,10 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Jeff Munar Portflio</title>
+    <title>Jeff Munar Portfolio</title>
   </head>
   <body>
+      <div class="progressbar" style="width: 0%; height: 2px; background-color: red;"></div>
     <div id='root'></div>
     <!--
       This HTML file is a template.
@@ -28,5 +29,65 @@
       To begin the development, run `npm start`.
       To create a production bundle, use `npm run build`.
     -->
+        <script>
+            window.addEventListener("load", function lazyLoadStart(event){
+                window.removeEventListener("load", lazyLoadStart, false); //remove listener, no longer needed
+                lazyBackgroundLoad.init();  
+            },false);
+
+            var lazyBackgroundLoad = {
+              init: function() {
+                var anim_background = document.querySelector(".trigger-background");
+                if(anim_background.length > 0){
+                  anim_background.addEventListener("DOMContentLoaded", lazyBackgroundLoad.onPageLoad, true);
+                }
+              },
+
+              onPageLoad: function(aEvent) {
+                var triggerAssetsStatic = document.querySelectorAll(".trigger-background img"), i;
+                var triggerAssetsMotion = document.querySelectorAll(".trigger-background source"), j;
+                var loadedAssets = 0, totalAssets = triggerAssetsStatic.length + triggerAssetsMotion.length;
+                
+                for (i=0; i<triggerAssetsStatic.length; i++) {
+                    staticAsset = triggerAssetsStatic[i];
+                    var original_src = staticAsset.dataset.src;
+                    staticAsset.src = original_src;
+                    console.log(staticAsset);
+                    while(!!staticAsset.onload) {
+                        console.log("Asset not loaded.");
+                    }
+                    console.log(!staticAsset.onload);
+                    loadedAssets++;
+                    lazyBackgroundLoad.updateLoader(100*(loadedAssets/totalAssets));
+                }
+
+                for (i=0; i<triggerAssetsMotion.length; i++) {
+                    motionAsset = triggerAssetsMotion[i];
+                    var original_src = motionAsset.dataset.src;
+                    motionAsset.src = original_src;
+                    console.log(motionAsset);
+                    console.log(!!motionAsset.onload);
+                    while(!!motionAsset.onload) {
+                        console.log("Asset not loaded.");
+                    }
+                    console.log(!motionAsset.onload);
+                    loadedAssets++;
+                    lazyBackgroundLoad.updateLoader(100*(loadedAssets/totalAssets));
+                }
+              },
+              
+              updateLoader: function(loadPercent) {
+                var loaderObject = document.querySelector(".progressbar");
+                
+                loaderObject.style.width = loadPercent + "%";
+                
+                if (loadPercent == 100) {
+                    loaderObject.parentNode.removeChild(loaderObject);
+                }
+              }
+            };
+                
+                
+        </script>
   </body>
 </html>
