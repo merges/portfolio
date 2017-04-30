@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import HomePage from './HomePage'
 import ClientPage from './ClientPage'
+import PastClientsPage from './PastClientsPage'
 
 // Different kinds of variables
 //
@@ -313,12 +314,23 @@ const renderClientPage = (props) => {
 	)
 }
 
+const renderPastClientsPage = (props) => {
+    return (
+        <PastClientsPage
+            clients={clients}
+            triggerAssets={triggerAssets}
+            {...props}
+        />
+    )
+}
+
 const Routes = (props) => {
 	return (
 	  <Router {...props}>
 	  	<div>
 	  		<Route exact path='/' render={renderHomePage} />
 		    <Route path='/client/:name' render={renderClientPage} />
+            <Route path='/pastclients' render={renderPastClientsPage} />
 		    {/*<Route path='*' component={NotFound} />*/}
 		  </div>
 	  </Router>

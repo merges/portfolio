@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Typist from 'react-typist'
 
 import LogInBox from './LogInBox'
 
@@ -31,13 +30,13 @@ function AccurateInterval (duration, callback) {
   }
 }
 
-class HomePage extends Component {
+class PastClientsPage extends Component {
   constructor (props) {
     super (props)
 
     this.state = {
       allTriggerAssets: this.getTriggerAssets(props.clients),
-      pastWorkVisible: false,
+      pastWorkVisible: true,
       triggerIndex: 0,
       startTriggerOn: 'adobe',
       timerRunning: false,
@@ -272,8 +271,10 @@ class HomePage extends Component {
       else {
         // Go through the current client's trigger assets,
         // and add them into the allTriggerAssets list
-
-        // Except... not. Let's leave that for the separate page.
+        const currentClientTriggerAssets = clients[clientName].trigger
+        currentClientTriggerAssets.forEach(asset => {
+          allTriggerAssets.push(asset)
+        })
       }
     })
 
@@ -466,10 +467,6 @@ class HomePage extends Component {
     var gridClassName = 'pastworkgrid'
     var gridLogoClassName = 'gridlogo'
     // var welcomeGreeting = 'Hello!'
-
-    var welcomeGreeting = () => {
-      return 'Hello!'
-    }
     
     if (this.state.triggerVisible === true) {
       homeClassName = 'home trigger-visible'
@@ -480,8 +477,8 @@ class HomePage extends Component {
     return (
       <div className={homeClassName}>
         <section className='home-header'> 
-          <div onClick={() => this.hidePastWork()} className='column1'>
-            <h1>J</h1>
+          <div className='column1'>
+            <h1><a href="/">J</a></h1>
           </div>
 
           
@@ -502,60 +499,6 @@ class HomePage extends Component {
           </div>
         </section>
 
-        {
-          this.state.pastWorkVisible === false &&
-            <section className='introsection'>
-              
-              <Typist 
-                stdTypingDelay={0}
-                cursor={{
-                  show: true,
-                  blink: true,
-                  element: '_',
-                  startDelay: 100,
-                }}>
-                {welcomeGreeting()}
-              </Typist>
-              
-              <h3 className='intro animated fadeInDown'>Intro</h3>
-
-
-              <p className='home-intro'>
-                Welcome to my portfolio site. I’m an independent creative 
-                specializing in brand identity, art direction and design.
-                I’m currently based in San Francisco making sense of pixels, 
-                pod systems and the pursuit of digital dandyism. 
-              </p>
-
-              <div className='recent'>
-                <h3 className='animated fadeInDown' >Recent Work</h3>
-                {
-                  Object.keys(this.props.clients).map((clientName, i) => {
-                    const currentClient = this.props.clients[clientName]
-                    // console.log('current client is:')
-                    // console.log(currentClient)
-
-                    if (currentClient.recent === true) {
-                      return (
-                        <a key={i} href={'/client/' + clientName}>{currentClient.name}</a>
-                      )
-                    }
-                    // If it’s not recent, we still need to return something (.map requires that)
-                    // so we return <noscript /> which is a special way of saying,
-                    // return NOTHING
-                    return null
-                  })
-                }
-              </div>
-              
-              <div className='past animated fadeInDown'>
-                <h3>
-                  Past Clients
-                </h3>
-                <a href="/pastclients">See Past Client Work</a>
-              </div>
-            </section>
-        }
 
         {this.state.logInPrompt === true && <LogInBox onHidePastWork={this.hidePastWork} />}
 
@@ -606,4 +549,4 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage
+export default PastClientsPage
