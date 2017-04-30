@@ -402,7 +402,7 @@ class HomePage extends Component {
     let triggerStyle = {
       visibility: 'hidden',
     }
-    if (this.state.triggerVisible == true) {
+    if (this.state.triggerVisible === true) {
       triggerStyle = {
         visibility: 'visible',
       }
@@ -465,7 +465,7 @@ class HomePage extends Component {
   // so look on Google for questions like "how do I map over an object in JavaScript"
   render () {
     var homeClassName = 'home'
-    var gridClassName = 'grid'
+    var gridClassName = 'pastworkgrid'
     var gridLogoClassName = 'gridlogo'
     // var welcomeGreeting = 'Hello!'
 
@@ -525,7 +525,7 @@ class HomePage extends Component {
               <p className='home-intro'>
                 Welcome to my portfolio site. I’m an independent creative 
                 specializing in brand identity, art direction and design.
-                I'm currently based in San Francisco making sense of pixels, 
+                I’m currently based in San Francisco making sense of pixels, 
                 pod systems and the pursuit of digital dandyism. 
               </p>
 
@@ -562,7 +562,7 @@ class HomePage extends Component {
 
         {
           this.state.pastWorkVisible === true &&
-            <section className='pastworkgrid'>
+            <section className={gridClassName}>
               <div className='gridcontainer'>
                 {
                   Object.keys(this.props.clients).map((clientName, i) => {
