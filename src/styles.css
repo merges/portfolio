@@ -52,7 +52,7 @@ h3 {
 .home-header {
   position: relative;
   white-space: nowrap;
-  padding: 50px;
+  padding: 50px; 
 }
 .column1 {
   display: inline-block;
