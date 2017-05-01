@@ -448,10 +448,18 @@ here it means "select the element that has BOTH these class names" */
 .trigger-background > img {
   position: absolute;
   display: block;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
 }
 .trigger-background > div {
   position: absolute;
   display: block;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   height: 100%;
 }
 .trigger-background video {
