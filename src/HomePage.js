@@ -497,7 +497,7 @@ class HomePage extends Component {
              
               <div className='contact-item'>
                 <div>linkedin:</div>
-                <div>linkedin.com/jeffmunar</div>
+                <a href="https://www.linkedin.com/in/jeff-munar-65836419/?locale=en_US"</a>
               </div>
             </div>
           </div>
