@@ -154,7 +154,7 @@ h3 {
 .clientLink {
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  color: black;
+  color: gray !important;
   font-weight: 700;
   font-size: 18px;
   line-height: 22px;
