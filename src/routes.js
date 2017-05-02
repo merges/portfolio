@@ -29,12 +29,14 @@ import PastClientsPage from './PastClientsPage'
 const triggerAssets = [
 	'trig.1.crisis3.jpg',
 	'trig.ralph.jpg',
+	'trig.sbux.site1.mp4',
 	'trig.1.wta2.jpg',
 	'trig.1.wta3.jpg',
 	'trig.1.wta4.jpg',
 	'trig.1.bp1.jpg',
 	'trig.1.bp2.jpg',
 	'trig.1.billjr.jpg',
+
 ]
 
 const orderedClientList = [ 
@@ -232,7 +234,6 @@ const clients = {
 		recent: false,
 		logo: 'paypal.logo.svg',
 		trigger: [ 
-			'trig.paypal.logo.png',
 			'trig.ralph.jpg',
 		],
 		assets: [],
@@ -265,7 +266,7 @@ const clients = {
 		recent: false,
 		logo: 'hp.logo.svg',
 		trigger: [ 
-			'trig.hp.1.jpg',
+			'trig.hp.social.jpg',
 		],
 		assets: [],
 	},
@@ -286,7 +287,8 @@ const clients = {
 		recent: false,
 		logo: 'ubisoft.logo.svg',
 		trigger: [
-			'trigger.cashme1.jpg',
+			'trig.v.z1.jpg',
+			'trig.v.z2.jpg',
 		],
 		assets: [],
 	},

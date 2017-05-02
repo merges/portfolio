@@ -69,7 +69,7 @@ h3 {
   padding: 0;
   font-family: 'Julius Sans One', sans-serif;
 }
-.column1 > h1 a {
+.column1 > h1 a  {
   text-decoration: none;
   color: black;
 }
@@ -103,11 +103,11 @@ h3 {
 }
 /* HOME PAGE BIO */
 .introsection {
-  padding: 100px 20% 100px 20%;
+  padding: 135px 20% 100px 20%;
 }
 
 .Typist {
-  font-size: 33px;
+  font-size: 38px;
   font-family: 'Overpass Mono', monospace;
   font-weight: 700;
   letter-spacing: -.09em
@@ -156,7 +156,6 @@ h3 {
   color: #BCBCBC;
   /*background-color: blue; */
   max-width: 900px;
-
 }
 
 .clientLink {
@@ -186,7 +185,7 @@ h3 {
   letter-spacing: .09em;
 }
 .recent > a {
-  font-size: 18px;
+  font-size: 20px;
   display: inline-block;
   margin-right: 40px;
   color: black;
@@ -210,7 +209,7 @@ h3 {
 }
 
   
-.home.trigger-visible h1 {
+.home.trigger-visible h1 > a {
   color: white;
 }
 .home.trigger-visible .column2 {
@@ -478,6 +477,8 @@ here it means "select the element that has BOTH these class names" */
 
 /*tablets*/
 @media screen and (max-width: 900px) {
+
+
   .gridlogo {
     width: 33.33%;
   }
@@ -490,7 +491,7 @@ here it means "select the element that has BOTH these class names" */
 
   .introsection {
   /*background-color: red;*/
-  padding: 100px 10% 0px 5%;
+  padding: 135px 10% 0px 5%;
   max-width: 750px;
   margin-bottom: 5em;
   }
@@ -570,12 +571,53 @@ here it means "select the element that has BOTH these class names" */
     width:10%;
   }
 
+  .recent > a {
+  font-size: 20px;
+  display: inline-block;
+
+  padding: 8px 0px;
+  letter-spacing: -.03em;
 }
 
+.column1 {
+  display: inline-block;
+  width: 20%;
+  vertical-align: top;
+  cursor: pointer; 
+  cursor: hand;
+  background: yellow;
+}
+.column1 > h1 {
+  font-size: 50px;
+  line-height: 86%;
+  position: absolute;
+  left: 20px;
+  padding: 0;
+  font-family: 'Julius Sans One', sans-serif;
+}
+.column1 > h1 a {
+  text-decoration: none;
+  color: black;
+}
+.column2 {
+  display: inline-block;
+  width: 20%;
+  min-width: 2px;
+  font-size: 11px;
+  vertical-align: top;
+ /* background: chartreuse;*/
+  text-align: center;
+}
 
-
-
-
+}
+ @media screen and (max-width: 350px) {
+  
+  .column1 {
+    display: inline-block;
+    width: 6%;
+    vertical-align: top;
+}
+}
 
 
 
