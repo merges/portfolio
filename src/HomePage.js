@@ -482,7 +482,7 @@ class HomePage extends Component {
       <div className={homeClassName}>
         <section className='home-header'> 
           <div onClick={() => this.hidePastWork()} className='column1'>
-            <h1 trigger-visible>J</h1>
+            <h1>J</h1>
           </div>
 
           
@@ -525,7 +525,7 @@ class HomePage extends Component {
               <p className='home-intro'>
                 I’m Jeff Munar, an independent creative specializing in brand
                 identity, art direction and design. I reside in San Francisco
-                where I’m currently making sense of pixels, pod systems, and
+                where I’m currently making sense of pixels, pod systems and
                 digitizing the dandy.
               </p>
 
