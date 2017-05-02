@@ -490,14 +490,14 @@ class HomePage extends Component {
             <div className='contact-items'>
               <div className='contact-item'>
                 <div>email:</div>
-                <div>jeff@thevisual.work</div>
+                <div className="email-link"><a href="mailto:jeff@thevisual.work">jeff@thevisual.work</a></div>
               </div>
             
           
              
               <div className='contact-item'>
                 <div>linkedin:</div>
-                <a href="https://www.linkedin.com/in/jeff-munar-65836419/?locale=en_US">www.linkedin.com/jeff-munar</a>
+                <div className="linkedin-link"><a href="https://www.linkedin.com/in/jeff-munar-65836419/?locale=en_US">linkedin.com/jeff-munar</a></div>
               </div>
             </div>
           </div>

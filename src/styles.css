@@ -92,7 +92,15 @@ h3 {
 .contact-item > div:nth-of-type(1) {
   width: 75px;
 }
-
+.email-link a, .linkedin-link a {
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid transparent;
+  transition: 0.5s all;
+}
+.email-link a:hover, .linkedin-link a:hover {
+  border-bottom: 1px solid gray;
+}
 /* HOME PAGE BIO */
 .introsection {
   padding: 100px 20% 100px 20%;
