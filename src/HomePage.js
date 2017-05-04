@@ -467,7 +467,7 @@ class HomePage extends Component {
     var gridLogoClassName = 'gridlogo'
 
     var welcomeGreeting = () => {
-      var greetingsList = [ 'Welcome', 'Yello', 'Ahoy!', 'Salut.' ]
+      var greetingsList = [ 'Welcome', 'Yello', 'Ahoy!', 'Salut.', ]
       var greetingChoice = Math.floor(Math.random()*5)
       return greetingsList[greetingChoice]
     }
