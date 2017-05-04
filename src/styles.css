@@ -472,6 +472,14 @@ here it means "select the element that has BOTH these class names" */
 .trigger-background video {
   min-height: 100%;
 }
+ 
+.trigger-mobile {
+  display: none;
+  /*background: url('/../assets/trigger-mobile.gif');*/
+  background-size: cover;
+  background: red;
+}
+  
 
 /*MEDIA QUERIES*/
 
@@ -553,6 +561,10 @@ here it means "select the element that has BOTH these class names" */
 }
 
 @media screen and (max-width: 500px) {
+
+  .trigger-mobile {
+    display: block;
+  }
   
   .introsection {
     padding: 100px 5% 0px 5%;

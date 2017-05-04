@@ -409,6 +409,7 @@ class PastClientsPage extends Component {
 
     return (
       <div key={name} style={triggerStyle} className='trigger-background'>
+      <div className='trigger-mobile'></div>
         {allTriggerAssets.map((assetName, i) => {
           const width = this.state.assetDimensions[assetName].width
           const height = this.state.assetDimensions[assetName].height
