@@ -467,7 +467,7 @@ class HomePage extends Component {
     var gridLogoClassName = 'gridlogo'
 
     var welcomeGreeting = () => {
-      var greetingsList = [ 'Welcome', 'Ahoy!', 'What up?', 'How goes it?', 'Salut.' ]
+      var greetingsList = [ 'Welcome', 'How\'s it going?', 'Ahoy!', 'Salut.' ]
       var greetingChoice = Math.floor(Math.random()*5)
       return greetingsList[greetingChoice]
     }
@@ -525,8 +525,8 @@ class HomePage extends Component {
               <p className='home-intro'>
                 I’m Jeff Munar, an independent creative specializing in brand
                 identity, art direction and design. I reside in San Francisco
-                where I’m currently making sense of pixels, pod systems and
-                digitizing the dandy.
+                where I’m currently making sense of pixels, garment pod systems
+                and digitizing the dandy.
               </p>
 
               <div className='recent'>
