@@ -1,7 +1,6 @@
 @import url('./animate.css');
 @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Khula|Palanquin|Overpass+Mono:300,400,600,700');
 
-
 body {
   margin: 0;
   padding: 0;
@@ -28,6 +27,9 @@ h3 {
 
 .home {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 .trigger-overlay {
   /*display: none;*/
@@ -52,7 +54,8 @@ h3 {
 .home-header {
   position: relative;
   white-space: nowrap;
-  padding: 50px; 
+  padding: 50px;
+  flex: 0 1 auto;
 }
 .column1 {
   display: inline-block;
@@ -156,11 +159,7 @@ h3 {
   color: #BCBCBC;
   /*background-color: blue; */
   max-width: 900px;
-
 }
- section.pastworkgrid{
-  margin-top:65px;
- }
 
 .clientLink {
   text-decoration: none;
@@ -211,7 +210,6 @@ h3 {
   letter-spacing: .09em;
   transform: translate(px, 0px)
 }
-
   
 .home.trigger-visible h1 > a {
   color: white;
@@ -392,7 +390,19 @@ here it means "select the element that has BOTH these class names" */
   to { transform: rotate(360deg); }
 }
 
-  
+
+.center-vertical {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 130px;
+}
+.grid {
+  width: 100%;
+}
+
+
 /*Grid logo styling*/
 
 .gridcontainer {
@@ -417,6 +427,8 @@ here it means "select the element that has BOTH these class names" */
   max-width: 70px;
   width: 50%;
   height: 50%;
+  filter: invert(0%);
+  transition: filter 250ms;
 }
 
 /* <a class='gridlogo nba'... */
