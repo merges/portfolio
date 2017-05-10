@@ -44,7 +44,7 @@ const orderedClientList = [
 	'nicecollective',
 ]
 		
-const clients = {
+const Clients = {
 	skully: {
 		name: 'Skully',
 		description: 'The Skully AR-1 is the world\'s first Augmented Reality motorcycle helmet on the road with a built-in 180° Blindspot Camera and infinite Focus Heads-Up Display.', 

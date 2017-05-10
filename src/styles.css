@@ -156,7 +156,11 @@ h3 {
   color: #BCBCBC;
   /*background-color: blue; */
   max-width: 900px;
+
 }
+ section.pastworkgrid{
+  margin-top:65px;
+ }
 
 .clientLink {
   text-decoration: none;
@@ -472,12 +476,6 @@ here it means "select the element that has BOTH these class names" */
 .trigger-background video {
   min-height: 100%;
 }
-.trigger-mobile {
-  display: none !important;
-  background: url('/../assets/trigger-mobile.gif');
-  background-size: cover;
-}
-  
 
 /*MEDIA QUERIES*/
 
@@ -559,10 +557,6 @@ here it means "select the element that has BOTH these class names" */
 }
 
 @media screen and (max-width: 500px) {
-
-  .trigger-mobile {
-    display: block !important;
-  }
   
   .introsection {
     padding: 100px 5% 0px 5%;
