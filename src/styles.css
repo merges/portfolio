@@ -431,6 +431,11 @@ here it means "select the element that has BOTH these class names" */
   transition: filter 250ms;
 }
 
+.message {
+  display:in-line block;
+  margin: 10px;
+}
+
 /* <a class='gridlogo nba'... */
 
 .gridlogo.nba img {

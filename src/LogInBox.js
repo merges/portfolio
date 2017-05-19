@@ -64,8 +64,10 @@ class LogInBox extends Component {
 	          <input className='loginBox' type='password' placeholder='Password Required' value={this.state.password} onChange={this.handleChange} />
 	        </label>
 	        <input className='loginButton' type='submit' value='See past work' />
-          {this.state.correctPassword === true && 'Yup.'}
-          {this.state.correctPassword === false && 'Nope.'}
+          <span className='message'>
+            {this.state.correctPassword === true && 'Yup.'}
+            {this.state.correctPassword === false && 'Nope.'}
+          </span>
 	      </form>
 	      <div className={closeButtonClassName} onClick={() => this.hidePastWork()}>
 	      	<div className='patty'></div>

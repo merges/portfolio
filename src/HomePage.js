@@ -35,6 +35,69 @@ class HomePage extends Component {
   constructor (props) {
     super (props)
 
+
+    var textTimeline = [
+      'H',
+      'He',
+      'Hel',
+      'Hell',
+      'Hello.',
+      'Hello.',
+      'Hello.',
+      'Hello.',
+      'Hello.',
+      'Hello.',
+      'Hello.',
+      'Hello.',
+      'Hello.',
+      'Hello',
+      'Hell',
+      'Hel',
+      'He',
+      'H',
+      'H',
+      'H',
+      'H',
+      'H',
+      'Hi',
+      'Hi.',
+      'Hi.',
+      'Hi.',
+      'Hi.',
+      'Hi.',
+      'Hi.',
+      'Hi.',
+      'Hi!',
+      'Hi!',
+      'Hi!',
+      'Hi!',
+      'Hi!',
+      'Hi!!!!',
+      'Hi!!!!',
+      'Hi!!!!',
+      'Hi!!!!',
+      'Hi!!!!',
+      'Hi!!!!',
+      'Hi!!!!!!!!! MOM!!!!!',
+      'Hi!!!!!!!!! MOM!!!!!',
+      'Hi!!!!!!!!! MOM!!!!!',
+      'Hi!!!!!!!!! MOM!!!!!',
+      'Hi!!!!!!!!! MOM!!!!!',
+      'Hi!!!!!!!!! MOM!!!!!',
+    ]
+    var activeIndex = 0;
+
+    setInterval(()=>{
+      activeIndex = activeIndex + 1
+      if(activeIndex >= textTimeline.length){
+        //loop it
+        activeIndex = 0
+      }
+      // console.log(textTimeline[activeIndex])
+      this.setState({currentGreeting: textTimeline[activeIndex]})
+      //instead of console.log, use React's setState — then in your function welcomeGreeeting, return this state instead of its current "choose a random language" logic
+    }, 100)
+
     this.state = {
       allTriggerAssets: this.getTriggerAssets(props.clients),
       pastWorkVisible: false,
@@ -466,6 +529,7 @@ class HomePage extends Component {
     var gridClassName = 'pastworkgrid'
     var gridLogoClassName = 'gridlogo'
 
+
     var welcomeGreeting = () => {
       var greetingsList = ['Welcome', 'Yello', 'Ahoy!', 'Salut.']
       var greetingChoice = Math.floor(Math.random()*4)
@@ -507,6 +571,8 @@ class HomePage extends Component {
           this.state.pastWorkVisible === false &&
             <section className='introsection'>
               
+              
+              {this.state.currentGreeting}
               <Typist 
                 stdTypingDelay={0}
                 cursor={{
@@ -515,7 +581,6 @@ class HomePage extends Component {
                   element: '_',
                   startDelay: 100,
                 }}>
-                {welcomeGreeting()}
               </Typist>
               
               
