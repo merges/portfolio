@@ -35,7 +35,6 @@ class HomePage extends Component {
   constructor (props) {
     super (props)
 
-
     var textTimeline = [
       'H',
       'He',
@@ -56,9 +55,28 @@ class HomePage extends Component {
       'He',
       'H',
       'H',
+      'A',
+      'Ah',
+      'Aho',
+      'Ahoy',
+      'Ahoy!',
+      'Ahoy!',
+      'Ahoy!',
+      'Ahoy!',
+      'Ahoy!',
+      'Ahoy!',
+      'Ahoy!',
+      'Ahoy!',
+      'Ahoy!',
+      'Ahoy!',
+      'Ahoy!',
+      'Ahoy',
+      'Aho',
+      'Ah',
+      'A',
+      'A',
       'H',
-      'H',
-      'H',
+      'Hi',
       'Hi',
       'Hi.',
       'Hi.',
@@ -66,24 +84,49 @@ class HomePage extends Component {
       'Hi.',
       'Hi.',
       'Hi.',
-      'Hi.',
-      'Hi!',
-      'Hi!',
-      'Hi!',
-      'Hi!',
-      'Hi!',
-      'Hi!!!!',
-      'Hi!!!!',
-      'Hi!!!!',
-      'Hi!!!!',
-      'Hi!!!!',
-      'Hi!!!!',
-      'Hi!!!!!!!!! MOM!!!!!',
-      'Hi!!!!!!!!! MOM!!!!!',
-      'Hi!!!!!!!!! MOM!!!!!',
-      'Hi!!!!!!!!! MOM!!!!!',
-      'Hi!!!!!!!!! MOM!!!!!',
-      'Hi!!!!!!!!! MOM!!!!!',
+      'Hi',
+      'H',
+      'H',
+      'S',
+      'Sa',
+      'Sal',
+      'Salu',
+      'Salut',
+      'Salut.',
+      'Salut.',
+      'Salut.',
+      'Salut.',
+      'Salut.',
+      'Salut.',
+      'Salut.',
+      'Salut.',
+      'Salut.',
+      'Salut.',
+      'Salut.',
+      'Salut.',
+      'Salut.',
+      'Salut',
+      'Salu',
+      'Sal',
+      'Sa',
+      'S',
+      'S',
+      'O',
+      'Oi',
+      'Oi.',
+      'Oi.',
+      'Oi.',
+      'Oi.',
+      'Oi.',
+      'Oi.',
+      'Oi.',
+      'Oi.',
+      'Oi.',
+      'Oi.',
+      'Oi.',
+      'Oi',
+      'O',
+      'O',
     ]
     var activeIndex = 0;
 
@@ -570,18 +613,8 @@ class HomePage extends Component {
         {
           this.state.pastWorkVisible === false &&
             <section className='introsection'>
-              
-              
-              {this.state.currentGreeting}
-              <Typist 
-                stdTypingDelay={0}
-                cursor={{
-                  show: true,
-                  blink: true,
-                  element: '_',
-                  startDelay: 100,
-                }}>
-              </Typist>
+            
+              <span className='greeting'>{this.state.currentGreeting}</span><span className='blinkingcursor'>_</span>
               
               
               <h3 className='intro animated fadeInDown'>Intro</h3>

@@ -76,7 +76,7 @@ class PastClientsPage extends Component {
     // (this.state.triggerIndex + 1) % allTriggerAssets.length
     // means that we always get a triggerIndex that we can use to find an image
     
-    const timerSpeed = 200
+    const timerSpeed = 190
 
     // Restart timer
     // New style timer
@@ -92,24 +92,12 @@ class PastClientsPage extends Component {
     // New style timer
     var index = 0
     this.timer = new AccurateInterval(timerSpeed, () => {
-      index++
       this.setState({
         triggerIndex: index % this.state.allTriggerAssets.length
       })
+      index++
     })
     this.timer.run()
-
-    this.setState({
-      triggerIndex: 0,
-    })
-    
-    // // Old style timer
-    // this.timer = setInterval(() => {
-    //   index++
-    //   this.setState({
-    //     triggerIndex: index % this.state.allTriggerAssets.length
-    //   })
-    // }, timerSpeed)
   }
 
   componentWillUnmount() {
@@ -439,7 +427,7 @@ class PastClientsPage extends Component {
               <div
                 key={assetName}
                 style={assetStyle}>
-                <video autoPlay muted loop preload='auto' width={width} height={height}>
+                <video autoPlay='autoplay' muted loop='loop' preload='auto' width={width} height={height}>
                   <source src={'../../assets/' + assetName} />
                 </video>
               </div>

@@ -139,6 +139,21 @@ h3 {
   font-family:''Overpass Mono', monospace;', sans-serif;
   letter-spacing: -.08em
 }
+
+.blinkingcursor{
+  font-size: 45px;
+  font-weight: bold;
+  animation: 
+  blink-caret .6s
+  step-end infinite;
+}
+
+@keyframes blink-caret{
+  from, to {color: transparent;}
+  50% {color: black;}
+
+}
+
 .intro {
   font-weight: 300;
   font-size: 12px;
@@ -150,10 +165,15 @@ h3 {
   letter-spacing: .09em
 }
 
+.greeting {
+  font-size: 45px;
+  font-weight: bold;
+}
+
 .home-intro {
   font-family: 'Overpass Mono';
   letter-spacing: -.06em;
-  font-weight: 200;
+  fontspan-weight: 200;
   line-height: 24px;
   font-size: 16px;
   color: #BCBCBC;

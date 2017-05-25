@@ -18,20 +18,6 @@
 // 	]
 // }
 
-
-const triggerAssets = [
-	'trig.1.crisis3.jpg',
-	'trig.ralph.jpg',
-	'trig.sbux.site1.mp4',
-	'trig.1.wta2.jpg',
-	'trig.1.wta3.jpg',
-	'trig.1.wta4.jpg',
-	'trig.1.bp1.jpg',
-	'trig.1.bp2.jpg',
-	'trig.1.billjr.jpg',
-
-]
-
 const orderedClientList = [ 
 	'skully',
 	'nicecollective',
@@ -171,9 +157,9 @@ const clients = {
 		recent: false,
 		logo: 'google.logo.svg',
 		trigger: [
+			'trig.gmaps.scroll.mp4',
 			'trig.1.googleguy.jpg',
-			'trig.1.googlemaps.jpg',
-		],
+			],
 		assets:[],
 	},
 	chanel: {
@@ -287,7 +273,6 @@ const clients = {
 }
 
 export default {
-	triggerAssets,
 	orderedClientList,
 	clients,
 }
