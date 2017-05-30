@@ -17,11 +17,6 @@
 // 		'skully.casestudy.mp4',
 // 	]
 // }
-
-const orderedClientList = [ 
-	'skully',
-	'nicecollective',
-]
 		
 const clients = {
 	skully: {
@@ -273,6 +268,5 @@ const clients = {
 }
 
 export default {
-	orderedClientList,
 	clients,
 }

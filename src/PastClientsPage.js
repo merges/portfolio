@@ -47,7 +47,11 @@ class PastClientsPage extends Component {
     
     this.restartTimer = this.restartTimer.bind(this)
     this.showPastWork = this.showPastWork.bind(this)
-    this.hidePastWork = this.hidePastWork.bind(this)
+    this.hideLogInBox = this.hideLogInBox.bind(this)
+    this.handlePastClientClick = this.handlePastClientClick.bind(this)
+    this.navigateToClient = this.navigateToClient.bind(this)
+    this.navigateToHome = this.navigateToHome.bind(this)
+    this.onLogIn = this.onLogIn.bind(this)
     this.activateTrigger = this.activateTrigger.bind(this)
     this.deactivateTrigger = this.deactivateTrigger.bind(this)
     this.getWindowSize = this.getWindowSize.bind(this)
@@ -111,7 +115,7 @@ class PastClientsPage extends Component {
     })
   }
 
-  hidePastWork () {
+  hideLogInBox () {
     this.setState({
       logInPrompt: false,
     })
@@ -135,10 +139,37 @@ class PastClientsPage extends Component {
     })
   }
 
-  showLogInPrompt(clientName) {
+  onLogIn () {
+    this.props.onLogIn()
+    this.navigateToClient(this.state.whichClient)
+  }
+
+  navigateToHome () {
+    this.props.history.push('/')
+  }
+
+  navigateToClient (clientName) {
+    this.deactivateTrigger()
+    this.props.history.push('/client/' + clientName)
+  }
+
+  handlePastClientClick (clientName) {
+    this.setState({
+      whichClient: clientName
+    })
+
+    // IF the user is logged in already, just go to the client page
+    if (this.props.isLoggedIn === true) {
+      this.navigateToClient(clientName)
+    }
+    else {
+      this.showLogInPrompt()
+    }
+  }
+
+  showLogInPrompt () {
     this.setState({
       logInPrompt: true,
-      accessPastClientPage: clientName,
     })
   }
 
@@ -465,7 +496,7 @@ class PastClientsPage extends Component {
       <div className={homeClassName}>
         <section className='home-header'> 
           <div className='column1'>
-            <h1><a href="/">J</a></h1>
+            <h1><a onClick={this.navigateToHome}>J</a></h1>
           </div> 
           
           <div className='column2'>
@@ -482,7 +513,9 @@ class PastClientsPage extends Component {
           </div>
         </section>
 
-        {this.state.logInPrompt === true && <LogInBox onHidePastWork={this.hidePastWork} />}
+        {this.state.logInPrompt === true &&
+          <LogInBox whichClient={this.state.whichClient} onCorrectPassword={this.onLogIn} onHideLogInBox={this.hideLogInBox} />
+        }
 
         {
           this.state.pastWorkVisible === true &&
@@ -505,7 +538,7 @@ class PastClientsPage extends Component {
                           <a
                             className={gridLogoClassName + ' ' + clientName}
                             key={i}
-                            onClick={() => this.showLogInPrompt(clientName)}> 
+                            onClick={() => this.handlePastClientClick(clientName)}> 
                             <div>
                               <img
                                 style={clientName !== this.state.startTriggerOn ? randomFadeStyle : null}
