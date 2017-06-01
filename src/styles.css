@@ -189,6 +189,7 @@ h3 {
   font-size: 18px;
   line-height: 22px;
   transition: 0.5s all;
+  cursor: pointer;
 }
 
 .clientLink:hover {
