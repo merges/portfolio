@@ -113,7 +113,14 @@ const clients = {
 		trigger: [ 
 			'trig.sbux.site1.mp4',
 		],
-		assets: [],
+		assets: [
+			
+			'sbux.menu.holiday.jpg',
+			'sbux.breakfast.jpg',
+			'sbux.espresso.jpg',
+			'sbux.home.holiday.jpg',
+		
+		],
 	},
 	americangiant: {
 		name: 'American Giant',
