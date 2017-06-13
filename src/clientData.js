@@ -162,7 +162,7 @@ const clients = {
 			'trig.gmaps.scroll.mp4',
 			'trig.1.googleguy.jpg',
 			],
-		assets:[],
+		assets:['gmaps.overview.mp4'],
 	},
 	chanel: {
 		name: 'Chanel',
@@ -202,11 +202,11 @@ const clients = {
 		recent: false,
 		logo: 'chevrolet.logo.svg',
 		trigger: [
-			'trig.chevy.1.jpg',
-			'trig.chevy.2.jpg',
-			'trig.chevy.3.jpg',
+			'ralph.jpg',
 		],
-		assets: [],
+		assets: ['chevy.1.jpg',
+			'chevy.2.jpg',
+			'chevy.3.jpg'],
 	},
 	paypal: {
 		name: 'PayPal',
@@ -216,7 +216,7 @@ const clients = {
 		trigger: [ 
 			'trig.ralph.jpg',
 		],
-		assets: [],
+		assets: ['paypal.eblast.jpg'],
 	},
 	ea: {
 		name: 'Electronic Arts',
@@ -237,7 +237,7 @@ const clients = {
 			'trig.1.cba.jpg',
 			'trig.cba.print1.jpg',
 		],
-		assets: [],
+		assets: ['cbank_rm2.jpg', 'cbank_rm3.jpg', 'cbank.calendar.jpg'],
 	},
 	hewlettpackard: {
 		name: 'Hewlett Packard',
@@ -247,7 +247,7 @@ const clients = {
 		trigger: [ 
 			'trig.hp.social.jpg',
 		],
-		assets: [],
+		assets: ['hp.digital.jpg'],
 	},
 	sfgov: {
 		name: 'SFGov DCYF',
