@@ -220,14 +220,13 @@ const clients = {
 	},
 	ea: {
 		name: 'Electronic Arts',
-		description: 'Digital promotions for Ubisoft',
+		description: 'Digital promotions for Crysis3',
 		recent: false,
 		logo: 'ea.logo.svg',
 		trigger: [ 
 			'trig.1.crisis3.jpg',
-			'trig.crysis.banners.jpg',
 		],
-		assets: [],
+		assets: ['ea.crysis3.jpg'],
 	},
 	commonwealthbank: {
 		name: 'Common wealth bank of Australia',
@@ -236,7 +235,7 @@ const clients = {
 		logo: 'cbank.logo.svg',
 		trigger: [ 
 			'trig.1.cba.jpg',
-			' trig.cba.print1.jpg',
+			'trig.cba.print1.jpg',
 		],
 		assets: [],
 	},
@@ -259,7 +258,8 @@ const clients = {
 			'trig.sfgov.print.jpg',
 			'trig.sfgovdcyf.jpg',
 		],
-		assets: [],
+		assets: ['dcyf.brochure_a1.jpg','dcyf.brochure_a2.jpg','dcyf.brochure_b1.jpg','dcyf.brochure_b2.jpg','dcyf.brochure_c1.jpg', 'dcyf.brochure_c2.jpg', 'dcyf.brochure_d1.jpg', 'dcyf.brochure_d2.jpg',
+		],
 	},
 	ubisoft: {
 		name: 'Ubisoft',
@@ -271,6 +271,24 @@ const clients = {
 			'trig.v.z2.jpg',
 		],
 		assets: [],
+	},
+	haagendazs: {
+		name: 'Haagen-dazs',
+		description: 'Digital promotions for Haagen-dazs',
+		recent: false,
+		logo: 'haagendazs.logo.svg',
+		trigger: [
+		],
+		assets: ['haagendazs.digital.jpg'],
+	},
+	sprint: {
+		name: 'Sprint',
+		description: 'Digital and Print Promotions for Sprint',
+		recent: false,
+		logo: 'sprint.logo.svg',
+		trigger: [
+		],
+		assets: ['sprint.1.jpg','sprint.2.jpg','sprint.3.jpg',],
 	},
 }
 
