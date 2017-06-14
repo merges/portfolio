@@ -84,7 +84,8 @@ const clients = {
 			'skully.instagram.mp4',
 		],
 		assets: [
-			'nicecollective.brand.mp4'
+			'nicecollective.brand.mp4',
+			'nice.site.overview1.mp4',
 		],
 	},
 	womenstennisassociation: {
