@@ -72,6 +72,12 @@ const clients = {
 			'https://player.vimeo.com/video/93536697',
 			'https://player.vimeo.com/video/93536696',
 			'https://player.vimeo.com/video/93536695',
+			'msft.hero.print1.jpg',
+			'msft.hero.print2.jpg',
+			'msft.hero.print3.jpg',
+			'msft.hero.print4.jpg',
+			'msft.hero.print5.jpg',
+			'msft.hero.print6.jpg',
 		],
 	},
 	nicecollective: {
