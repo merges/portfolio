@@ -345,7 +345,6 @@ here it means "select the element that has BOTH these class names" */
 
 .nav > h3 {
   font-weight: 700;
-
   color: grey;
   margin: -5px 0px -8px 0px;
   font-size: 16px;
@@ -681,12 +680,26 @@ here it means "select the element that has BOTH these class names" */
 
 @media screen and (max-width: 414px) {
   .nav {
-    height: 40%;
+    height: 30%;
     width: 100%;
     padding: 0;
     vertical-align: top;
-    text-align: center;
+    /*text-align: center;*/
   }
+
+
+  .nav > h3 {
+    text-align: none;
+    color: grey;
+    margin-top: 8%;
+    margin-left: 10px;
+  }
+
+  .nav > p {
+    margin-top: 20px;
+    color: grey;
+    margin-left:10px;
+}
 
   .loginBox {
     margin: 20% auto 0 auto;
@@ -699,8 +712,11 @@ here it means "select the element that has BOTH these class names" */
   }
 
   .loginButton {
+    display: block;
+    color: white;
     font-size: 18px;
-    margin-bottom: 10px;
+    margin: 10px auto;
+
   }
 
   .message {
