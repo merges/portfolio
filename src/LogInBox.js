@@ -21,7 +21,6 @@ class LogInBox extends Component {
   }
 
   handleSubmit (event) {
-    console.log('A password was submitted: ' + this.state.password)
     event.preventDefault()
 
     const correctPassword = 'jeff123'

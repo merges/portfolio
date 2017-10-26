@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import isMobile from 'is-mobile';
 
 import LogInBox from './LogInBox'
 
@@ -60,13 +61,25 @@ class PastClientsPage extends Component {
     this.renderTrigger = this.renderTrigger.bind(this)
   }
 
+  componentWillMount () {
+    if (isMobile()) {
+      this.setState({
+        isMobile: true,
+        triggerVisible: true,
+      })
+    }
+  }
+
   componentDidMount () {
     // HomePage component has been loaded, showing up on screen.
     // Now we can check things like how big the window is
     // console.log('componentDidMount')
-    this.getWindowSize()
-    this.getTriggerAssetDimensions()
-    window.addEventListener('resize', this.getWindowSize.bind(this))
+
+    if (!this.state.isMobile) {
+      this.getWindowSize()
+      this.getTriggerAssetDimensions()
+      window.addEventListener('resize', this.getWindowSize.bind(this))
+    }
   }
 
 
@@ -105,7 +118,9 @@ class PastClientsPage extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.getWindowSize.bind(this))
+    if (!this.state.isMobile) {
+      window.removeEventListener('resize', this.getWindowSize.bind(this))
+    }
   }
 
   showPastWork () {
@@ -130,7 +145,9 @@ class PastClientsPage extends Component {
   }
 
   deactivateTrigger () {
-    this.timer.stop()
+    if (this.timer) {
+      this.timer.stop()
+    }
 
     this.setState({
       triggerVisible: false,
@@ -468,7 +485,6 @@ class PastClientsPage extends Component {
             return null
           }
         })}
-        <div className='trigger-mobile'></div>
         <div className='trigger-overlay'></div>
       </div>
     )
@@ -484,7 +500,6 @@ class PastClientsPage extends Component {
     var homeClassName = 'home'
     var gridClassName = 'grid'
     var gridLogoClassName = 'gridlogo'
-    // var welcomeGreeting = 'Hello!'
     
     if (this.state.triggerVisible === true) {
       homeClassName = 'home trigger-visible'
@@ -542,8 +557,8 @@ class PastClientsPage extends Component {
                             <div>
                               <img
                                 style={clientName !== this.state.startTriggerOn ? randomFadeStyle : null}
-                                onMouseEnter={() => this.activateTrigger(clientName)}
-                                onMouseLeave={() => this.deactivateTrigger()}
+                                onMouseEnter={() => !this.state.isMobile && this.activateTrigger(clientName)}
+                                onMouseLeave={() => !this.state.isMobile && this.deactivateTrigger()}
                                 src={'../assets/' + currentClient.logo}
                                 role='presentation'
                               />
@@ -562,6 +577,11 @@ class PastClientsPage extends Component {
             </div>
           }
 
+          {this.state.isMobile &&
+            <div className='trigger-mobile'>
+              <div className='darkoverlay'></div>
+            </div>
+          }
           {this.state.readyToRenderTrigger && this.renderTrigger()}
       </div>
     )
