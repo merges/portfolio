@@ -680,7 +680,7 @@ here it means "select the element that has BOTH these class names" */
 
 @media screen and (max-width: 414px) {
   .nav {
-    height: 30%;
+    height: 40%;
     width: 100%;
     padding: 0;
     vertical-align: top;
@@ -715,8 +715,7 @@ here it means "select the element that has BOTH these class names" */
     display: block;
     color: white;
     font-size: 18px;
-    margin: 10px auto;
-
+    margin: 0 auto;
   }
 
   .message {
