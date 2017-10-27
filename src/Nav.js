@@ -8,8 +8,20 @@ class Nav extends Component {
       expanded: false
     }
 
+    this.collapseNav = this.collapseNav.bind(this)
+    this.expandNav = this.expandNav.bind(this)
+    this.toggleNav = this.toggleNav.bind(this)
     this.navigateToClient = this.navigateToClient.bind(this)
     this.navigateToHome = this.navigateToHome.bind(this)
+  }
+
+  toggleNav () {
+    if (this.state.expanded === true) {
+      this.collapseNav()
+    }
+    if (this.state.expanded === false) {
+      this.expandNav()
+    }
   }
 
   collapseNav () {
@@ -87,7 +99,12 @@ class Nav extends Component {
     }
 
     return (
-      <section className={navClassName} onMouseEnter={() => this.expandNav()} onMouseLeave={() => this.collapseNav()}>
+      <section
+        className={navClassName}
+        onMouseEnter={() => this.expandNav()}
+        onMouseLeave={() => this.collapseNav()} 
+        onClick={() => this.toggleNav()}
+      >
         <h3>{this.props.name}</h3>
         {this.state.expanded === true &&
           <p>{this.props.description}</p>

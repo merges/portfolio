@@ -302,7 +302,7 @@ here it means "select the element that has BOTH these class names" */
    border: 1px solid white;
    background: none;
    padding: 5px 12px;
-   border-radius: 7px;
+   border-radius: 9px;
    color: #ffffff;
    font-size: 11px;
    font-family:'Overpass Mono', monospace;
@@ -312,7 +312,9 @@ here it means "select the element that has BOTH these class names" */
 .loginButton:hover {
   background: #F8F8FF;
   color: black;
+  border-radius: 9px;
 }
+
 .loginButton:focus {
   outline: none;
 }
@@ -680,29 +682,25 @@ here it means "select the element that has BOTH these class names" */
 
 @media screen and (max-width: 414px) {
   .nav {
-    height: 40%;
+    max-height: 100%;
     width: 100%;
-    padding: 0;
+    padding: 30px 0;
     vertical-align: top;
     /*text-align: center;*/
   }
 
-
-  .nav > h3 {
-    text-align: none;
-    color: grey;
-    margin-top: 8%;
-    margin-left: 10px;
+  .nav > h3,
+  .nav > p {
+    max-width: 50%;
+    margin-left: 20px;
   }
 
-  .nav > p {
-    margin-top: 20px;
-    color: grey;
-    margin-left:10px;
-}
+  .nav > form {
+    padding: 40px 0;
+  }
 
   .loginBox {
-    margin: 20% auto 0 auto;
+    margin: 0 auto;
     display: block;
     width: 75%;
     font-size: 18px;
@@ -712,15 +710,27 @@ here it means "select the element that has BOTH these class names" */
   }
 
   .loginButton {
+    -webkit-appearance: none;
     display: block;
     color: white;
     font-size: 18px;
     margin: 0 auto;
+    border-radius: 9px;
   }
+  .loginButton:hover {}
+
+ /* .loginButton:hover {
+  color: yellow;
+  }*/
 
   .message {
+    position: relative;
+    top: 20px;
     margin-left: 0;
     display: block;
+    text-align: center;
+    font-size: 18px;
+    color: grey;
   }
 
   .loginClose {
