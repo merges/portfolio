@@ -54,7 +54,7 @@ const clients = {
 			'trig.rainbow.mp4',
 			'trig.rakuten.jpg',
 		],
-		assets: [],
+		assets: ['adobe.mariko.1.jpg','adobe.burberry.jp.jpg','adobe.gree.jp.jpg','adobe.rakuten.jp.jpg'],
 	},
 	microsoft: {
 		name: 'Microsoft',
@@ -96,7 +96,7 @@ const clients = {
 	},
 	womenstennisassociation: {
 		name: 'WTA',
-		description: 'WTA client description',
+		description: 'Brand Guidelines and Styleguide for the Women\'s Tennis Association',
 		recent: false,
 		logo: 'wta.logo.svg',
 		trigger: [ 
@@ -131,7 +131,7 @@ const clients = {
 	},
 	americangiant: {
 		name: 'American Giant',
-		description: 'American Giant client description',
+		description: 'The American Giant Launch consisted of a Brandbook + Ethos, Brand video and digital marketing (website, display, blog)',
 		recent: false,
 		logo: 'ag.logo.svg',
 		trigger: [ 
@@ -270,14 +270,14 @@ const clients = {
 	},
 	ubisoft: {
 		name: 'Ubisoft',
-		description: 'Digital promotions for Ubisoft',
+		description: 'Digital promotions and TV scripts for Watch Dogs',
 		recent: false,
 		logo: 'ubisoft.logo.svg',
 		trigger: [
 			'trig.v.z1.jpg',
 			'trig.v.z2.jpg',
 		],
-		assets: [],
+		assets: ['WD2.jpg','WD3.jpg','WD4.jpg','WD5.jpg','WD7.jpg', 'WD13.jpg'],
 	},
 	haagendazs: {
 		name: 'Haagen-dazs',
@@ -286,7 +286,7 @@ const clients = {
 		logo: 'haagendazs.logo.svg',
 		trigger: [
 		],
-		assets: ['haagendazs.digital.jpg'],
+		assets: ['haagendazs.digital.jpg', 'hd.dicecream.charactersketch.1.jpg'],
 	},
 	sprint: {
 		name: 'Sprint',
