@@ -705,7 +705,7 @@ here it means "select the element that has BOTH these class names" */
   }
 
   .nav > h3,
-  .nav > p {
+  .nav > .description {
     max-width: 50%;
     margin-left: 20px;
   }
