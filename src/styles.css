@@ -1,7 +1,6 @@
 @import url('./animate.css');
 @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Khula|Palanquin|Overpass+Mono:300,400,600,700');
 
-
 body {
   margin: 0;
   padding: 0;
@@ -28,6 +27,9 @@ h3 {
 
 .home {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 .trigger-overlay {
   /*display: none;*/
@@ -52,7 +54,8 @@ h3 {
 .home-header {
   position: relative;
   white-space: nowrap;
-  padding: 50px; 
+  padding: 50px;
+  flex: 0 1 auto;
 }
 .column1 {
   display: inline-block;
@@ -136,6 +139,21 @@ h3 {
   font-family:''Overpass Mono', monospace;', sans-serif;
   letter-spacing: -.08em
 }
+
+.blinkingcursor{
+  font-size: 45px;
+  font-weight: bold;
+  animation: 
+  blink-caret .6s
+  step-end infinite;
+}
+
+@keyframes blink-caret{
+  from, to {color: transparent;}
+  50% {color: black;}
+
+}
+
 .intro {
   font-weight: 300;
   font-size: 12px;
@@ -147,10 +165,15 @@ h3 {
   letter-spacing: .09em
 }
 
+.greeting {
+  font-size: 45px;
+  font-weight: bold;
+}
+
 .home-intro {
   font-family: 'Overpass Mono';
   letter-spacing: -.06em;
-  font-weight: 200;
+  fontspan-weight: 200;
   line-height: 24px;
   font-size: 16px;
   color: #BCBCBC;
@@ -166,6 +189,7 @@ h3 {
   font-size: 18px;
   line-height: 22px;
   transition: 0.5s all;
+  cursor: pointer;
 }
 
 .clientLink:hover {
@@ -207,7 +231,6 @@ h3 {
   letter-spacing: .09em;
   transform: translate(px, 0px)
 }
-
   
 .home.trigger-visible h1 > a {
   color: white;
@@ -243,7 +266,7 @@ h3 {
   bottom: 0;
   right: 0;
   left: 0;
-  padding: 15px 3% 15px 3%;
+  padding: 15px 5%;
   background: black;
   color: white;
   max-height: 80px;
@@ -268,6 +291,7 @@ here it means "select the element that has BOTH these class names" */
   border-bottom: 1px solid #444;
   transition: .1s border ease;
   margin-right: 50px;
+  border-radius: 0;
 }
 .loginBox:focus {
   outline: none;
@@ -278,7 +302,7 @@ here it means "select the element that has BOTH these class names" */
    border: 1px solid white;
    background: none;
    padding: 5px 12px;
-   border-radius: 7px;
+   border-radius: 9px;
    color: #ffffff;
    font-size: 11px;
    font-family:'Overpass Mono', monospace;
@@ -288,7 +312,9 @@ here it means "select the element that has BOTH these class names" */
 .loginButton:hover {
   background: #F8F8FF;
   color: black;
+  border-radius: 9px;
 }
+
 .loginButton:focus {
   outline: none;
 }
@@ -321,7 +347,6 @@ here it means "select the element that has BOTH these class names" */
 
 .nav > h3 {
   font-weight: 700;
-
   color: grey;
   margin: -5px 0px -8px 0px;
   font-size: 16px;
@@ -388,7 +413,19 @@ here it means "select the element that has BOTH these class names" */
   to { transform: rotate(360deg); }
 }
 
-  
+
+.center-vertical {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 130px;
+}
+.grid {
+  width: 100%;
+}
+
+
 /*Grid logo styling*/
 
 .gridcontainer {
@@ -413,6 +450,14 @@ here it means "select the element that has BOTH these class names" */
   max-width: 70px;
   width: 50%;
   height: 50%;
+  filter: invert(0%);
+  transition: filter 250ms;
+}
+
+.message {
+  font-size: .8em;
+  display: inline-block;
+  margin-left: 25px;
 }
 
 /* <a class='gridlogo nba'... */
@@ -472,14 +517,6 @@ here it means "select the element that has BOTH these class names" */
 .trigger-background video {
   min-height: 100%;
 }
- 
-.trigger-mobile {
-  display: none;
-  /*background: url('/../assets/trigger-mobile.gif');*/
-  background-size: cover;
-  background: red;
-}
-  
 
 /*MEDIA QUERIES*/
 
@@ -561,77 +598,165 @@ here it means "select the element that has BOTH these class names" */
 }
 
 @media screen and (max-width: 500px) {
-
-  .trigger-mobile {
-    display: block;
-  }
   
   .introsection {
     padding: 100px 5% 0px 5%;
-
   }
-
   .gridlogo {
     width: 33.33%;
   }
-
   .column1{
     width:30%;
   }
-
   .column2{
     width:10%;
   }
-
   .recent > a {
-  font-size: 20px;
-  display: inline-block;
+    font-size: 20px;
+    display: inline-block;
 
-  padding: 8px 0px;
-  letter-spacing: -.03em;
+    padding: 8px 0px;
+    letter-spacing: -.03em;
+  }
+
+  .column1 {
+    display: inline-block;
+    width: 20%;
+    vertical-align: top;
+    cursor: pointer; 
+    cursor: hand;
+    background: yellow;
+  }
+  .column1 > h1 {
+    font-size: 50px;
+    line-height: 86%;
+    position: absolute;
+    left: 20px;
+    padding: 0;
+    font-family: 'Julius Sans One', sans-serif;
+  }
+  .column1 > h1 a {
+    text-decoration: none;
+    color: black;
+  }
+  .column2 {
+    display: inline-block;
+    width: 20%;
+    min-width: 2px;
+    font-size: 11px;
+    vertical-align: top;
+   /* background: chartreuse;*/
+    text-align: center;
+  }
 }
 
-.column1 {
-  display: inline-block;
-  width: 20%;
-  vertical-align: top;
-  cursor: pointer; 
-  cursor: hand;
-  background: yellow;
-}
-.column1 > h1 {
-  font-size: 50px;
-  line-height: 86%;
-  position: absolute;
-  left: 20px;
-  padding: 0;
-  font-family: 'Julius Sans One', sans-serif;
-}
-.column1 > h1 a {
-  text-decoration: none;
-  color: black;
-}
-.column2 {
-  display: inline-block;
-  width: 20%;
-  min-width: 2px;
-  font-size: 11px;
-  vertical-align: top;
- /* background: chartreuse;*/
-  text-align: center;
-}
-
-}
- @media screen and (max-width: 350px) {
-  
+@media screen and (max-width: 350px) {
   .column1 {
     display: inline-block;
     width: 6%;
     vertical-align: top;
+  }
 }
+
+.darkoverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  opacity: .85;
+}
+
+.trigger-mobile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: url('../public/assets/trigger.mobile.l.gif');
+  background-size: cover;
 }
 
 
+@media screen and (max-width: 414px) {
+  .nav {
+    max-height: 100%;
+    width: 100%;
+    padding: 30px 0;
+    vertical-align: top;
+    /*text-align: center;*/
+  }
 
+  .nav > h3,
+  .nav > p {
+    max-width: 50%;
+    margin-left: 20px;
+  }
 
+  .nav > form {
+    padding: 40px 0;
+  }
+
+  .loginBox {
+    margin: 0 auto;
+    display: block;
+    width: 75%;
+    font-size: 18px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #444;
+    text-align: center;
+  }
+
+  .loginButton {
+    -webkit-appearance: none;
+    display: block;
+    color: white;
+    font-size: 18px;
+    margin: 0 auto;
+    border-radius: 9px;
+  }
+  .loginButton:hover {}
+
+ /* .loginButton:hover {
+  color: yellow;
+  }*/
+
+  .message {
+    position: relative;
+    top: 20px;
+    margin-left: 0;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: grey;
+  }
+
+  .loginClose {
+    position: absolute;
+    top: 12px;
+    right: 25px;
+    height: 25px;
+    width: 25px;
+  }
+
+  .loginClose .patty {
+    width: 100%;
+    height: 1px;
+    margin: 10px auto;
+    background: white;
+    transition: all 0.1s ease-out;
+  }
+
+  .loginClose.active .patty:first-of-type {
+    transform: rotate(45deg);
+    transform-origin: top left;
+  }
+  .loginClose.active .patty:last-of-type {
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+    margin-top: 16px;
+  }
+}
 /*mobile*/

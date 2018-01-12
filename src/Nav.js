@@ -7,6 +7,21 @@ class Nav extends Component {
     this.state = {
       expanded: false
     }
+
+    this.collapseNav = this.collapseNav.bind(this)
+    this.expandNav = this.expandNav.bind(this)
+    this.toggleNav = this.toggleNav.bind(this)
+    this.navigateToClient = this.navigateToClient.bind(this)
+    this.navigateToHome = this.navigateToHome.bind(this)
+  }
+
+  toggleNav () {
+    if (this.state.expanded === true) {
+      this.collapseNav()
+    }
+    if (this.state.expanded === false) {
+      this.expandNav()
+    }
   }
 
   collapseNav () {
@@ -21,10 +36,16 @@ class Nav extends Component {
     })
   }
 
-  render () {
-    console.log('this.state.expanded:', this.state.expanded)
+  navigateToHome () {
+    this.props.history.push('/')
+  }
 
-  	const currentlyAt = this.props.currentlyAt // e.g. 'skully'
+  navigateToClient (clientName) {
+    this.props.history.push('/client/' + clientName)
+  }
+
+  render () {
+    const currentlyAt = this.props.currentlyAt // e.g. 'skully'
   	const list = this.props.orderedClientList // e.g ['skully', 'microsoft', 'nba']
   	const currentIndex = list.indexOf(currentlyAt)
   	const lastIndex = list.length - 1
@@ -61,12 +82,12 @@ class Nav extends Component {
   	// so that whether there's 2 items or 2222, we can be sure to get that
   	// correct item
 
-  	console.log('lastIndex:', lastIndex)
-  	console.log('length:', list.length)
- 		console.log('ordered list:', list)
-  	console.log('currently at:', currentIndex)
-  	console.log('next:', nextIndex)
-  	console.log('previous', previousIndex)
+  	// console.log('lastIndex:', lastIndex)
+  	// console.log('length:', list.length)
+ 		// console.log('ordered list:', list)
+  	// console.log('currently at:', currentIndex)
+  	// console.log('next:', nextIndex)
+  	// console.log('previous', previousIndex)
 
   	// the buttons will be links that go to
   	// the /client/name url that correspond to
@@ -78,16 +99,21 @@ class Nav extends Component {
     }
 
     return (
-      <section className={navClassName} onMouseEnter={() => this.expandNav()} onMouseLeave={() => this.collapseNav()}>
+      <section
+        className={navClassName}
+        onMouseEnter={() => this.expandNav()}
+        onMouseLeave={() => this.collapseNav()} 
+        onClick={() => this.toggleNav()}
+      >
         <h3>{this.props.name}</h3>
         {this.state.expanded === true &&
           <p>{this.props.description}</p>
         }
         	
   			<div className='navPanel'> 
-        	<a className='previousbutton' href={'/client/' + list[previousIndex]}>&lt;</a> 
-        	<a className='homebutton' href={'/'}>home</a> 
-  				<a className='nextbutton' href={'/client/' + list[nextIndex]}>&gt;</a>
+        	<a className='previousbutton' onClick={(clientName) => this.navigateToClient(list[previousIndex])}>&lt;</a> 
+        	<a className='homebutton' onClick={() => this.navigateToHome()}>home</a> 
+  				<a className='nextbutton' onClick={(clientName) => this.navigateToClient(list[nextIndex])}>&gt;</a>
         </div>
 
       </section>

@@ -11,7 +11,7 @@ class LogInBox extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.hidePastWork = this.hidePastWork.bind(this)
+    this.hideLogInBox = this.hideLogInBox.bind(this)
   }
 
   handleChange (event) {
@@ -21,15 +21,16 @@ class LogInBox extends Component {
   }
 
   handleSubmit (event) {
-    console.log('A password was submitted: ' + this.state.password)
     event.preventDefault()
 
-    var correctPassword = 'jeff123'
-    var attempt = this.state.password
+    const correctPassword = 'jeff123'
+    let attempt = this.state.password
+    
     if (attempt === correctPassword) {
       this.setState({
         correctPassword: true
       })
+      this.props.onCorrectPassword()
     }
     else {
       this.setState({
@@ -39,8 +40,8 @@ class LogInBox extends Component {
   }
 
 
-  hidePastWork () {
-  	this.props.onHidePastWork()
+  hideLogInBox () {
+  	this.props.onHideLogInBox()
   }
   
   componentDidMount () {
@@ -64,10 +65,12 @@ class LogInBox extends Component {
 	          <input className='loginBox' type='password' placeholder='Password Required' value={this.state.password} onChange={this.handleChange} />
 	        </label>
 	        <input className='loginButton' type='submit' value='See past work' />
-          {this.state.correctPassword === true && 'Yup.'}
-          {this.state.correctPassword === false && 'Nope.'}
+          <span className='message'>
+            {this.state.correctPassword === true && 'Yup.'}
+            {this.state.correctPassword === false && 'Nope.'}
+          </span>
 	      </form>
-	      <div className={closeButtonClassName} onClick={() => this.hidePastWork()}>
+	      <div className={closeButtonClassName} onClick={() => this.hideLogInBox()}>
 	      	<div className='patty'></div>
 	      	<div className='patty'></div>
 	      </div>

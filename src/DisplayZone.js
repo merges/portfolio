@@ -63,10 +63,8 @@ class DisplayZone extends Component {
         				    src={fileName} 
         				    width='640' 
         				    height='360' 
-        				    frameborder='0' 
-        				    webkitallowfullscreen 
-        				    mozallowfullscreen 
-        				    allowfullscreen>
+        				    frameBorder='0' 
+        				    allowFullScreen>
         				  </iframe>
                 </div>
 	    				) 
