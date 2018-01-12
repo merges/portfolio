@@ -47,7 +47,7 @@ const clients = {
 	},
 	adobe: {
 		name: 'Adobe',
-		description: 'Adobe client description',
+		description: 'Print executions for Adobe collaborations with Burberry, Rakuten and Gree (Print; JP Markets). Additional content for Adobe Museum Digital Media',
 		recent: false,
 		logo: 'adobe.icon.svg',
 		trigger: [
@@ -113,8 +113,8 @@ const clients = {
 		],
 	},
 	starbucks: {
-		name: 'starbucks',
-		description: 'starbucks client description',
+		name: 'Starbucks',
+		description: 'Website for Coffee Stories: promoting coffees that can be found in grocery stores.',
 		recent: false,
 		logo: 'starbucks.logo.svg',
 		trigger: [ 
@@ -217,7 +217,7 @@ const clients = {
 	},
 	paypal: {
 		name: 'PayPal',
-		description: 'PayPal client description',
+		description: 'Digital and Email marketing promoting different financial tools.',
 		recent: false,
 		logo: 'paypal.logo.svg',
 		trigger: [ 
@@ -290,7 +290,7 @@ const clients = {
 	},
 	sprint: {
 		name: 'Sprint',
-		description: 'Digital and Print Promotions for Sprint',
+		description: 'Digital, Print and OOH promotions for Sprint',
 		recent: false,
 		logo: 'sprint.logo.svg',
 		trigger: [
