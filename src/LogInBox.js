@@ -21,7 +21,7 @@ class LogInBox extends Component {
   }
 
   handleSubmit (event) {
-    console.log('A password was submitted: ' + this.state.password)
+    // console.log('A password was submitted: ' + this.state.password)
     event.preventDefault()
 
     var correctPassword = 'jeff123'
@@ -57,6 +57,10 @@ class LogInBox extends Component {
   		closeButtonClassName = 'loginClose active'
   	}
 
+    if (!this.props.expanded) {
+      return null
+    }
+
 		return (
     	<div className='nav open'>
 	      <form onSubmit={this.handleSubmit}>
@@ -76,5 +80,8 @@ class LogInBox extends Component {
   }
 }
 
+LogInBox.defaultProps = {
+  expanded: false,
+};
 
 export default LogInBox

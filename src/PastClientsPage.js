@@ -36,15 +36,16 @@ class PastClientsPage extends Component {
 
     this.state = {
       allTriggerAssets: this.getTriggerAssets(props.clients),
+      height: null,
+      logInPrompt: false,
       pastWorkVisible: true,
-      triggerIndex: 0,
+      readyToRenderTrigger: false,
       startTriggerOn: 'adobe',
       timerRunning: false,
-      readyToRenderTrigger: false,
+      triggerIndex: 0,
       width: null,
-      height: null,
     }
-    console.log('initial state:', this.state)
+    // console.log('initial state:', this.state)
 
     this.restartTimer = this.restartTimer.bind(this)
     this.showPastWork = this.showPastWork.bind(this)
@@ -128,7 +129,7 @@ class PastClientsPage extends Component {
   hidePastWork () {
     //homepageBackButton brings you back to the homepage.
     this.setState({
-      pastWorkVisible: false,
+      // pastWorkVisible: false,
       logInPrompt: false,
     })
   }
@@ -481,17 +482,12 @@ class PastClientsPage extends Component {
           <div className='column1'>
             <h1><a href="/">J</a></h1>
           </div>
-
-          
           <div className='column2'>
             <div className='contact-items'>
               <div className='contact-item'>
                 <div>email:</div>
                 <div>jeff@thevisual.work</div>
               </div>
-            
-          
-             
               <div className='contact-item'>
                 <div>linkedin:</div>
                 <div>linkedin.com/jeffmunar</div>
@@ -500,51 +496,51 @@ class PastClientsPage extends Component {
           </div>
         </section>
 
+        {this.state.logInPrompt === true ?
+          <LogInBox expanded onHidePastWork={this.hidePastWork} />
+          :
+          <LogInBox onHidePastWork={this.hidePastWork} />
+        }
 
-        {this.state.logInPrompt === true && <LogInBox onHidePastWork={this.hidePastWork} />}
+        {this.state.pastWorkVisible === true &&
+          <section className={gridClassName}>
+            <div className='gridcontainer'>
+              {
+                Object.keys(this.props.clients).map((clientName, i) => {
+                  const currentClient = this.props.clients[clientName]
+                  // console.log('current client is:')
+                  // console.log(currentClient)
 
-        {
-          this.state.pastWorkVisible === true &&
-            <section className={gridClassName}>
-              <div className='gridcontainer'>
-                {
-                  Object.keys(this.props.clients).map((clientName, i) => {
-                    const currentClient = this.props.clients[clientName]
-                    // console.log('current client is:')
-                    // console.log(currentClient)
+                  // currentClient = {
+                  //   name: 'Google Maps',
+                  //   description: 'Google Maps client description',
+                  //   recent: false,
+                  //   logo: 'wta.logo.svg',
+                  //   assets: [],
+                  // },
 
-                    // currentClient = {
-                    //   name: 'Google Maps',
-                    //   description: 'Google Maps client description',
-                    //   recent: false,
-                    //   logo: 'wta.logo.svg',
-                    //   assets: [],
-                    // },
+                  // read about variables, loops, maps in javascript
 
-                    // read about variables, loops, maps in javascript
+                  if (currentClient.recent === false) {
+                    return (
+                      <a className={gridLogoClassName + ' ' + clientName} key={i} onClick={() => this.showLogInPrompt(clientName)}> 
+                        <div>
+                          <img onMouseEnter={() => this.activateTrigger(clientName)} onMouseLeave={() => this.deactivateTrigger()} src={'../assets/' + currentClient.logo} role='presentation' />
+                        </div>
+                      </a>
+                    )
+                  }
+                  // If it’s not recent, we still need to return something (.map requires that)
+                  // so we return <noscript /> which is a special way of saying,
+                  // return NOTHING
+                  return null
+                })
+              }
+            </div>
+          </section>
+        }
 
-                    if (currentClient.recent === false) {
-                      return (
-                        <a className={gridLogoClassName + ' ' + clientName} key={i} onClick={() => this.showLogInPrompt(clientName)}> 
-                          <div>
-                            <img onMouseEnter={() => this.activateTrigger(clientName)} onMouseLeave={() => this.deactivateTrigger()} src={'../assets/' + currentClient.logo} role='presentation' />
-                          </div>
-                        </a>
-                      )
-                    }
-                    // If it’s not recent, we still need to return something (.map requires that)
-                    // so we return <noscript /> which is a special way of saying,
-                    // return NOTHING
-                    return null
-                  })
-                }
-              </div>
-              
-    
-            </section>
-          }
-
-          {this.state.readyToRenderTrigger && this.renderTrigger()}
+        {this.state.readyToRenderTrigger && this.renderTrigger()}
       </div>
     )
   }

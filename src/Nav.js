@@ -22,9 +22,7 @@ class Nav extends Component {
   }
 
   render () {
-    console.log('this.state.expanded:', this.state.expanded)
-
-  	const currentlyAt = this.props.currentlyAt // e.g. 'skully'
+    const currentlyAt = this.props.currentlyAt // e.g. 'skully'
   	const list = this.props.orderedClientList // e.g ['skully', 'microsoft', 'nba']
   	const currentIndex = list.indexOf(currentlyAt)
   	const lastIndex = list.length - 1
@@ -48,9 +46,6 @@ class Nav extends Component {
 			nextIndex = currentIndex + 1
 		}
 
-
-
-
   	// if currentIndex is at 0
   	// then previousIndex should be 3 a.k.a. the index of the last client in the list
   	// but...
@@ -61,12 +56,12 @@ class Nav extends Component {
   	// so that whether there's 2 items or 2222, we can be sure to get that
   	// correct item
 
-  	console.log('lastIndex:', lastIndex)
-  	console.log('length:', list.length)
- 		console.log('ordered list:', list)
-  	console.log('currently at:', currentIndex)
-  	console.log('next:', nextIndex)
-  	console.log('previous', previousIndex)
+  	// console.log('lastIndex:', lastIndex)
+  	// console.log('length:', list.length)
+ 		// console.log('ordered list:', list)
+  	// console.log('currently at:', currentIndex)
+  	// console.log('next:', nextIndex)
+  	// console.log('previous', previousIndex)
 
   	// the buttons will be links that go to
   	// the /client/name url that correspond to
@@ -80,16 +75,13 @@ class Nav extends Component {
     return (
       <section className={navClassName} onMouseEnter={() => this.expandNav()} onMouseLeave={() => this.collapseNav()}>
         <h3>{this.props.name}</h3>
-        {this.state.expanded === true &&
-          <p>{this.props.description}</p>
-        }
+        <div className="description">{this.props.description}</div>
         	
   			<div className='navPanel'> 
         	<a className='previousbutton' href={'/client/' + list[previousIndex]}>&lt;</a> 
         	<a className='homebutton' href={'/'}>home</a> 
   				<a className='nextbutton' href={'/client/' + list[nextIndex]}>&gt;</a>
         </div>
-
       </section>
     )
   }
