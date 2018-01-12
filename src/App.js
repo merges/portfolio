@@ -12,8 +12,9 @@ class App extends React.Component {
 	constructor (props) {
     super (props)
 
+    let loggedIn = localStorage.getItem('canViewPastWork')
     this.state = {
-      isLoggedIn: false,
+      isLoggedIn: loggedIn === 'true' ? true : false,
     }
 
     this.handleLogIn = this.handleLogIn.bind(this)
