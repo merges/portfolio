@@ -7,6 +7,21 @@ class Nav extends Component {
     this.state = {
       expanded: false
     }
+
+    this.collapseNav = this.collapseNav.bind(this)
+    this.expandNav = this.expandNav.bind(this)
+    this.toggleNav = this.toggleNav.bind(this)
+    this.navigateToClient = this.navigateToClient.bind(this)
+    this.navigateToHome = this.navigateToHome.bind(this)
+  }
+
+  toggleNav () {
+    if (this.state.expanded === true) {
+      this.collapseNav()
+    }
+    if (this.state.expanded === false) {
+      this.expandNav()
+    }
   }
 
   collapseNav () {
@@ -21,6 +36,17 @@ class Nav extends Component {
     })
   }
 
+<<<<<<< HEAD
+=======
+  navigateToHome () {
+    this.props.history.push('/')
+  }
+
+  navigateToClient (clientName) {
+    this.props.history.push('/client/' + clientName)
+  }
+
+>>>>>>> gitmarkhubmunar/master
   render () {
     const currentlyAt = this.props.currentlyAt // e.g. 'skully'
   	const list = this.props.orderedClientList // e.g ['skully', 'microsoft', 'nba']
@@ -73,14 +99,19 @@ class Nav extends Component {
     }
 
     return (
-      <section className={navClassName} onMouseEnter={() => this.expandNav()} onMouseLeave={() => this.collapseNav()}>
+      <section
+        className={navClassName}
+        onMouseEnter={() => this.expandNav()}
+        onMouseLeave={() => this.collapseNav()} 
+        onClick={() => this.toggleNav()}
+      >
         <h3>{this.props.name}</h3>
         <div className="description">{this.props.description}</div>
         	
   			<div className='navPanel'> 
-        	<a className='previousbutton' href={'/client/' + list[previousIndex]}>&lt;</a> 
-        	<a className='homebutton' href={'/'}>home</a> 
-  				<a className='nextbutton' href={'/client/' + list[nextIndex]}>&gt;</a>
+        	<a className='previousbutton' onClick={(clientName) => this.navigateToClient(list[previousIndex])}>&lt;</a> 
+        	<a className='homebutton' onClick={() => this.navigateToHome()}>home</a> 
+  				<a className='nextbutton' onClick={(clientName) => this.navigateToClient(list[nextIndex])}>&gt;</a>
         </div>
       </section>
     )

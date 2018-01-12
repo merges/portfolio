@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import isMobile from 'is-mobile';
 
 import LogInBox from './LogInBox'
 
@@ -45,11 +46,19 @@ class PastClientsPage extends Component {
       triggerIndex: 0,
       width: null,
     }
+<<<<<<< HEAD
     // console.log('initial state:', this.state)
 
+=======
+    
+>>>>>>> gitmarkhubmunar/master
     this.restartTimer = this.restartTimer.bind(this)
     this.showPastWork = this.showPastWork.bind(this)
-    this.hidePastWork = this.hidePastWork.bind(this)
+    this.hideLogInBox = this.hideLogInBox.bind(this)
+    this.handlePastClientClick = this.handlePastClientClick.bind(this)
+    this.navigateToClient = this.navigateToClient.bind(this)
+    this.navigateToHome = this.navigateToHome.bind(this)
+    this.onLogIn = this.onLogIn.bind(this)
     this.activateTrigger = this.activateTrigger.bind(this)
     this.deactivateTrigger = this.deactivateTrigger.bind(this)
     this.getWindowSize = this.getWindowSize.bind(this)
@@ -58,13 +67,25 @@ class PastClientsPage extends Component {
     this.renderTrigger = this.renderTrigger.bind(this)
   }
 
+  componentWillMount () {
+    if (isMobile()) {
+      this.setState({
+        isMobile: true,
+        triggerVisible: true,
+      })
+    }
+  }
+
   componentDidMount () {
     // HomePage component has been loaded, showing up on screen.
     // Now we can check things like how big the window is
     // console.log('componentDidMount')
-    this.getWindowSize()
-    this.getTriggerAssetDimensions()
-    window.addEventListener('resize', this.getWindowSize.bind(this))
+
+    if (!this.state.isMobile) {
+      this.getWindowSize()
+      this.getTriggerAssetDimensions()
+      window.addEventListener('resize', this.getWindowSize.bind(this))
+    }
   }
 
 
@@ -78,7 +99,7 @@ class PastClientsPage extends Component {
     // (this.state.triggerIndex + 1) % allTriggerAssets.length
     // means that we always get a triggerIndex that we can use to find an image
     
-    const timerSpeed = 220
+    const timerSpeed = 190
 
     // Restart timer
     // New style timer
@@ -93,30 +114,19 @@ class PastClientsPage extends Component {
     // Hook up & run timer
     // New style timer
     var index = 0
-    const that = this
     this.timer = new AccurateInterval(timerSpeed, () => {
-      index++
-      that.setState({
-        triggerIndex: index % that.state.allTriggerAssets.length
+      this.setState({
+        triggerIndex: index % this.state.allTriggerAssets.length
       })
+      index++
     })
     this.timer.run()
-
-    this.setState({
-      triggerIndex: 0,
-    })
-    
-    // // Old style timer
-    // this.timer = setInterval(() => {
-    //   index++
-    //   this.setState({
-    //     triggerIndex: index % this.state.allTriggerAssets.length
-    //   })
-    // }, timerSpeed)
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.getWindowSize.bind(this))
+    if (!this.state.isMobile) {
+      window.removeEventListener('resize', this.getWindowSize.bind(this))
+    }
   }
 
   showPastWork () {
@@ -126,10 +136,12 @@ class PastClientsPage extends Component {
     })
   }
 
-  hidePastWork () {
-    //homepageBackButton brings you back to the homepage.
+  hideLogInBox () {
     this.setState({
+<<<<<<< HEAD
       // pastWorkVisible: false,
+=======
+>>>>>>> gitmarkhubmunar/master
       logInPrompt: false,
     })
   }
@@ -143,6 +155,10 @@ class PastClientsPage extends Component {
   }
 
   deactivateTrigger () {
+    if (this.timer) {
+      this.timer.stop()
+    }
+
     this.setState({
       triggerVisible: false,
       startTriggerOn: 'adobe',
@@ -150,10 +166,37 @@ class PastClientsPage extends Component {
     })
   }
 
-  showLogInPrompt(clientName) {
+  onLogIn () {
+    this.props.onLogIn()
+    this.navigateToClient(this.state.whichClient)
+  }
+
+  navigateToHome () {
+    this.props.history.push('/')
+  }
+
+  navigateToClient (clientName) {
+    this.deactivateTrigger()
+    this.props.history.push('/client/' + clientName)
+  }
+
+  handlePastClientClick (clientName) {
+    this.setState({
+      whichClient: clientName
+    })
+
+    // IF the user is logged in already, just go to the client page
+    if (this.props.isLoggedIn === true) {
+      this.navigateToClient(clientName)
+    }
+    else {
+      this.showLogInPrompt()
+    }
+  }
+
+  showLogInPrompt () {
     this.setState({
       logInPrompt: true,
-      accessPastClientPage: clientName,
     })
   }
 
@@ -410,7 +453,6 @@ class PastClientsPage extends Component {
 
     return (
       <div key={name} style={triggerStyle} className='trigger-background'>
-      <div className='trigger-mobile'></div>
         {allTriggerAssets.map((assetName, i) => {
           const width = this.state.assetDimensions[assetName].width
           const height = this.state.assetDimensions[assetName].height
@@ -429,7 +471,7 @@ class PastClientsPage extends Component {
           if (assetName.includes('png') || assetName.includes('gif') || assetName.includes('jpg')) {
             return (
               <img
-                key={i}
+                key={assetName}
                 style={assetStyle}
                 src={'../assets/' + assetName}
                 width={width}
@@ -441,9 +483,9 @@ class PastClientsPage extends Component {
           if (assetName.includes('mp4') || assetName.includes('mov')) {
             return (
               <div
-                key={i}
+                key={assetName}
                 style={assetStyle}>
-                <video autoPlay muted loop preload='auto' width={width} height={height}>
+                <video autoPlay='autoplay' muted loop='loop' preload='auto' width={width} height={height}>
                   <source src={'../../assets/' + assetName} />
                 </video>
               </div>
@@ -466,9 +508,8 @@ class PastClientsPage extends Component {
   // so look on Google for questions like "how do I map over an object in JavaScript"
   render () {
     var homeClassName = 'home'
-    var gridClassName = 'pastworkgrid'
+    var gridClassName = 'grid'
     var gridLogoClassName = 'gridlogo'
-    // var welcomeGreeting = 'Hello!'
     
     if (this.state.triggerVisible === true) {
       homeClassName = 'home trigger-visible'
@@ -480,14 +521,24 @@ class PastClientsPage extends Component {
       <div className={homeClassName}>
         <section className='home-header'> 
           <div className='column1'>
+<<<<<<< HEAD
             <h1><a href="/">J</a></h1>
           </div>
+=======
+            <h1><a onClick={this.navigateToHome}>J</a></h1>
+          </div> 
+          
+>>>>>>> gitmarkhubmunar/master
           <div className='column2'>
             <div className='contact-items'>
               <div className='contact-item'>
                 <div>email:</div>
                 <div>jeff@thevisual.work</div>
+<<<<<<< HEAD
               </div>
+=======
+              </div>      
+>>>>>>> gitmarkhubmunar/master
               <div className='contact-item'>
                 <div>linkedin:</div>
                 <div>linkedin.com/jeffmunar</div>
@@ -496,6 +547,7 @@ class PastClientsPage extends Component {
           </div>
         </section>
 
+<<<<<<< HEAD
         {this.state.logInPrompt === true ?
           <LogInBox expanded onHidePastWork={this.hidePastWork} />
           :
@@ -541,6 +593,63 @@ class PastClientsPage extends Component {
         }
 
         {this.state.readyToRenderTrigger && this.renderTrigger()}
+=======
+        {this.state.logInPrompt === true &&
+          <LogInBox whichClient={this.state.whichClient} onCorrectPassword={this.onLogIn} onHideLogInBox={this.hideLogInBox} />
+        }
+
+        {
+          this.state.pastWorkVisible === true &&
+            <div className='center-vertical'>
+              <section className={gridClassName}>
+                <div className='gridcontainer'>
+                  {
+                    Object.keys(this.props.clients).map((clientName, i) => {
+                      const currentClient = this.props.clients[clientName]
+
+                      const max = 1500
+                      const min = 820
+                      const randomDelay = Math.floor(Math.random() * (max - min)) + min
+                      const randomFadeStyle = {
+                        transitionDelay: (this.state.triggerVisible === true ? randomDelay.toString() : '0') + 'ms'
+                      }
+                      
+                      if (currentClient.recent === false) {
+                        return (
+                          <a
+                            className={gridLogoClassName + ' ' + clientName}
+                            key={i}
+                            onClick={() => this.handlePastClientClick(clientName)}> 
+                            <div>
+                              <img
+                                style={clientName !== this.state.startTriggerOn ? randomFadeStyle : null}
+                                onMouseEnter={() => !this.state.isMobile && this.activateTrigger(clientName)}
+                                onMouseLeave={() => !this.state.isMobile && this.deactivateTrigger()}
+                                src={'../assets/' + currentClient.logo}
+                                role='presentation'
+                              />
+                            </div>
+                          </a>
+                        )
+                      }
+                      // If it’s not recent, we still need to return something (.map requires that)
+                      // so we return <noscript /> which is a special way of saying,
+                      // return NOTHING
+                      return null
+                    })
+                  }
+                </div>
+              </section>
+            </div>
+          }
+
+          {this.state.isMobile &&
+            <div className='trigger-mobile'>
+              <div className='darkoverlay'></div>
+            </div>
+          }
+          {this.state.readyToRenderTrigger && this.renderTrigger()}
+>>>>>>> gitmarkhubmunar/master
       </div>
     )
   }

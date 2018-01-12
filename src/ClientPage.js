@@ -19,6 +19,44 @@ import Nav from './Nav'
 
 
 class ClientPage extends Component {
+	constructor (props) {
+		super (props)
+		
+		this.state = {
+			clientName: props.match.params.name,		// From URL
+			// the user loaded up http://jeffmunar.com/client/skully
+	    // ReactRouter defines the last bit of the URL as this.props.match.params.name, so...
+	    // clientNameInUrl === 'skully'
+
+			clientData: props.clients[props.match.params.name]		// From client data object
+			// this.props.clients[clientNameInUrl] means "look in this.props.clients for an item
+	    // called whatever clientNameInUrl stands for right now", so...
+	    // this.props.clients['skully']
+	    // and what we get is that particular client, so...
+	    // selectedClientData === skully: {
+			// 	name: 'Skully Brand',
+			// 	description: 'A description of the Skully client',
+			// 	assets: [
+			// 		'skully.poster.jpg',
+			// 		'skully.casestudy.mp4',
+			//		etc.
+			// 	],
+			// },
+		}
+	}
+
+	componentWillUpdate(nextProps) {
+		let nextName = nextProps.match.params.name
+		let lastName = this.state.clientName
+
+		if (nextName !== lastName) {
+			this.setState({
+				clientName: nextName,
+				clientData: this.props.clients[nextName]
+			})
+		}
+	}
+
 	render () {
 		// console.log(this.props.orderedClientList)
 		// console.log('this.props is:')
@@ -26,45 +64,35 @@ class ClientPage extends Component {
 		// console.log(this.props.clients)
 		// console.log(this.props.clients.skully.assets)
 
-    const clientNameInUrl = this.props.match.params.name
-    // the user loaded up http://jeffmunar.com/client/skully
-    // ReactRouter defines the last bit of the URL as this.props.match.params.name, so...
-    // clientNameInUrl === 'skully'
-
-    const selectedClientData = this.props.clients[clientNameInUrl]
-    // this.props.clients[clientNameInUrl] means "look in this.props.clients for an item
-    // called whatever clientNameInUrl stands for right now", so...
-    // this.props.clients['skully']
-    // and what we get is that particular client, so...
-    // selectedClientData === skully: {
-		// 	name: 'Skully Brand',
-		// 	description: 'A description of the Skully client',
-		// 	assets: [
-		// 		'skully.poster.jpg',
-		// 		'skully.casestudy.mp4',
-		//		etc.
-		// 	],
-		// },
-
-		if (!selectedClientData) {
+		if (!this.state.clientData) {
 			return (
 				<div>
-					There’s no client in <strong>clients</strong> called <strong>{clientNameInUrl}</strong>
+					There’s no client in <strong>clients</strong> called <strong>{this.state.clientName}</strong>
 				</div>
 			)
 		}
 
-    return (
+		if (this.props.isLoggedIn === false && this.state.clientData.recent === false) {
+			return (
+				<div>
+					Ask Jeff for the password.
+				</div>
+			)
+		}
+
+		return (
       <div className='clientpage'>
  				<DisplayZone
-      		assets={selectedClientData.assets}
+	 				key={this.state.clientName}
+      		assets={this.state.clientData.assets}
       	/>
 	      <Nav
-	      	description={selectedClientData.description}
-	      	name={selectedClientData.name}
-	      	currentlyAt={clientNameInUrl}
+	      	description={this.state.clientData.description}
+	      	name={this.state.clientData.name}
+	      	currentlyAt={this.state.clientName}
 	      	clients={this.props.clients}
 	      	orderedClientList={this.props.orderedClientList}
+	      	{...this.props}
 	      />
 	    </div>
     )
