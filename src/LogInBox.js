@@ -31,6 +31,7 @@ class LogInBox extends Component {
         correctPassword: true
       })
       this.props.onCorrectPassword()
+      localStorage.setItem('canViewPastWork', 'true');
     }
     else {
       this.setState({

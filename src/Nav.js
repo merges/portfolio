@@ -106,10 +106,7 @@ class Nav extends Component {
         onClick={() => this.toggleNav()}
       >
         <h3>{this.props.name}</h3>
-        {this.state.expanded === true &&
-          <p>{this.props.description}</p>
-        }
-        	
+        <div className="description">{this.props.description}</div>     	
   			<div className='navPanel'> 
         	<a className='previousbutton' onClick={(clientName) => this.navigateToClient(list[previousIndex])}>&lt;</a> 
         	<a className='homebutton' onClick={() => this.navigateToHome()}>home</a> 

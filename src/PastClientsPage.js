@@ -82,7 +82,6 @@ class PastClientsPage extends Component {
     }
   }
 
-
   restartTimer () {
     // Start a timer that we'll eventually tap into to render the trigger images
     // If there is no timer running yet, set a variable to indicate that it is NOW running
@@ -120,6 +119,7 @@ class PastClientsPage extends Component {
   componentWillUnmount() {
     if (!this.state.isMobile) {
       window.removeEventListener('resize', this.getWindowSize.bind(this))
+      this.timer = null
     }
   }
 
