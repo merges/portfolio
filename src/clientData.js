@@ -318,7 +318,7 @@ const clients = {
 		description: 'The mission of Asian Americans Advancing Justice – Asian Law Caucus is to promote, advance, and represent the legal and civil rights of API communities. Campaign: 2020 Vision Fundraiser',
 		recent: false,
 		logo: 'alc.logo.svg',
-		trigger: ['trig.alchero.jpg'
+		trigger: ['trig.alchero.jpg','trig.alc.fam.jpg'
 		],
 		assets: ['alc.2020v.mark.jpg','alc.site.jpg'],
 	},
