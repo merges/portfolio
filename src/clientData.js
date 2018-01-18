@@ -92,6 +92,20 @@ const clients = {
 		assets: [
 			'nicecollective.brand.mp4',
 			'nice.site.overview1.mp4',
+			'nice.styling1.jpg',
+			'nice.styling2.jpg',
+			'nice.styling3.jpg',
+			'nice.styling4.jpg',
+			'nice.styling5.jpg',
+			'nice.diytutorials.jpg',
+			'nice.home.jpg',
+			'nice.scan1.jpg',
+			'nice.scan2.jpg',
+			'nice.scan3.jpg',
+			'nice.store1.jpg',
+			'nice.hq.jpg',
+
+
 		],
 	},
 	womenstennisassociation: {
@@ -233,7 +247,9 @@ const clients = {
 		trigger: [ 
 			'trig.1.crisis3.jpg',
 		],
-		assets: ['ea.crysis3.jpg'],
+		assets: ['ea.crysis3.jpg',
+		'ea.crysis3.ign.jpg',
+		'ea.crysis.banners.jpg'],
 	},
 	commonwealthbank: {
 		name: 'Common wealth bank of Australia',
@@ -296,6 +312,15 @@ const clients = {
 		trigger: [
 		],
 		assets: ['sprint.1.jpg','sprint.2.jpg','sprint.3.jpg',],
+	},
+	asianlawcaucus: {
+		name: 'Asian Law Caucus',
+		description: 'The mission of Asian Americans Advancing Justice – Asian Law Caucus is to promote, advance, and represent the legal and civil rights of API communities. Campaign: 2020 Vision Fundraiser',
+		recent: false,
+		logo: 'alc.logo.svg',
+		trigger: ['trig.alchero.jpg'
+		],
+		assets: ['alc.2020v.mark.jpg','alc.site.jpg'],
 	},
 }
 
