@@ -32,6 +32,7 @@ const clients = {
 			'skully.casestudy.mp4',
 			'skully.site.mp4',
 			'skully.app.jpg',
+			'skully.selfie.jpg',
 			'skully.display.jpg',
 			'skully.onesheet.jpg',
 			'skull.editorial.jpg',
@@ -39,10 +40,12 @@ const clients = {
 			'skully.instagram.mp4',
 			'skully.icons.jpg',
 			'skully.ridermark.jpg',
+			'skully.hoodie.jpg',
 			'skully.whitesheet.s.jpg',
 			'https://player.video.com/432894872309432?blablabla',
 			'https://player.video.com/543534?blablabla',
-			'https://player.video.com/8905823905823905890234?blablabla'
+			'https://player.video.com/8905823905823905890234?blablabla',
+
 		],
 	},
 	adobe: {
