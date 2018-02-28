@@ -44,9 +44,8 @@ chmod 775 build
 rm -rf $SRV_BASE_DIR/$SRV_SUBDIR
 mv build $SRV_BASE_DIR/$SRV_SUBDIR
 
-echo "Starting server."
+# echo "Starting server."
 # cd $SRV_BASE_DIR
 # /usr/local/bin/pushstate-server $SRV_SUBDIR &>/dev/null &
-apachectl restart
 
 exit 0;
