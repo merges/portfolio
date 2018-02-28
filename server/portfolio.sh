@@ -9,9 +9,9 @@
 # Description:       Grabs and runs the latest copy of Jeff's portfolio on boot.
 ### END INIT INFO
 
-dir="/home/node-web/portfolio"
-cmd="/home/node-web/portfolio/reboot-web.sh"
-user="node-web"
+dir="/home/jeff/portfolio"
+cmd="/home/jeff/portfolio/server/deploy-web.sh"
+user="jeff"
 
 name=`basename $0`
 pid_file="/var/run/$name.pid"
