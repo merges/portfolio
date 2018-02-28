@@ -82,7 +82,7 @@ a2enconf ssl-params >>$OUTPUT_LOG 2>>$ERROR_LOG
 # Prepare the website
 echo "(12/$TOTAL_STEPS) Running website setup script."
 chmod +x /home/jeff/portfolio/server/deploy-web.sh
-su - jeff -c "~/portfolio/server/deploy-web.sh"
+su - jeff -c "~/portfolio/server/deploy-web.sh" >>$OUTPUT_LOG 2>>$ERROR_LOG
 
 # Open the firewall ports
 echo "(13/$TOTAL_STEPS) Enabling firewall and opening ports."
