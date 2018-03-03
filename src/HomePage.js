@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Newtongue from '@haiku/thev1sual-newtongue/react'
 
 class HomePage extends Component {
   constructor (props) {
@@ -147,7 +148,11 @@ class HomePage extends Component {
       <div className={homeClassName}>
         <section className='home-header'> 
           <div onClick={this.navigateToHome} className='column1'>
-            <h1>J</h1>
+            <h1>
+              <div style={{width: "49px", height: "49px"}}>
+                <Newtongue haikuOptions={{loop: false, sizing: 'cover'}} />
+              </div>
+            </h1>
           </div>
 
           

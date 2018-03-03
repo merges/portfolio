@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import isMobile from 'is-mobile';
 
 import LogInBox from './LogInBox'
+import Newtongue from '@haiku/thev1sual-newtongue/react'
 
 function AccurateInterval (duration, callback) {
   this.baseline = undefined
@@ -511,7 +512,10 @@ class PastClientsPage extends Component {
       <div className={homeClassName}>
         <section className='home-header'> 
           <div className='column1'>
-            <h1><a onClick={this.navigateToHome}>J</a></h1>
+            <h1><a onClick={this.navigateToHome}>
+            <div style={{width: "49px", height: "49px"}}>
+                <Newtongue haikuOptions={{loop: false, sizing: 'cover'}} />
+              </div></a></h1>
           </div> 
           
           <div className='column2'>
