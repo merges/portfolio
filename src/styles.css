@@ -266,13 +266,29 @@ h3 {
   bottom: 0;
   right: 0;
   left: 0;
-  padding: 15px 5%;
+  padding: 30px 5% 27px 5%;
   background: black;
   color: white;
   max-height: 80px;
-  transition: max-height .3s;
+  transition: max-height 1s ease;
   z-index: 999;
+  height: auto;
 }
+
+.nav > .description {
+  color: grey;
+  font-family:'Overpass Mono', monospace;
+  font-size: 12px;
+  font-weight: 100; 
+  line-height: 1.4;
+  max-height: 0;
+  max-width: 60%;
+  opacity: 0;
+  padding: 5px 0 0 0;
+  transition: max-height 1s ease,
+              opacity .4s ease;
+}
+
 /* <... className='nav open' ...> */
 /* "dot notation" is different on stylesheets than in javascript,
 here it means "select the element that has BOTH these class names" */
@@ -280,7 +296,14 @@ here it means "select the element that has BOTH these class names" */
 /*Nav Section*/
 
 .nav.open {
+  /*height: auto;*/
   max-height: 500px;
+}
+.nav.open > .description {
+  height: auto;
+  max-height: 500px;
+  opacity: 1;
+  padding-top: 5px;
 }
 
 .loginBox { 
@@ -307,6 +330,7 @@ here it means "select the element that has BOTH these class names" */
    font-size: 11px;
    font-family:'Overpass Mono', monospace;
    vertical-align: middle;
+   cursor: pointer;
 }
 
 .loginButton:hover {
@@ -321,10 +345,11 @@ here it means "select the element that has BOTH these class names" */
 
 .loginClose {
   position: absolute;
-  top: 12px;
+  top: 26px;
   right: 25px;
   height: 25px;
   width: 25px;
+  cursor: pointer;
 }
 .loginClose .patty {
   width: 100%;
@@ -348,33 +373,20 @@ here it means "select the element that has BOTH these class names" */
 .nav > h3 {
   font-weight: 700;
   color: grey;
-  margin: -5px 0px -8px 0px;
+  margin: 0;
   font-size: 16px;
-  font-family:'Overpass Mono', monospace;
-  /*border: 1px solid white;*/
-}
-.nav > p {
-  font-family:'Overpass Mono', monospace;
-  font-weight: 100; 
-  color: grey;
-  max-width: 60%;
-  font-size: 12px;
-  line-height: 14px;
-  margin: 12px 0px 0px 0px;
-  line-height: 1.3;
-  
+  font-family: 'Overpass Mono', monospace;
 }
 
 .navPanel {
-  position: absolute;
-  right: 0;
-  top: 0;
+  align-items: center;
   bottom: 0;
-  /*border: 1px solid yellow;*/
-  width: 160px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  position: absolute;
+  right: 2.5%;
+  top: -4px;
+  width: 160px;
 }
 .navPanel a {
   color: #aaaaaa;
@@ -383,13 +395,14 @@ here it means "select the element that has BOTH these class names" */
 
 }
 .homebutton {
-  padding-right: 2px !important;
+  padding-right: 7px !important;
   margin-top: -2px;
   font-size: 12px;
   font-family:'Overpass Mono', monospace;
   font-weight: 200;
   letter-spacing: .2em;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .nextbutton {
@@ -398,6 +411,7 @@ here it means "select the element that has BOTH these class names" */
   font-weight: light;
   margin-top: -2px;
   display: flex;
+  cursor: pointer;
 } 
 
 .previousbutton{
@@ -406,6 +420,7 @@ here it means "select the element that has BOTH these class names" */
   font-weight: 200;
   margin-top: -2px;
   display: flex;
+  cursor: pointer;
 }
 
 @keyframes home-logo-spin {
@@ -690,7 +705,7 @@ here it means "select the element that has BOTH these class names" */
   }
 
   .nav > h3,
-  .nav > p {
+  .nav > .description {
     max-width: 50%;
     margin-left: 20px;
   }

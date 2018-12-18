@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import isMobile from 'is-mobile';
 
 import LogInBox from './LogInBox'
+import Newtongue from '@haiku/thev1sual-newtongue/react'
 
 function AccurateInterval (duration, callback) {
   this.baseline = undefined
@@ -82,7 +83,6 @@ class PastClientsPage extends Component {
     }
   }
 
-
   restartTimer () {
     // Start a timer that we'll eventually tap into to render the trigger images
     // If there is no timer running yet, set a variable to indicate that it is NOW running
@@ -120,6 +120,7 @@ class PastClientsPage extends Component {
   componentWillUnmount() {
     if (!this.state.isMobile) {
       window.removeEventListener('resize', this.getWindowSize.bind(this))
+      this.timer = null
     }
   }
 
@@ -511,7 +512,10 @@ class PastClientsPage extends Component {
       <div className={homeClassName}>
         <section className='home-header'> 
           <div className='column1'>
-            <h1><a onClick={this.navigateToHome}>J</a></h1>
+            <h1><a onClick={this.navigateToHome}>
+            <div style={{width: "49px", height: "49px"}}>
+                <Newtongue haikuOptions={{loop: false, sizing: 'cover'}} />
+              </div></a></h1>
           </div> 
           
           <div className='column2'>

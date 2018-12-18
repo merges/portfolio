@@ -42,12 +42,13 @@ const clients = {
 			'skully.whitesheet.s.jpg',
 			'https://player.video.com/432894872309432?blablabla',
 			'https://player.video.com/543534?blablabla',
-			'https://player.video.com/8905823905823905890234?blablabla'
+			'https://player.video.com/8905823905823905890234?blablabla',
+
 		],
 	},
 	adobe: {
 		name: 'Adobe',
-		description: 'Adobe client description',
+		description: 'Print executions for Adobe collaborations with Burberry, Rakuten and Gree (Print; JP Markets). Additional content for Adobe Museum Digital Media',
 		recent: false,
 		logo: 'adobe.icon.svg',
 		trigger: [
@@ -92,6 +93,20 @@ const clients = {
 		assets: [
 			'nicecollective.brand.mp4',
 			'nice.site.overview1.mp4',
+			'nice.styling1.jpg',
+			'nice.styling2.jpg',
+			'nice.styling3.jpg',
+			'nice.styling4.jpg',
+			'nice.styling5.jpg',
+			'nice.diytutorials.jpg',
+			// 'nice.home.jpg',
+			'nice.scan1.jpg',
+			'nice.scan2.jpg',
+			'nice.scan3.jpg',
+			'nice.store1.jpg',
+			'nice.hq.jpg',
+
+
 		],
 	},
 	womenstennisassociation: {
@@ -113,8 +128,8 @@ const clients = {
 		],
 	},
 	starbucks: {
-		name: 'starbucks',
-		description: 'starbucks client description',
+		name: 'Starbucks',
+		description: 'Website for Coffee Stories: promoting coffees that can be found in grocery stores.',
 		recent: false,
 		logo: 'starbucks.logo.svg',
 		trigger: [ 
@@ -217,7 +232,7 @@ const clients = {
 	},
 	paypal: {
 		name: 'PayPal',
-		description: 'PayPal client description',
+		description: 'Digital and Email marketing promoting different financial tools.',
 		recent: false,
 		logo: 'paypal.logo.svg',
 		trigger: [ 
@@ -233,7 +248,9 @@ const clients = {
 		trigger: [ 
 			'trig.1.crisis3.jpg',
 		],
-		assets: ['ea.crysis3.jpg'],
+		assets: ['ea.crysis3.jpg',
+		'ea.crysis3.ign.jpg',
+		'ea.crysis.banners.jpg'],
 	},
 	commonwealthbank: {
 		name: 'Common wealth bank of Australia',
@@ -290,12 +307,21 @@ const clients = {
 	},
 	sprint: {
 		name: 'Sprint',
-		description: 'Digital and Print Promotions for Sprint',
+		description: 'Digital, Print and OOH promotions for Sprint',
 		recent: false,
 		logo: 'sprint.logo.svg',
 		trigger: [
 		],
 		assets: ['sprint.1.jpg','sprint.2.jpg','sprint.3.jpg',],
+	},
+	asianlawcaucus: {
+		name: 'Asian Law Caucus',
+		description: 'The mission of Asian Americans Advancing Justice – Asian Law Caucus is to promote, advance, and represent the legal and civil rights of API communities. Campaign: 2020 Vision Fundraiser',
+		recent: false,
+		logo: 'alc.logo.svg',
+		trigger: ['trig.alchero.jpg','trig.alc.fam.jpg'
+		],
+		assets: ['alc.2020v.mark.jpg','alc.site.jpg'],
 	},
 }
 
