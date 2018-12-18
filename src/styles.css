@@ -196,6 +196,26 @@ h3 {
   border-bottom: 1px solid black;
 }
 
+.clientLink.clientProtected {
+  position: relative;
+}
+.clientLink.clientProtected:after {
+  background: aqua;
+  color: white;
+  content: 'Password required';
+  font-size: .6em;
+  left: 0;
+  opacity: 0;
+  padding: 1px;
+  position: absolute;
+  top: 2.2em;
+  transition: 0.5s opacity;
+  white-space: nowrap;
+}
+.clientLink.clientProtected:hover:after {
+  opacity: 1;
+}
+
 /* RECENT & PAST WORK MENUS / SECTIONS */
 
 .recent {
@@ -428,7 +448,11 @@ here it means "select the element that has BOTH these class names" */
   to { transform: rotate(360deg); }
 }
 
-
+.center-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .center-vertical {
   flex: 1 1 auto;
   display: flex;

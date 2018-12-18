@@ -12,6 +12,7 @@ const clients = {
 		assets: [
 			'skully.casestudy.mp4',
 		],
+		previewAsset: 'trig.rakuten.jpg',
 	},
 	skully: {
 		name: 'Skully',
