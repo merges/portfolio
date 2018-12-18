@@ -3,24 +3,27 @@ import React, { Component } from 'react'
 class LogInBox extends Component {
   constructor (props) {
     super(props)
-    
     this.state = {
     	password: '',
     	closeButtonShouldBeX: false,
     }
-
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.hideLogInBox = this.hideLogInBox.bind(this)
   }
 
-  handleChange (event) {
+  componentDidMount () {
+    setTimeout(() => {
+      this.setState({
+        closeButtonShouldBeX: true
+      })
+    }, 200)
+  }
+
+  handleChange = (event) => {
     this.setState({
     	password: event.target.value
     })
   }
 
-  handleSubmit (event) {
+  handleSubmit = (event) => {
     event.preventDefault()
 
     const correctPassword = 'jeff123'
@@ -40,21 +43,13 @@ class LogInBox extends Component {
     }
   }
 
-
-  hideLogInBox () {
+  hideLogInBox = () => {
   	this.props.onHideLogInBox()
-  }
-  
-  componentDidMount () {
-  	setTimeout(() => {
-  		this.setState({
-	  		closeButtonShouldBeX: true
-	  	})
-  	}, 200)
   }
 
   render () {
-  	var closeButtonClassName = 'loginClose'
+    const { showCloseButton } = this.props
+  	let closeButtonClassName = 'loginClose'
   	if (this.state.closeButtonShouldBeX === true) {
   		closeButtonClassName = 'loginClose active'
   	}
@@ -65,20 +60,25 @@ class LogInBox extends Component {
 	        <label>
 	          <input className='loginBox' type='password' placeholder='Password Required' value={this.state.password} onChange={this.handleChange} />
 	        </label>
-	        <input className='loginButton' type='submit' value='See past work' />
+	        <input className='loginButton' type='submit' value='Submit' />
           <span className='message'>
             {this.state.correctPassword === true && 'Yup.'}
             {this.state.correctPassword === false && 'Nope.'}
           </span>
 	      </form>
-	      <div className={closeButtonClassName} onClick={() => this.hideLogInBox()}>
-	      	<div className='patty'></div>
-	      	<div className='patty'></div>
-	      </div>
+        {showCloseButton &&
+  	      <div className={closeButtonClassName} onClick={() => this.hideLogInBox()}>
+  	      	<div className='patty'></div>
+  	      	<div className='patty'></div>
+  	      </div>
+        }
 	    </div>
     )
   }
 }
 
+LogInBox.defaultProps ={
+  showCloseButton: true,
+}
 
 export default LogInBox

@@ -1,27 +1,23 @@
-// Different kinds of variables
-//
-// const aBoolean = true (a boolean can either be true or false)
-// const aNumber = 40
-// const aString = 'hello jeff'
-// const anArray = [
-// 	20,
-// 	40,
-// 	60,
-// 	80,
-// ]
-// const anObject = {
-// 	name: 'skully',
-// 	description: 'shitty company, nice design',
-// 	assets: [
-// 		'skully.poster.jpg',
-// 		'skully.casestudy.mp4',
-// 	]
-// }
-		
 const clients = {
+	csr: {
+		name: 'CSR',
+		description: 'CSR description to come.',
+		protected: true,
+		recent: true,
+		logo: 'wta.logo.svg',
+		trigger: [ 
+			// 'skully.instagram.mp4',
+			'skully.icons.jpg',
+		],
+		assets: [
+			'skully.casestudy.mp4',
+		],
+		previewAsset: 'trig.rakuten.jpg',
+	},
 	skully: {
 		name: 'Skully',
 		description: 'The Skully AR-1 is the world\'s first Augmented Reality motorcycle helmet on the road with a built-in 180° Blindspot Camera and infinite Focus Heads-Up Display.', 
+		protected: false,
 		recent: true,
 		logo: 'wta.logo.svg',
 		trigger: [ 
@@ -43,12 +39,12 @@ const clients = {
 			'https://player.video.com/432894872309432?blablabla',
 			'https://player.video.com/543534?blablabla',
 			'https://player.video.com/8905823905823905890234?blablabla',
-
 		],
 	},
 	adobe: {
 		name: 'Adobe',
 		description: 'Print executions for Adobe collaborations with Burberry, Rakuten and Gree (Print; JP Markets). Additional content for Adobe Museum Digital Media',
+		protected: true,
 		recent: false,
 		logo: 'adobe.icon.svg',
 		trigger: [
@@ -60,6 +56,7 @@ const clients = {
 	microsoft: {
 		name: 'Microsoft',
 		description: 'Each and every business is unique. From healthcare to retail, manufacturing or finance — no two businesses operate the same way. That’s why the Microsoft Cloud can be tailored to meet the needs of any enterprise.',
+		protected: true,
 		recent: false,
 		logo: 'msft.logo.svg',
 		trigger: [ 
@@ -84,6 +81,7 @@ const clients = {
 	nicecollective: {
 		name: 'Nice Collective',
 		description: 'N.I.C.E. (Navigators, Informers, Creators, Explorers) The Collective experiments with utilitarian and conceptual elements within the context of clothing and accessories.', 
+		protected: false,
 		recent: true,
 		logo: 'wta.logo.svg',
 		trigger: [ 
@@ -105,13 +103,12 @@ const clients = {
 			'nice.scan3.jpg',
 			'nice.store1.jpg',
 			'nice.hq.jpg',
-
-
 		],
 	},
 	womenstennisassociation: {
 		name: 'WTA',
 		description: 'Brand Guidelines and Styleguide for the Women\'s Tennis Association',
+		protected: true,
 		recent: false,
 		logo: 'wta.logo.svg',
 		trigger: [ 
@@ -130,23 +127,23 @@ const clients = {
 	starbucks: {
 		name: 'Starbucks',
 		description: 'Website for Coffee Stories: promoting coffees that can be found in grocery stores.',
+		protected: true,
 		recent: false,
 		logo: 'starbucks.logo.svg',
 		trigger: [ 
 			'trig.sbux.site1.mp4',
 		],
 		assets: [
-			
 			'sbux.menu.holiday.jpg',
 			'sbux.breakfast.jpg',
 			'sbux.espresso.jpg',
 			'sbux.home.holiday.jpg',
-		
 		],
 	},
 	americangiant: {
 		name: 'American Giant',
 		description: 'The American Giant Launch consisted of a Brandbook + Ethos, Brand video and digital marketing (website, display, blog)',
+		protected: true,
 		recent: false,
 		logo: 'ag.logo.svg',
 		trigger: [ 
@@ -159,6 +156,7 @@ const clients = {
 	nba: {
 		name: 'NBA',
 		description: 'This was a campaign promoting the playoffs which was used across print, outdoor, in-store, interactive, broadcast and even down to the coasters at the Finals. I\'m an Angeleno at heart; I couldn\'t let the Lakers down.',
+		protected: true,
 		recent: false,
 		logo: 'nba.logo.svg',
 		trigger: [ 
@@ -178,6 +176,7 @@ const clients = {
 	googlemaps: {
 		name: 'Google Maps',
 		description: 'Google Maps is the world’s most trusted map. We inspire confidence in over 1 billion people worldwide to explore the world around them. People count on us and we don’t take this responsibility lightly. Our brand is a commitment and promise to our users.',
+		protected: true,
 		recent: false,
 		logo: 'google.logo.svg',
 		trigger: [
@@ -189,6 +188,7 @@ const clients = {
 	chanel: {
 		name: 'Chanel',
 		description: 'iPad/desktop design iterations for the Chanel Heritage site. The goal was to educate the Chinese and Russian markets about the French fashion designer, Gabrielle Bonheur "Coco" Chanel and her brand.',
+		protected: true,
 		recent: false,
 		logo: 'chanel.logo.svg',
 		trigger: [
@@ -207,6 +207,7 @@ const clients = {
 	comcastxfinity: {
 		name: 'xfinity',
 		description: 'Comcast/Xfinity rolled out with a digital campaign of the Famed Slowskys as they prepared to announce breaking news to the world.',
+		protected: true,
 		recent: false,
 		logo: 'xfinity.logo.svg',
 		trigger: [ 
@@ -221,6 +222,7 @@ const clients = {
 	chevrolet: {
 		name: 'Chevrolet',
 		description: 'Print and Digital campaigns to promote an armada of vehicles.',
+		protected: true,
 		recent: false,
 		logo: 'chevrolet.logo.svg',
 		trigger: [
@@ -233,6 +235,7 @@ const clients = {
 	paypal: {
 		name: 'PayPal',
 		description: 'Digital and Email marketing promoting different financial tools.',
+		protected: true,
 		recent: false,
 		logo: 'paypal.logo.svg',
 		trigger: [ 
@@ -243,6 +246,7 @@ const clients = {
 	ea: {
 		name: 'Electronic Arts',
 		description: 'Digital promotions for Crysis3',
+		protected: true,
 		recent: false,
 		logo: 'ea.logo.svg',
 		trigger: [ 
@@ -255,6 +259,7 @@ const clients = {
 	commonwealthbank: {
 		name: 'Common wealth bank of Australia',
 		description: 'Print, Digital, OOH',
+		protected: true,
 		recent: false,
 		logo: 'cbank.logo.svg',
 		trigger: [ 
@@ -266,6 +271,7 @@ const clients = {
 	hewlettpackard: {
 		name: 'Hewlett Packard',
 		description: 'Print, Digital, OOH and Branding',
+		protected: true,
 		recent: false,
 		logo: 'hp.logo.svg',
 		trigger: [ 
@@ -276,6 +282,7 @@ const clients = {
 	sfgov: {
 		name: 'SFGov DCYF',
 		description: 'Print brochures for SFGov DCYF',
+		protected: true,
 		recent: false,
 		logo: 'sf.logo.png',
 		trigger: [
@@ -288,6 +295,7 @@ const clients = {
 	ubisoft: {
 		name: 'Ubisoft',
 		description: 'Digital promotions and TV scripts for Watch Dogs',
+		protected: true,
 		recent: false,
 		logo: 'ubisoft.logo.svg',
 		trigger: [
@@ -299,6 +307,7 @@ const clients = {
 	haagendazs: {
 		name: 'Haagen-dazs',
 		description: 'Digital promotions for Haagen-dazs',
+		protected: true,
 		recent: false,
 		logo: 'haagendazs.logo.svg',
 		trigger: [
@@ -308,6 +317,7 @@ const clients = {
 	sprint: {
 		name: 'Sprint',
 		description: 'Digital, Print and OOH promotions for Sprint',
+		protected: true,
 		recent: false,
 		logo: 'sprint.logo.svg',
 		trigger: [
@@ -317,6 +327,7 @@ const clients = {
 	asianlawcaucus: {
 		name: 'Asian Law Caucus',
 		description: 'The mission of Asian Americans Advancing Justice – Asian Law Caucus is to promote, advance, and represent the legal and civil rights of API communities. Campaign: 2020 Vision Fundraiser',
+		protected: true,
 		recent: false,
 		logo: 'alc.logo.svg',
 		trigger: ['trig.alchero.jpg','trig.alc.fam.jpg'

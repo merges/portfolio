@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import React, { Component } from 'react'
 import Newtongue from '@haiku/thev1sual-newtongue/react'
 
@@ -5,7 +6,7 @@ class HomePage extends Component {
   constructor (props) {
     super (props)
 
-    var textTimeline = [
+    const textTimeline = [
       'H',
       'He',
       'Hel',
@@ -98,32 +99,27 @@ class HomePage extends Component {
       'O',
       'O',
     ]
-    var activeIndex = 0
-
+    let activeIndex = 0
     this.state = {
       currentGreeting: textTimeline[0]
     }
-
-    setInterval(()=>{
+    setInterval(() => {
       activeIndex = activeIndex + 1
       if(activeIndex >= textTimeline.length){
         //loop it
         activeIndex = 0
       }
       // console.log(textTimeline[activeIndex])
-      this.setState({currentGreeting: textTimeline[activeIndex]})
+      this.setState({ currentGreeting: textTimeline[activeIndex] })
       //instead of console.log, use React's setState — then in your function welcomeGreeeting, return this state instead of its current "choose a random language" logic
     }, 100)
-
-    this.navigateToHome = this.navigateToHome.bind(this)
-    this.navigateToPastClients = this.navigateToPastClients.bind(this)
   }
 
-  navigateToPastClients () {
+  navigateToPastClients = () => {
     this.props.history.push('/pastclients')
   }
 
-  navigateToHome () {
+  navigateToHome = () => {
     this.props.history.push('/')
   }
 
@@ -134,13 +130,14 @@ class HomePage extends Component {
   // Objects (i.e. clients = {skully: {}, adobe: {}, microsoft: {}} cannot be)
   // so look on Google for questions like "how do I map over an object in JavaScript"
   render () {
-    var homeClassName = 'home'
-    var gridClassName = 'pastworkgrid'
-    var gridLogoClassName = 'gridlogo'
+    const { clients } = this.props
+    const homeClassName = 'home'
+    const gridClassName = 'pastworkgrid'
+    const gridLogoClassName = 'gridlogo'
 
-    var welcomeGreeting = () => {
-      var greetingsList = ['Welcome', 'Yello', 'Ahoy!', 'Salut.']
-      var greetingChoice = Math.floor(Math.random()*4)
+    const welcomeGreeting = () => {
+      const greetingsList = ['Welcome', 'Yello', 'Ahoy!', 'Salut.']
+      const greetingChoice = Math.floor(Math.random()*4)
       return greetingsList[greetingChoice]
     }
 
@@ -163,8 +160,6 @@ class HomePage extends Component {
                 <div className="email-link"><a href="mailto:jeff@thevisual.work">jeff@thevisual.work</a></div>
               </div>
             
-          
-             
               <div className='contact-item'>
                 <div>linkedin:</div>
                 <div className="linkedin-link"><a href="https://www.linkedin.com/in/jeff-munar-65836419/?locale=en_US">linkedin.com/jeff-munar</a></div>
@@ -191,19 +186,14 @@ class HomePage extends Component {
           <div className='recent'>
             <h3 className='animated fadeInDown' >Recent Work</h3>
             {
-              Object.keys(this.props.clients).map((clientName, i) => {
-                const currentClient = this.props.clients[clientName]
-                // console.log('current client is:')
-                // console.log(currentClient)
-
-                if (currentClient.recent === true) {
-                  return (
-                    <a key={i} href={'/client/' + clientName} className='currentClientLink clientLink'>{currentClient.name}</a>
-                  )
+              _.keys(clients).map((clientName, i) => {
+                const client = clients[clientName]
+                if (client.recent === true && client.protected === false) {
+                  return <a key={i} href={'/client/' + clientName} className='currentClientLink clientLink'>{client.name}</a>
                 }
-                // If it’s not recent, we still need to return something (.map requires that)
-                // so we return <noscript /> which is a special way of saying,
-                // return NOTHING
+                else if (client.recent === true && client.protected === true) {
+                  return <a key={i} href={'/client/' + clientName} className='currentClientLink clientLink clientProtected'>{client.name}</a>
+                }
                 return null
               })
             }

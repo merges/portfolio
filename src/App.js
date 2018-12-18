@@ -53,8 +53,8 @@ class App extends React.Component {
 		const renderHomePage = (props) => {
 			return (
 				<HomePage
-					clients={clientData.clients}
-					triggerAssets={clientData.triggerAssets}
+          clients={clientData.clients}
+          triggerAssets={clientData.triggerAssets}
 					{...props}
 				/>
 			)
@@ -63,10 +63,10 @@ class App extends React.Component {
 		const renderPastClientsPage = (props) => {
 		  return (
 		    <PastClientsPage
-		      clients={clientData.clients}
-		      triggerAssets={clientData.triggerAssets}
-		      isLoggedIn={this.state.isLoggedIn}
-		      onLogIn={this.handleLogIn} 
+          clients={clientData.clients}
+          isLoggedIn={this.state.isLoggedIn}
+          onLogIn={this.handleLogIn}
+          triggerAssets={clientData.triggerAssets}
 		      {...props}
 		    />
 		  )
@@ -76,9 +76,10 @@ class App extends React.Component {
 		const renderClientPage = (props) => {
 			return (
 				<ClientPage
-					clients={clientData.clients}
-					orderedClientList={this.calculateClientList(clientData.clients)}
-					isLoggedIn={this.state.isLoggedIn}
+          clients={clientData.clients}
+          isLoggedIn={this.state.isLoggedIn}
+          orderedClientList={this.calculateClientList(clientData.clients)}
+          onLogIn={this.handleLogIn}
 					{...props}
 				/>
 			)
