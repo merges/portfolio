@@ -1,18 +1,17 @@
 const clients = {
 	csr: {
-		name: 'CSR',
+		name: 'Courage Health',
 		description: 'CSR description to come.',
 		protected: true,
 		recent: true,
 		logo: 'wta.logo.svg',
 		trigger: [ 
-			// 'skully.instagram.mp4',
 			'skully.icons.jpg',
 		],
 		assets: [
 			'skully.casestudy.mp4',
 		],
-		previewAsset: 'trig.rakuten.jpg',
+		previewAsset: 'launchingsoon.png',
 	},
 	skully: {
 		name: 'Skully',
