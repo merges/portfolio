@@ -1,21 +1,54 @@
+import _ from 'lodash'
 import React, { Component } from 'react'
 
+import { canUserViewClient } from './utilities'
+
 class Nav extends Component {
-  constructor () {
-    super ()
+  state = { expanded: false }
 
-    this.state = {
-      expanded: false
-    }
-
-    this.collapseNav = this.collapseNav.bind(this)
-    this.expandNav = this.expandNav.bind(this)
-    this.toggleNav = this.toggleNav.bind(this)
-    this.navigateToClient = this.navigateToClient.bind(this)
-    this.navigateToHome = this.navigateToHome.bind(this)
+  componentWillMount () {
+    this.setState({ list: this.calculateOrderedVisibleClientList(this.props.clients) })
   }
 
-  toggleNav () {
+  componentWillReceiveProps (nextProps) {
+    if (!_.isEqual(nextProps.currentlyAt, this.props.currentlyAt)) {
+      this.setState({ list: this.calculateOrderedVisibleClientList(nextProps.clients) })
+    }
+  }
+
+  calculateOrderedVisibleClientList (clients) {
+    let orderedList = []
+    _.forEach(_.keys(clients), clientCode => {
+      const client = clients[clientCode]
+      const userCanView = canUserViewClient(client)
+      if (userCanView) {
+        orderedList.push(clientCode)
+      }
+    })
+    return orderedList
+  }
+
+  collapseNav = () => {
+    this.setState({
+      expanded: false
+    })
+  }
+
+  expandNav = () => {
+    this.setState({
+      expanded: true
+    })
+  }
+
+  navigateToHome = () => {
+    this.props.history.push('/')
+  }
+
+  navigateToClient = (clientCode) => {
+    this.props.history.push('/client/' + clientCode)
+  }
+
+  toggleNav = () => {
     if (this.state.expanded === true) {
       this.collapseNav()
     }
@@ -24,33 +57,12 @@ class Nav extends Component {
     }
   }
 
-  collapseNav () {
-    this.setState({
-      expanded: false
-    })
-  }
-
-  expandNav () {
-    this.setState({
-      expanded: true
-    })
-  }
-
-  navigateToHome () {
-    this.props.history.push('/')
-  }
-
-  navigateToClient (clientName) {
-    this.props.history.push('/client/' + clientName)
-  }
-
   render () {
-    const currentlyAt = this.props.currentlyAt // e.g. 'skully'
-  	const list = this.props.orderedClientList // e.g ['skully', 'microsoft', 'nba']
-  	const currentIndex = list.indexOf(currentlyAt)
+    const { clients, currentlyAt } = this.props
+    const { list } = this.state
+    const currentIndex = list.indexOf(currentlyAt)
   	const lastIndex = list.length - 1
 
-  	
   	// Set up the correct previousIndex, based on where we are now
   	var previousIndex
 		if (currentIndex === 0) {
@@ -69,30 +81,6 @@ class Nav extends Component {
 			nextIndex = currentIndex + 1
 		}
 
-
-
-
-  	// if currentIndex is at 0
-  	// then previousIndex should be 3 a.k.a. the index of the last client in the list
-  	// but...
-  	// we can't guarantee that it's 3... we actually don't know how long the list is
-  	// because it's dynamic...
-  	// so...
-  	// search google to find out the index of the last item in an array
-  	// so that whether there's 2 items or 2222, we can be sure to get that
-  	// correct item
-
-  	// console.log('lastIndex:', lastIndex)
-  	// console.log('length:', list.length)
- 		// console.log('ordered list:', list)
-  	// console.log('currently at:', currentIndex)
-  	// console.log('next:', nextIndex)
-  	// console.log('previous', previousIndex)
-
-  	// the buttons will be links that go to
-  	// the /client/name url that correspond to
-  	// the previous or the next client
-
     var navClassName = 'nav'
     if (this.state.expanded === true) {
       navClassName = 'nav open'
@@ -108,14 +96,17 @@ class Nav extends Component {
         <h3>{this.props.name}</h3>
         <div className="description">{this.props.description}</div>     	
   			<div className='navPanel'> 
-        	<a className='previousbutton' onClick={(clientName) => this.navigateToClient(list[previousIndex])}>&lt;</a> 
+        	<a className='previousbutton' onClick={(clientCode) => this.navigateToClient(list[previousIndex])}>&lt;</a> 
         	<a className='homebutton' onClick={() => this.navigateToHome()}>home</a> 
-  				<a className='nextbutton' onClick={(clientName) => this.navigateToClient(list[nextIndex])}>&gt;</a>
+  				<a className='nextbutton' onClick={(clientCode) => this.navigateToClient(list[nextIndex])}>&gt;</a>
         </div>
-
       </section>
     )
   }
+}
+
+Nav.defaultProps = {
+  clients: [],
 }
 
 export default Nav

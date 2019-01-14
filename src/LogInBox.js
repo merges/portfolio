@@ -1,4 +1,7 @@
+import _ from 'lodash'
 import React, { Component } from 'react'
+
+import { doesPasswordMatch, saveClientPermissions } from './utilities'
 
 class LogInBox extends Component {
   constructor (props) {
@@ -26,15 +29,18 @@ class LogInBox extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    const correctPassword = 'jeff123'
-    let attempt = this.state.password
-    
-    if (attempt === correctPassword) {
+    const { client, onCorrectPassword } = this.props
+    const { password } = this.state
+    const isCorrectPassword = doesPasswordMatch({ client, password})
+
+    if (isCorrectPassword) {
       this.setState({
         correctPassword: true
       })
-      this.props.onCorrectPassword()
-      localStorage.setItem('canViewPastWork', 'true');
+      if (_.isFunction(onCorrectPassword)) {
+        onCorrectPassword()
+      }
+      saveClientPermissions(client)
     }
     else {
       this.setState({
@@ -50,7 +56,8 @@ class LogInBox extends Component {
   render () {
     const { showCloseButton } = this.props
   	let closeButtonClassName = 'loginClose'
-  	if (this.state.closeButtonShouldBeX === true) {
+  	
+    if (this.state.closeButtonShouldBeX === true) {
   		closeButtonClassName = 'loginClose active'
   	}
 
